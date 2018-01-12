@@ -73,17 +73,17 @@
 
 
 
-<meta name="description" content="东北人 周杰伦 库里、纳什 篮球、羽毛球、DotA、吃鸡 哈儿滨市松雷中学、哈尔滨市第三中学、东北大学、猪厂">
+<meta name="description" content="learning &amp; life">
 <meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="http://yoursite.com/about/index.html">
+<meta property="og:title" content="categories">
+<meta property="og:url" content="http://yoursite.com/categories/index.html">
 <meta property="og:site_name" content="SiriusLiu&#39;s Blog">
-<meta property="og:description" content="东北人 周杰伦 库里、纳什 篮球、羽毛球、DotA、吃鸡 哈儿滨市松雷中学、哈尔滨市第三中学、东北大学、猪厂">
+<meta property="og:description" content="learning &amp; life">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-10T14:07:49.000Z">
+<meta property="og:updated_time" content="2018-01-10T14:21:25.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="东北人 周杰伦 库里、纳什 篮球、羽毛球、DotA、吃鸡 哈儿滨市松雷中学、哈尔滨市第三中学、东北大学、猪厂">
+<meta name="twitter:title" content="categories">
+<meta name="twitter:description" content="learning &amp; life">
 
 
 
@@ -115,13 +115,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/about/"/>
+  <link rel="canonical" href="http://yoursite.com/categories/"/>
 
 
 
 
 
-  <title>Git使用笔记 | SiriusLiu's Blog</title>
+  <title>Git常用进阶命令使用笔记 | SiriusLiu's Blog</title>
   
 
 
@@ -296,7 +296,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/10/Git使用笔记/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/10/Git常用进阶命令使用笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sirius Liu">
@@ -313,7 +313,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Git使用笔记</h1>
+          <h1 class="post-title" itemprop="name headline">Git常用进阶命令使用笔记</h1>
         
 
         <div class="post-meta">
@@ -363,6 +363,17 @@
 
           
           
+             <span id="/2018/01/10/Git常用进阶命令使用笔记/" class="leancloud_visitors" data-flag-title="Git常用进阶命令使用笔记">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -383,13 +394,12 @@
       
 
       
-        <blockquote>
-<p>建议多查官网  </p>
-<p><a href="https://git-scm.com/book" target="_blank" rel="noopener">https://git-scm.com/book</a>  </p>
-<p><a href="https://git-scm.com/book/zh/v2" target="_blank" rel="noopener">https://git-scm.com/book/zh/v2</a></p>
-</blockquote>
-<p>本文记录了使用git过程中常用的命令，因git基础命令多数人都知道，所以把常用的进阶命令写在前面，也当作是自己的笔记。文章中间有几个使用git遇到的小问题，还挺有意思，给出我的解决方案作为参考～</p>
+        <p>本文记录了使用git过程中常用的命令，因git基础命令多数人都知道，所以把常用的进阶命令写在前面，也当作是自己的笔记。文章中间有几个使用git遇到的小问题，还挺有意思，给出我的解决方案作为参考～</p>
 <a id="more"></a>
+<blockquote>
+<p>建议多查官网  </p>
+<p><a href="https://git-scm.com/book" target="_blank" rel="noopener">https://git-scm.com/book</a><br><a href="https://git-scm.com/book/zh/v2" target="_blank" rel="noopener">https://git-scm.com/book/zh/v2</a></p>
+</blockquote>
 <h2 id="常用进阶命令"><a href="#常用进阶命令" class="headerlink" title="常用进阶命令"></a>常用进阶命令</h2><h4 id="1-修改仓库-分支信息"><a href="#1-修改仓库-分支信息" class="headerlink" title="1. 修改仓库/分支信息"></a>1. 修改仓库/分支信息</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote set-url origin https://xxx.git    #修改整个仓库的远程位置</span><br><span class="line">git branch --set-upstream-to=origin/master   #修改当前分支关联的远程分支</span><br></pre></td></tr></table></figure>
 <h4 id="2-修改提交信息-commit-message"><a href="#2-修改提交信息-commit-message" class="headerlink" title="2. 修改提交信息(commit message)"></a>2. 修改提交信息(commit message)</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git commit --amend      #修改上一次提交的commit message</span><br><span class="line">git rebase -i HEAD~n    #修改上n次提交的commit message（也可以用来删除某次提交）</span><br></pre></td></tr></table></figure>
 <h4 id="3-将修改追加到上次到提交"><a href="#3-将修改追加到上次到提交" class="headerlink" title="3. 将修改追加到上次到提交"></a>3. 将修改追加到上次到提交</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add . </span><br><span class="line">git commit --ammend     #多用途</span><br></pre></td></tr></table></figure>
@@ -790,6 +800,113 @@
 
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("4l1VzcpqeGXL32I3nBBrH4mS-gzGzoHsz", "AMcnjgvvGSIaYsfJpEfOxBn1");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 
