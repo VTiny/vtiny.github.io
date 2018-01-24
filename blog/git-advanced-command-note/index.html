@@ -73,17 +73,17 @@
 
 
 
-<meta name="description" content="learning &amp; life">
+<meta name="description" content="东北人 周杰伦 库里、纳什 篮球、羽毛球、DotA、吃鸡 哈儿滨市松雷中学、哈尔滨市第三中学、东北大学、猪厂">
 <meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+<meta property="og:title" content="about">
+<meta property="og:url" content="http://yoursite.com/about/index.html">
 <meta property="og:site_name" content="SiriusLiu&#39;s Blog">
-<meta property="og:description" content="learning &amp; life">
+<meta property="og:description" content="东北人 周杰伦 库里、纳什 篮球、羽毛球、DotA、吃鸡 哈儿滨市松雷中学、哈尔滨市第三中学、东北大学、猪厂">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-10T14:21:25.000Z">
+<meta property="og:updated_time" content="2018-01-10T14:07:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
-<meta name="twitter:description" content="learning &amp; life">
+<meta name="twitter:title" content="about">
+<meta name="twitter:description" content="东北人 周杰伦 库里、纳什 篮球、羽毛球、DotA、吃鸡 哈儿滨市松雷中学、哈尔滨市第三中学、东北大学、猪厂">
 
 
 
@@ -115,7 +115,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/"/>
+  <link rel="canonical" href="http://yoursite.com/about/"/>
 
 
 
@@ -359,6 +359,18 @@
 
           
             
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/blog/git-advanced-command-note/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="blog/git-advanced-command-note/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
           
 
           
@@ -408,7 +420,7 @@
 <h4 id="6-stash"><a href="#6-stash" class="headerlink" title="6. stash"></a>6. stash</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git stash</span><br><span class="line">git stash save "message"    #将stash命名为message</span><br><span class="line">git stash save -a "message" #将git忽略的文件也stash，不常用</span><br><span class="line">git stash list              #stash列表</span><br><span class="line">git stash pop               #将stash第0条应用并删除</span><br><span class="line">git stash apply stash@&#123;2&#125;   #将index=2的stash应用</span><br></pre></td></tr></table></figure>
 <h4 id="7-patch"><a href="#7-patch" class="headerlink" title="7. patch"></a>7. patch</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git format-patch HEAD^        #HEAD的patch</span><br><span class="line">git format-patch HEAD^^       #HEAD和前一个的patch</span><br><span class="line">git format-patch HEAD~$n -o ~/patchdir       #将前n次提交打patch，保存到～/patchdir目录下</span><br><span class="line">git format-patch HEAD~$n --numbered-files    #将前n次提交打patch，文件名保存为数字</span><br><span class="line">git apply --stat xxx.patch    #检查patch</span><br><span class="line">git apply --check xxx.patch   #查看是否能应用成功</span><br><span class="line">git am -s &lt; xxx.patch         #应用patch</span><br></pre></td></tr></table></figure>
 <h4 id="8-创建新分支"><a href="#8-创建新分支" class="headerlink" title="8. 创建新分支"></a>8. 创建新分支</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b feature/dev_liuxiao</span><br><span class="line">git checkout -b feature/dev_liuxiao --track origin/master #基于远程跟踪分支master创建本地分支</span><br></pre></td></tr></table></figure>
-<h4 id="9-pull-fetch-push"><a href="#9-pull-fetch-push" class="headerlink" title="9. pull/fetch/push"></a>9. pull/fetch/push</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">1. pull</span></span><br><span class="line">git pull origin master:dev                  #拉取远程master分支，和本地dev分支合并</span><br><span class="line">git pull --rabase origin master:dev         #拉取远程master分支，和本地dev分支使用rebase的方式合并</span><br><span class="line"><span class="meta">#</span><span class="bash">如果本地和远程分支之间存在追踪关系（tracking），可以省略分支名</span></span><br><span class="line">git pull origin</span><br><span class="line">git branch --set-upstream dev origin/master #将本地dev分支建立远程追踪分支为origin/master</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">2. fetch </span></span><br><span class="line"><span class="meta">#</span><span class="bash">pull相当于fetch+merge</span></span><br><span class="line">git fetch origin            #拉取远程更新</span><br><span class="line">git merge origin/master     #将远程更新合并到本地当前分支</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">3. push</span></span><br><span class="line"><span class="meta">#</span><span class="bash">-u</span></span><br><span class="line">git push -u origin dev      #将本地dev分支push到远端</span><br><span class="line"><span class="meta">#</span><span class="bash">-u 相当于 没有参数+upstream</span></span><br><span class="line">git branch --set-upstream dev origin/master</span><br><span class="line">git push origin dev</span><br><span class="line"><span class="meta">#</span><span class="bash">-f</span></span><br><span class="line">git push -f origin dev      #将本地dev分支强行push到远端，冲突强行覆盖（保护的分支需要权限）</span><br></pre></td></tr></table></figure>
+<h4 id="9-pull-fetch-push"><a href="#9-pull-fetch-push" class="headerlink" title="9. pull/fetch/push"></a>9. pull/fetch/push</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">1. pull</span></span><br><span class="line">git pull origin master:dev                  #拉取远程master分支，和本地dev分支合并</span><br><span class="line">git pull --rabase origin master:dev         #拉取远程master分支，和本地dev分支使用rebase的方式合并</span><br><span class="line"><span class="meta">#</span><span class="bash">如果本地和远程分支之间存在追踪关系（tracking），可以省略分支名</span></span><br><span class="line">git pull origin</span><br><span class="line">git branch --set-upstream dev origin/master #将本地dev分支建立远程追踪分支为origin/master</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">2. fetch </span></span><br><span class="line"><span class="meta">#</span><span class="bash">pull相当于fetch+merge</span></span><br><span class="line">git fetch origin            #拉取远程更新</span><br><span class="line">git merge origin/master     #将远程更新合并到本地当前分支</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">3. push</span></span><br><span class="line"><span class="meta">#</span><span class="bash">-u</span></span><br><span class="line">git push -u origin dev      #将本地dev分支push到远端</span><br><span class="line"><span class="meta">#</span><span class="bash">-u 相当于 没有参数+upstream</span></span><br><span class="line">git branch --set-upstream dev origin/master</span><br><span class="line">git push origin dev</span><br><span class="line"><span class="meta">#</span><span class="bash">-f</span></span><br><span class="line">git push -f origin dev      #将本地dev分支强行push到远端，冲突强行覆盖（保护的分支需要权限）</span><br><span class="line"><span class="meta">#</span><span class="bash">如果本地分支名和远程目标分支名不同</span></span><br><span class="line">git push origin HEAD:master</span><br></pre></td></tr></table></figure>
 <h4 id="10-删除"><a href="#10-删除" class="headerlink" title="10. 删除"></a>10. 删除</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clean -f      #删除untracked files</span><br><span class="line">git clean -f -n   #查看会删除的files</span><br><span class="line">git clean -f -d   #删除untracked文件夹</span><br></pre></td></tr></table></figure>
 <h4 id="11-log"><a href="#11-log" class="headerlink" title="11. log"></a>11. log</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reflog        #历史记录</span><br><span class="line">                  #可以拿到已经回滚reset过的提交的id，通过git reset id，可以把回滚过的提交找回</span><br></pre></td></tr></table></figure>
 <h2 id="可思考-研究的常见问题"><a href="#可思考-研究的常见问题" class="headerlink" title="可思考/研究的常见问题"></a>可思考/研究的常见问题</h2><h4 id="1-如何删除一个远程分支？"><a href="#1-如何删除一个远程分支？" class="headerlink" title="1. 如何删除一个远程分支？"></a>1. 如何删除一个远程分支？</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">方式1. git UI操作，通常在setting/branches中</span></span><br><span class="line"><span class="meta">#</span><span class="bash">方式2. 将一个空目录提交到制定远程</span></span><br><span class="line">git push origin:dev</span><br><span class="line"><span class="meta">#</span><span class="bash">方式3. delete参数</span></span><br><span class="line">git push origin -delete dev</span><br></pre></td></tr></table></figure>
@@ -493,6 +505,11 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="hypercomments_widget"></div>
+    </div>
 
   
 
@@ -657,9 +674,38 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user">访客数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
 
 
 
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=65059828";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
@@ -770,17 +816,31 @@
 
 	
 
+		<script type="text/javascript">
+		_hcwp = window._hcwp || [];
+
+		_hcwp.push({widget:"Bloggerstream", widget_id: 100371, selector:".hc-comment-count", label: "{\%COUNT%\}" });
+
+		
+		_hcwp.push({widget:"Stream", widget_id: 100371, xid: "blog/git-advanced-command-note/"});
+		
+
+		(function() {
+		if("HC_LOAD_INIT" in window)return;
+		HC_LOAD_INIT = true;
+		var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
+		var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
+		hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://w.hypercomments.com/widget/hc/100371/"+lang+"/widget.js";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hcc, s.nextSibling);
+		})();
+		</script>
+
+	
 
 
 
 
-  
-
-
-
-
-
-  
 
 
 
