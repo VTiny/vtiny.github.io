@@ -2,49 +2,49 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://www.liushaox.com/about/index.html</loc>
+    <loc>http://yoursite.com/about/index.html</loc>
     
     <lastmod>2018-01-25T03:05:12.252Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.liushaox.com/blog/hexo-encrypt-blog-example/</loc>
+    <loc>http://yoursite.com/blog/hexo-encrypt-blog/</loc>
     
     <lastmod>2018-01-10T16:00:00.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.liushaox.com/blog/hexo-encrypt-blog/</loc>
+    <loc>http://yoursite.com/blog/hexo-encrypt-blog-example/</loc>
     
     <lastmod>2018-01-10T16:00:00.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.liushaox.com/schedule/index.html</loc>
+    <loc>http://yoursite.com/schedule/index.html</loc>
     
     <lastmod>2018-01-10T14:26:21.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.liushaox.com/categories/index.html</loc>
+    <loc>http://yoursite.com/categories/index.html</loc>
     
     <lastmod>2018-01-10T14:21:25.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.liushaox.com/tags/index.html</loc>
+    <loc>http://yoursite.com/tags/index.html</loc>
     
     <lastmod>2018-01-10T14:13:41.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.liushaox.com/blog/git-advanced-command-note/</loc>
+    <loc>http://yoursite.com/blog/git-advanced-command-note/</loc>
     
     <lastmod>2018-01-09T16:00:00.000Z</lastmod>
     

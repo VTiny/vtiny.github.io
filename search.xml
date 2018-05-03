@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[如何给博文加密]]></title>
+    <url>%2Fblog%2Fhexo-encrypt-blog%2F</url>
+    <content type="text"><![CDATA[博客当然也要有记录生活的功能，怎么能放心的记(tu)录(cao)生活而不担心被陌生人看到呢，那就需要对博文进行加密了。本文介绍了使用hexo-blog-encrypt插件完成对博文进行加密的方式，可以放心的写一些羞羞的事情了~ 通过hexo-blog-encrypt插件实现，插件github地址：https://github.com/MikeCoder/hexo-blog-encrypt ，上面有使用方式的介绍 1. 安装encrypt插件在hexo根目录下的package.json中dependencies标签下添加： 1"hexo-blog-encrypt": "2.0.*" 更新环境安装插件 1$ npm install 2. 在配置文件中启用插件在站点配置文件 _config.yml中启用插件，添加如下配置 1234# Security## Docs: https://github.com/MikeCoder/hexo-blog-encryptencrypt: enable: true 3. 使用encrypt插件加密文章在文章头中添加password字段 123456---title: hello worldpassword: liushaoxiaabstract: 加密文章的简介message: 输入密码上方的提示--- 4. live demodemo: 博文加密测试 , 密码是liushaox 5. 高阶使用方式可以对文章目录TOC进行加密、修改加密模板，具体方式转步插件作者wiki查看： github：https://github.com/MikeCoder/hexo-blog-encrypt/ 中文版：https://github.com/MikeCoder/hexo-blog-encrypt/blob/master/ReadMe.zh.md]]></content>
+      <categories>
+        <category>Tools</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[博文加密测试]]></title>
+    <url>%2Fblog%2Fhexo-encrypt-blog-example%2F</url>
+    <content type="text"><![CDATA[下面输入密码, 错了就打不开哈哈哈哈 U2FsdGVkX1/ClJB/Su2omBvwA6Grfu/vn80NRF+LCEMqQMXlHBH40qzgeJ0lajbLHLCVYMQvwQ2iovESioOF9Aldug5rGlsZgqtSTg0ISsprUA5FcwhwV4hF3nd5Cv0NGmMQvjh5kr6c0PHtzyxLIJmjEYAVputJRpoywxtrNtsqBjQCSzdHZhKtwhoGeI9A58zqhiPRijb3EoK9BuWw5fUQj5z9PG1DXLLV0oR+MKEjrYQQaJ5mu/CnMcsVfrYlzElVHPQVe2P3KKUwMr/sMXSeY8L7T0JpZm0zboBfMOjNAQrcSzC1RteB5QvmPPM949VzIHObKx9hhVo7EbUbcK+VvePANoouR+wTHBybtPA+k3g4mkWgIUgA97PuM+Yd5+eQuoqA2nMPelYXCo3JFgwGby5M6BB/w6RHR3XgiPPxABDkua6O0Ju2b4vFzBjFj+prRjd9+PovMWij3hwIvU3QtzfurPqFByVbqg0ra0Eh/XjaUA13MqTOaL5+0qaQTRNbZqJenU7uAfJcjHz/GBPlALlbaiCu2vAsbJEOaHblnH5JNSlGHYutfDBLO1UxqabuOFMn8ns2VfUNYBOm/61S32JBvLdgQfhanLMVufSNIY+yzYW4xCP6p/jKqSh3OTgoxJq1GoA/EI1KOyWdI09FadrB5v2zKpn4jXys1DoGkuvWQ1A+oKv6vjKNXIeGzcxilZh0ESi51fHgAB7Xp/+a1A5owy3swCYY/WZQUXyK4/NM4AkEZLhOgr96k17P0Nc6wQVG7pil+f/8SO3Yndqa1ODwJz2LbFguzNnABgd4jm79THvmuhDWNTR3lIlEv2XPpcoiIaI025NAAHBXBvJQu7KctWjJ9CQw+VEW/Hyvo+AbRIZVRcSo6No5OQh40A2swGj2rOeQtfqIy262UaYN4FdAbyjr1G2/nH1HRfKXtdezItgochyxeBdGHaUrBqXIAPtxI4DIHeJ/q2gWU9bAfWQ0irMjRVsCtXf/has4EzLh6fhI1x5eKtU5YkD4usJrpSAoe7rQDiYk0G3D8CsmyZoxdaieQ2gzUjX/aMBnXx5Vwjoh2SdOufY8rS7e1c+tSe5todzss8+ZWqUf1z5wZBK9YAf/DGxwu+OGW/1KIpO6nECPmVielHK/jMfzNv+24t4gHKCcCNQz5v4OFZfiFCeqS0KsFzHjFUadENA=]]></content>
+      <categories>
+        <category>Tools</category>
+      </categories>
+      <tags>
+        <tag>加密</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Git常用进阶命令使用笔记]]></title>
+    <url>%2Fblog%2Fgit-advanced-command-note%2F</url>
+    <content type="text"><![CDATA[本文记录了使用git过程中常用的命令，因git基础命令多数人都知道，所以把常用的进阶命令写在前面，也当作是自己的笔记。文章中间有几个使用git遇到的小问题，还挺有意思，给出我的解决方案作为参考～ 建议多查官网 https://git-scm.com/bookhttps://git-scm.com/book/zh/v2 常用进阶命令1. 修改仓库/分支信息12git remote set-url origin https://xxx.git #修改整个仓库的远程位置git branch --set-upstream-to=origin/master #修改当前分支关联的远程分支 2. 修改提交信息(commit message)12git commit --amend #修改上一次提交的commit messagegit rebase -i HEAD~n #修改上n次提交的commit message（也可以用来删除某次提交） 3. 将修改追加到上次到提交12git add . git commit --ammend #多用途 4. 撤销add12git reset HEAD #全部撤销git reset HEAD your_file_path #撤销单个文件 5. 查看git信息123456git config --list #查看git整体配置信息列表git remote -v #查看远程仓库地址git branch -v #查看本地分支&amp;基本信息git branch -vv #比上条多了关联的远程分支（pull/fetch的分支）git branch -r #查看所有远程分支git branch -a #查看所有分支 6. stash123456git stashgit stash save "message" #将stash命名为messagegit stash save -a "message" #将git忽略的文件也stash，不常用git stash list #stash列表git stash pop #将stash第0条应用并删除git stash apply stash@&#123;2&#125; #将index=2的stash应用 7. patch1234567git format-patch HEAD^ #HEAD的patchgit format-patch HEAD^^ #HEAD和前一个的patchgit format-patch HEAD~$n -o ~/patchdir #将前n次提交打patch，保存到～/patchdir目录下git format-patch HEAD~$n --numbered-files #将前n次提交打patch，文件名保存为数字git apply --stat xxx.patch #检查patchgit apply --check xxx.patch #查看是否能应用成功git am -s &lt; xxx.patch #应用patch 8. 创建新分支12git checkout -b feature/dev_liuxiaogit checkout -b feature/dev_liuxiao --track origin/master #基于远程跟踪分支master创建本地分支 9. pull/fetch/push12345678910111213141516171819202122#1. pullgit pull origin master:dev #拉取远程master分支，和本地dev分支合并git pull --rabase origin master:dev #拉取远程master分支，和本地dev分支使用rebase的方式合并#如果本地和远程分支之间存在追踪关系（tracking），可以省略分支名git pull origingit branch --set-upstream dev origin/master #将本地dev分支建立远程追踪分支为origin/master#2. fetch #pull相当于fetch+mergegit fetch origin #拉取远程更新git merge origin/master #将远程更新合并到本地当前分支#3. push#-ugit push -u origin dev #将本地dev分支push到远端#-u 相当于 没有参数+upstreamgit branch --set-upstream dev origin/mastergit push origin dev#-fgit push -f origin dev #将本地dev分支强行push到远端，冲突强行覆盖（保护的分支需要权限）#如果本地分支名和远程目标分支名不同git push origin HEAD:master 10. 删除123git clean -f #删除untracked filesgit clean -f -n #查看会删除的filesgit clean -f -d #删除untracked文件夹 11. log12git reflog #历史记录 #可以拿到已经回滚reset过的提交的id，通过git reset id，可以把回滚过的提交找回 可思考/研究的常见问题1. 如何删除一个远程分支？12345#方式1. git UI操作，通常在setting/branches中#方式2. 将一个空目录提交到制定远程git push origin:dev#方式3. delete参数git push origin -delete dev 2. 如何将修改追加到已经push了的n次提交之前？基础1. 安装git环境1sudo apt-get install git-core #windows在官网下载环境 2. 创建代码仓库 配置身份 12git config --global user.name "liushaox"git config --global user.email "liushaox@163.com" 查看身份 12git config --global user.namegit config --global user.email 初始化为git文件夹 1git init 3. 提交本地代码1234git add AndroidMainfest.xml #添加单个文件git add src #添加单个文件夹git add . #添加所有文件git commit -m "first commit" #添加提交描述信息 4. 状态相关123git status #查看git状态，包括commit、修改、冲突等git diff #查看更改内容git diff app/src/main/java/activity/MainActivity.java #查看单个文件更改内容 5. 常见操作流程123456789101112# clonegit clone https://xxx.git# 第一次上传git initgit add . git commit -m "commit message"git remote add origin https://xxx.gitgit push -u origin master# 以后上传git add . git commit -m "commit message"git push -u origin master]]></content>
+      <categories>
+        <category>Tools</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+</search>
