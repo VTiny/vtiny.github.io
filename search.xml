@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Android历史版本]]></title>
+    <url>%2Fblog%2Fandroid-api-history-version%2F</url>
+    <content type="text"><![CDATA[Android历史版本信息，code name &amp; version &amp; API level &amp; release date Code name Version API level Release date — 1.0 1 2008.09.23 Petit Four 1.1 2 2009.02.09 Cupcake 1.5 3 2009.04.27 Donut 1.6 4 2009.09.15 Éclair 2.0-2.1 5-7 2009.10.26 Froyo 2.2 8 2010.05.20 Gingerbread 2.3 9 2010.12.6 Honeycomb 3.0-3.2 11-13 2011.02.22 Ice Cream Sandwich 4.0 14-15 2011.10.18 Jelly Bean 4.1-4.3 16-18 2012.07.09 KitKat 4.4 19-20 2012.10.31 Lollipop 5.0-5.1 21-22 2014.12.12 Marshmallow 6.0 23 2015.10.05 Nougat 7.0-7.1 24-25 2016.08.22 Oreo 8.0 26 2017.08.21 P 9.0]]></content>
+      <categories>
+        <category>Android</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Git将修改提交到已经commit的n次提交之前]]></title>
     <url>%2Fblog%2Fgit-commit-to-swh%2F</url>
     <content type="text"><![CDATA[在使用git的过程中，遇到了想把新的修改添加到之前的提交中的情况。如果想追加到最后一次提交，那很好办，直接git commit --amend就可以；如果想提交到之前的某次提交，那就有点麻烦了 想法1: 使用stash （❌）1.1 实现步骤： 依次将倒序过去的每次提交git reset --soft后用stash存起来 将要追加的修改commit —amend添加进去 依次将每个stash pop应用出来 1.2 遇到的问题： 使用stash保存，发现apply的时候需要重新commit，达不到好的自动化效果 reset的时候需要将每次commit的信息保存好，再次commit的时候使用，麻烦 想法2: 使用patch+stash （✅）2.1 实现步骤： 将现有修改stash贮存 将距离目标commit中间的若干提交生成patch 将仓库reset --hard到目标commit 应用stash，追加到目标commit 将patch恢复，删除缓存patch文件 2.1 具体实现：123456789101112131415161718192021222324252627282930313233343536373839404142434445464748#!/usr/bin/env bash### 参数为倒数第n次提交### 判断参数是否合法if [ $# == 0 ] ;then echo "there should be an args" exitfiif [ $1 == "help" ] ;then echo "将现有修改提交到n次提交之前" echo "比如commit1&lt;-commit2&lt;-commit3,提交到commit1,则参数为2" exitfiif [ $1 -gt 0 ] 2&gt;/dev/null ;then echo "git add to commit HEAD~$a"else echo "$1 should be a number" exitfi# 正题n=$1# 将现有修改添加到stashgit add .git stash# 将中间n次提交打patchgit format-patch HEAD~$n --numbered-files -o ~/patchtemp# 将git强制reset到n次提交之前git reset --hard HEAD~$n# 将stash应用,并添加到目标提交git stash apply stash@&#123;0&#125;git add .git commit --amend# 将各个patch恢复declare -i i=1while((i&lt;=$n))do git am -s &lt; ~/patchtemp/$i let ++idone# 删除patchrm -r ~/patchtemp]]></content>
@@ -13,6 +24,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[博文加密测试]]></title>
+    <url>%2Fblog%2Fhexo-encrypt-blog-example%2F</url>
+    <content type="text"><![CDATA[下面输入密码, 错了就打不开哈哈哈哈 U2FsdGVkX18tjfzws8YL2yLTKXpwhebTz5bXSMhx1H6KgF5AhvIyPQ0o+2FCXC/E40EzH+NKDNKdvm1JQzbLV8NeM+3vOWISJ56hmvFuGtCmic7/sblWFoeOZMxAmVqrUgCW/bOW+AZme8ec0HRw71A4EM1E0ePqYXoQqs/RyriZ5TWOuKSGrgTmEvTsHG5BWXd27O87+5IzukgUKeI9Xvda8+epuxjh6Z3dU1fbwbUgWmOPiqye7Ze3BAhjSnNHWizha2BMq19TDHB4622mW/usGmYVajrH0rvb7yXrJDBj496pV30iPo96wvHB8WreH1k0g2+a1GfWp8jgjkkWaskEE40pxONLEwDJAUHiOSumtKzfQetuKHiztd4QDsw8jra8qqbJAJoQsHF2nE/Zpg8sMtfW0EwWHg6TqgGD0ly4e+wB0Tdxh3eXPcMve9Y6dnzf/Kf6H5/HdfFzs017uIGuzO0f/wMlLLBxAPxdZMeShH+DZWmO5hXksctwQG1SC8QC06YzPwvj2Vdm1LpeO/uGi/2cQMkOT3Y0xnsb3KJbluUyc1/I/ejiWDk+Oyy3DNTcIjJCZvsDH+qUVYrq4q4j/871ZRwDLZwNXNpC6Lvr+zp3CAP6fyM1Rh9vpnSr4NRP1C8G25l66c+eVqMCjyWDeX1pszjqVWcIUXKC58aidnKGYGusmPwz4zjXmSCAv+5kScW7bKTPF+CVg5MR29cV0Jrz5bxsb0CbNv0qlQUCFCTsaSI193WxQBbry1xLn6SV1u8iSkTy6Yn5JhJUninIAi5LyPiv+VbK9LzIf/vEmCjrrxE04Z2gDCiqVYmj2a9OqRnmO5ZWQYonmDFBKxA/9wAe6F5cY0OIFuzCnB9QbmrQBrsWP/ajIAo17E49gVGO+nCura8bP/HxNWKwEkkg9Sp+eHwL4/v5/pysnAR16DWAJQvLhsIhP09oUW7RuHkKVnDRWKgCdGT9f8VzsncTAgXZ+ZpxbrhpIe4Bd2jKUiLw1RlHCV0MFsepWcQHzNE7ZOhrjsQlusdhc5vfQNcAMDGFW7PZOiibZ2T1UZnE+alalPmnf4Hpw6M4akGc5tWPPnoQCBO4z7AaXK8M3OcJDibjzoPtaixaUlvpVTwDIUV43K5+2agWixsLXtlQ0oeg+NIiZRNI6wENfjVjjmZOZetN3ng0DX1GXofO1FY=]]></content>
+      <categories>
+        <category>Tools</category>
+      </categories>
+      <tags>
+        <tag>加密</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[如何给博文加密]]></title>
     <url>%2Fblog%2Fhexo-encrypt-blog%2F</url>
     <content type="text"><![CDATA[博客当然也要有记录生活的功能，怎么能放心的记(tu)录(cao)生活而不担心被陌生人看到呢，那就需要对博文进行加密了。本文介绍了使用hexo-blog-encrypt插件完成对博文进行加密的方式，可以放心的写一些羞羞的事情了~ 通过hexo-blog-encrypt插件实现，插件github地址：https://github.com/MikeCoder/hexo-blog-encrypt ，上面有使用方式的介绍 1. 安装encrypt插件在hexo根目录下的package.json中dependencies标签下添加： 1"hexo-blog-encrypt": "2.0.*" 更新环境安装插件 1$ npm install 2. 在配置文件中启用插件在站点配置文件 _config.yml中启用插件，添加如下配置 1234# Security## Docs: https://github.com/MikeCoder/hexo-blog-encryptencrypt: enable: true 3. 使用encrypt插件加密文章在文章头中添加password字段 123456---title: hello worldpassword: liushaoxiaabstract: 加密文章的简介message: 输入密码上方的提示--- 4. live demodemo: 博文加密测试 , 密码是liushaox 5. 高阶使用方式可以对文章目录TOC进行加密、修改加密模板，具体方式转步插件作者wiki查看： github：https://github.com/MikeCoder/hexo-blog-encrypt/ 中文版：https://github.com/MikeCoder/hexo-blog-encrypt/blob/master/ReadMe.zh.md]]></content>
@@ -21,17 +43,6 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[博文加密测试]]></title>
-    <url>%2Fblog%2Fhexo-encrypt-blog-example%2F</url>
-    <content type="text"><![CDATA[下面输入密码, 错了就打不开哈哈哈哈 U2FsdGVkX19JkE9XTkyQESPimidqtj+tV2cnTLBh24mMh9DFW4cUsphpdzU6MijKpAh/VCskiKhRKJ2PvfHiiU3/48u+7NSR6bgTWhG6Pygus8OfIamg/BRN4L92vGs5/HHZ0Of4jqap/ht5Meb1jLtjb9iCYH5fVQ0db9hUpLNF/iwg7KmTm/p9wzntYMZiARuOqQwB2eazXTxuUl862HtcwsPcfdDQi/aW3P0AvE8g1Hb9oAFkShGiPhfIN1lzhAnByZaNgcRShmxL2ZlZvPLw2xRKhA3wXBn4APi4CU6hlZyi0XiG4JJIo32Q27qVG/3s5Mev7GNKYMLWD9fG9OWv904imN4hcZl90FOHMNgFud6cxSFT+D5h3JYVhIKKBJtM1isDzmyFtrSpp5WqdSbrYXcfQGA7sigFiBYE5iTLlzQAjBJe4rk5NGCDk6XraTHziuLY89pMLWDVxGHqIAyRdL450QrKa/YqnR7MfEQ5Xoufscj4mOOn5F8P3Xwibb8FYeq1uEZzfznEYVtqfNTYPH8ddmDGVdz+A8iH7mxTA41FzyblfcQbHpUdThzX+WJ+2/TMNs1VRDyvXB7wTKYUvogug84pknySAFPZ11J6ZJ06QiHtcbexG0KYGgOqkBAtLTOLUV0bZ+sw/yOvCyUoza12KmBVCAj29k59+NMUorCyvLFDlldF/85cLn3Pai261uhuXj+KlUiWY9EETz8vlw9jD8CeGy3jtdYxZGNk+DHl9Bh4lroaFKGQawAA0ll4NcL7q8FgbOVuk2/EoW8uCHRln4gEKOCnb0ioHG1xZ7saaFqgRjV32cLlemg5JQxbGELyvsvzu5rEjjpHsRYIPA1BYwgtndUkhNxClNF9VQwwIp6L9uyIgSDy07Wxb7Fx5GIk+hG0/sqTTgtwx5qJqlaZvKjnPaTYE76BtI35IuR3TwmdMNV/9GeUCQHOL5cGWfGgbXSRC5MaV/JPeVT10rA6NxwzUAf+OGEcHnaaura8K0ebjZ5iHQQiriFsAYIeccp8PV+fZ2tFSfmBEj1f2xYLgrVdceygNzS3TlgJ+EjAUkVSJ3NxKy2cqzUUUQ5xSMK8u3ck3vIfOTN+4kBaSr9e4hLJ0iM58aKgYFUoBzm+bqxzzFbSjL11A1JQTju8bVrxG2gWb8y4coG9BewUPZU07bDsID4xlTjeLl0=]]></content>
-      <categories>
-        <category>Tools</category>
-      </categories>
-      <tags>
-        <tag>加密</tag>
       </tags>
   </entry>
   <entry>
