@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Google I/O 2018 - (一) Keynote]]></title>
+    <url>%2Fblog%2Fgoogle-io-2018-1-keynote%2F</url>
+    <content type="text"><![CDATA[2018年Google I/O大会5月8日–5月10日美国加利福尼亚州芒廷维尤海岸线圆形剧场举行，这一系列文章是观看视频录像的笔记，此文为第一部分，Keynote Google I/O 2018一. KeynoteI/O大会官网：https://events.google.com/io 视频链接：https://www.youtube.com/watch?time_continue=441&amp;v=ogfYd705cRs 1. AI1.1 一些应用场景 语音拆分（7:24） 语音生成（摩尔斯电码） 邮件 输入联想 摄像 一些图像识别 1.2 Google Assistant &amp; Google Duplex Holy -&gt; Siri?（”Hey Google”） 然而。。尴尬的事情。。 Continued conversation、Google Assistant其他使用场景 1.3 Naturally conversation New voices Continued conversation Multiple actions Pretty please Google Assistant 打电话订理发、订饭店 Google duplex 亮点，根本听不出来是机器人(36:30) 1.3 Digital Wellbeing Youtube，看了多久提示该休息了，notification整合 2. Google News2.1 Keep up with news you care about Newscast 2.2 Understand the full story full coverage (专题)（更全面事件的发展 local coverage, time line ） 2.3 Enjoy and support the news sources you love Newsstand(杂志摊) Subscribe with Google -&gt; search we’re rolling out on Android iOS and the web in a hundred and twenty seven countries starting today 3. Android P Android started with a simple goal of bringing open standards to the mobile industry 宣传了一波“OPEN” 开放性 10年 3.1 Android P的三个主题 Intelligence Simplicity Digital wellbeing 3.2 Intelligence3.2.1 Adaptive Battery 3.2.2 Adaptive Brightness 3.2.3 App Actions &amp; Slice 预测下一个应用 -&gt; 预测下一个行为 搜索、语音、应用商店 Slice: app提供一些内容给其他app调用，如搜索结果(spotlight) 3.2.4 ML Kit cross-platfrom Android &amp; iOS 3.3 Simplicity 功能键的衍变 手势+小方块（iPhone X）、旋转等 3.4 Digital wellbeing3.4.1 Dashboard App usage notification 3.4.2 App Timer3.4.3 Do Not Disturb -&gt; Shush Starred Contacts 3.4.4 Wind Down Mode屏幕变灰，帮助睡前少玩手机 3.5 Android P Beta 4. Google Maps 谷歌地图变得更加社交化 match cooperation with carema 增强现实 4.1 GPS -&gt; VPS(Visual Positioning System)4.2 Google Lens4.2.1 Smart text selection 4.2.2 Sytle match 4.2.3 Real-time results 5. Self-driving Cars（WAYMO） 这老哥生活应该挺丰富…… back in those early days Google was perhaps the only company in the world investing in both AI and self-driving technology at the same time 5.1 Perception5.2 Behavior prediction5.3 Decision-making5.4 Mapping]]></content>
+      <categories>
+        <category>Sight</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+        <tag>Google I/O</tag>
+        <tag>Sight</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Android历史版本]]></title>
     <url>%2Fblog%2Fandroid-api-history-version%2F</url>
     <content type="text"><![CDATA[Android历史版本信息，code name &amp; version &amp; API level &amp; release date Code name Version API level Release date — 1.0 1 2008.09.23 Petit Four 1.1 2 2009.02.09 Cupcake 1.5 3 2009.04.27 Donut 1.6 4 2009.09.15 Éclair 2.0-2.1 5-7 2009.10.26 Froyo 2.2 8 2010.05.20 Gingerbread 2.3 9 2010.12.6 Honeycomb 3.0-3.2 11-13 2011.02.22 Ice Cream Sandwich 4.0 14-15 2011.10.18 Jelly Bean 4.1-4.3 16-18 2012.07.09 KitKat 4.4 19-20 2012.10.31 Lollipop 5.0-5.1 21-22 2014.12.12 Marshmallow 6.0 23 2015.10.05 Nougat 7.0-7.1 24-25 2016.08.22 Oreo 8.0 26 2017.08.21 P 9.0]]></content>
