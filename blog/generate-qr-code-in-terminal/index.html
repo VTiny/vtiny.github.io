@@ -118,7 +118,7 @@
 
 
 
-  <title>tags | LiuShaox's Blog</title>
+  <title>在命令行(Terminal)中自动生成二维码 | LiuShaox's Blog</title>
   
 
 
@@ -313,40 +313,202 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/generate-qr-code-in-terminal/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liu Xia">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LiuShaox's Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">tags</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-                目前共计 9 个标签
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/Android/" style="font-size: 30px; color: #111">Android</a> <a href="/tags/Git/" style="font-size: 30px; color: #111">Git</a> <a href="/tags/Google-I-O/" style="font-size: 12px; color: #ccc">Google I/O</a> <a href="/tags/Hexo/" style="font-size: 12px; color: #ccc">Hexo</a> <a href="/tags/QR-Code/" style="font-size: 12px; color: #ccc">QR Code</a> <a href="/tags/Shell/" style="font-size: 12px; color: #ccc">Shell</a> <a href="/tags/Sight/" style="font-size: 12px; color: #ccc">Sight</a> <a href="/tags/shell/" style="font-size: 12px; color: #ccc">shell</a> <a href="/tags/加密/" style="font-size: 12px; color: #ccc">加密</a>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">在命令行(Terminal)中自动生成二维码</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-24T00:00:00+08:00">2018-05-24</time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Shell/" itemprop="url" rel="index">
+                    <span itemprop="name">Shell</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/blog/generate-qr-code-in-terminal/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="blog/generate-qr-code-in-terminal/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+             <span id="/blog/generate-qr-code-in-terminal/" class="leancloud_visitors" data-flag-title="在命令行(Terminal)中自动生成二维码">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>shell小白，此脚本实现的功能是在命令行中自动生成输入的文字/链接的二维码<br><a id="more"></a> </p>
+<h3 id="相关资源"><a href="#相关资源" class="headerlink" title="相关资源"></a>相关资源</h3><ul>
+<li>brew: 或许是mac上安装软件最方便的方式？ <a href="https://brew.sh/" target="_blank" rel="noopener">https://brew.sh/</a></li>
+<li>qrencode: “a fast and compact QR Code encoding library” <a href="https://github.com/fukuchi/libqrencode" target="_blank" rel="noopener">https://github.com/fukuchi/libqrencode</a></li>
+</ul>
+<h3 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h3><ol>
+<li>检测brew环境，若没有，则安装</li>
+<li>检测qrencode环境，活没有，则安装</li>
+<li>使用qrencode生成二维码，并打印</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/usr/bin/env bash</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>若没有brew环境，安装brew</span><br><span class="line">if which brew &gt; /dev/null ; then</span><br><span class="line">    echo "brew has been installed."</span><br><span class="line">else</span><br><span class="line">    echo "brew not installed, install brew first."</span><br><span class="line">    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>若没有qrencode库，安装qrencode</span><br><span class="line">if which qrencode &gt; /dev/null ; then</span><br><span class="line">    echo "qrencode has been installed."</span><br><span class="line">else</span><br><span class="line">    echo "qrencode not installed, install brew first"</span><br><span class="line">    brew install qrencode</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>处理参数，获取要生成二维码的信息</span><br><span class="line">if [ $# == 0 ]; then</span><br><span class="line">    read -p "Enter message here: " message</span><br><span class="line">elif [[ $1 == "help" ]] || [[ $1 == "--help" ]]; then</span><br><span class="line">    echo "A tool for generating qr code."</span><br><span class="line">    echo "Example usage:"</span><br><span class="line">    echo "  qrcode \"http://www.163.com\""</span><br><span class="line">    echo "  qrcode \"n 55!W\""</span><br><span class="line">    echo "Further help:"</span><br><span class="line">    echo "  qrcode help"</span><br><span class="line">    echo "  qrcode --help"</span><br><span class="line">    exit</span><br><span class="line">elif [ $1 ]; then</span><br><span class="line">    message=$1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>打印二维码</span><br><span class="line">echo $message | qrencode -o - -t UTF8</span><br></pre></td></tr></table></figure>
+<h3 id="运行效果"><a href="#运行效果" class="headerlink" title="运行效果"></a>运行效果</h3><p><img src="http://7xravb.com1.z0.glb.clouddn.com/20180601152785000418328.png" alt="20180601152785000418328.png"></p>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Shell/" rel="tag"># Shell</a>
+          
+            <a href="/tags/QR-Code/" rel="tag"># QR Code</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/google-io-2018-1-keynote/" rel="next" title="Google I/O 2018  - (一) Keynote">
+                <i class="fa fa-chevron-left"></i> Google I/O 2018  - (一) Keynote
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -384,8 +546,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -459,6 +630,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#相关资源"><span class="nav-text">相关资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现思路"><span class="nav-text">实现思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行效果"><span class="nav-text">运行效果</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -647,7 +834,7 @@
 		_hcwp.push({widget:"Bloggerstream", widget_id: 100371, selector:".hc-comment-count", label: "{\%COUNT%\}" });
 
 		
-		_hcwp.push({widget:"Stream", widget_id: 100371, xid: "tags/index.html"});
+		_hcwp.push({widget:"Stream", widget_id: 100371, xid: "blog/generate-qr-code-in-terminal/"});
 		
 
 		(function() {

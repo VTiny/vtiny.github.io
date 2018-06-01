@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[在命令行(Terminal)中自动生成二维码]]></title>
+    <url>%2Fblog%2Fgenerate-qr-code-in-terminal%2F</url>
+    <content type="text"><![CDATA[shell小白，此脚本实现的功能是在命令行中自动生成输入的文字/链接的二维码 相关资源 brew: 或许是mac上安装软件最方便的方式？ https://brew.sh/ qrencode: “a fast and compact QR Code encoding library” https://github.com/fukuchi/libqrencode 实现思路 检测brew环境，若没有，则安装 检测qrencode环境，活没有，则安装 使用qrencode生成二维码，并打印 123456789101112131415161718192021222324252627282930313233343536#!/usr/bin/env bash#若没有brew环境，安装brewif which brew &gt; /dev/null ; then echo "brew has been installed."else echo "brew not installed, install brew first." ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"fi#若没有qrencode库，安装qrencodeif which qrencode &gt; /dev/null ; then echo "qrencode has been installed."else echo "qrencode not installed, install brew first" brew install qrencodefi#处理参数，获取要生成二维码的信息if [ $# == 0 ]; then read -p "Enter message here: " messageelif [[ $1 == "help" ]] || [[ $1 == "--help" ]]; then echo "A tool for generating qr code." echo "Example usage:" echo " qrcode \"http://www.163.com\"" echo " qrcode \"n 55!W\"" echo "Further help:" echo " qrcode help" echo " qrcode --help" exitelif [ $1 ]; then message=$1fi#打印二维码echo $message | qrencode -o - -t UTF8 运行效果]]></content>
+      <categories>
+        <category>Shell</category>
+      </categories>
+      <tags>
+        <tag>Shell</tag>
+        <tag>QR Code</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Google I/O 2018 - (一) Keynote]]></title>
     <url>%2Fblog%2Fgoogle-io-2018-1-keynote%2F</url>
     <content type="text"><![CDATA[2018年Google I/O大会5月8日–5月10日美国加利福尼亚州芒廷维尤海岸线圆形剧场举行，这一系列文章是观看视频录像的笔记，此文为第一部分，Keynote Google I/O 2018一. KeynoteI/O大会官网：https://events.google.com/io 视频链接：https://www.youtube.com/watch?time_continue=441&amp;v=ogfYd705cRs 1. AI1.1 一些应用场景 语音拆分（7:24） 语音生成（摩尔斯电码） 邮件 输入联想 摄像 一些图像识别 1.2 Google Assistant &amp; Google Duplex Holy -&gt; Siri?（”Hey Google”） 然而。。尴尬的事情。。 Continued conversation、Google Assistant其他使用场景 1.3 Naturally conversation New voices Continued conversation Multiple actions Pretty please Google Assistant 打电话订理发、订饭店 Google duplex 亮点，根本听不出来是机器人(36:30) 1.3 Digital Wellbeing Youtube，看了多久提示该休息了，notification整合 2. Google News2.1 Keep up with news you care about Newscast 2.2 Understand the full story full coverage (专题)（更全面事件的发展 local coverage, time line ） 2.3 Enjoy and support the news sources you love Newsstand(杂志摊) Subscribe with Google -&gt; search we’re rolling out on Android iOS and the web in a hundred and twenty seven countries starting today 3. Android P Android started with a simple goal of bringing open standards to the mobile industry 宣传了一波“OPEN” 开放性 10年 3.1 Android P的三个主题 Intelligence Simplicity Digital wellbeing 3.2 Intelligence3.2.1 Adaptive Battery 3.2.2 Adaptive Brightness 3.2.3 App Actions &amp; Slice 预测下一个应用 -&gt; 预测下一个行为 搜索、语音、应用商店 Slice: app提供一些内容给其他app调用，如搜索结果(spotlight) 3.2.4 ML Kit cross-platfrom Android &amp; iOS 3.3 Simplicity 功能键的衍变 手势+小方块（iPhone X）、旋转等 3.4 Digital wellbeing3.4.1 Dashboard App usage notification 3.4.2 App Timer3.4.3 Do Not Disturb -&gt; Shush Starred Contacts 3.4.4 Wind Down Mode屏幕变灰，帮助睡前少玩手机 3.5 Android P Beta 4. Google Maps 谷歌地图变得更加社交化 match cooperation with carema 增强现实 4.1 GPS -&gt; VPS(Visual Positioning System)4.2 Google Lens4.2.1 Smart text selection 4.2.2 Sytle match 4.2.3 Real-time results 5. Self-driving Cars（WAYMO） 这老哥生活应该挺丰富多彩…… back in those early days Google was perhaps the only company in the world investing in both AI and self-driving technology at the same time 5.1 Perception5.2 Behavior prediction5.3 Decision-making5.4 Mapping]]></content>
@@ -9,8 +21,8 @@
       </categories>
       <tags>
         <tag>Android</tag>
-        <tag>Google I/O</tag>
         <tag>Sight</tag>
+        <tag>Google I/O</tag>
       </tags>
   </entry>
   <entry>
@@ -39,7 +51,7 @@
   <entry>
     <title><![CDATA[博文加密测试]]></title>
     <url>%2Fblog%2Fhexo-encrypt-blog-example%2F</url>
-    <content type="text"><![CDATA[下面输入密码, 错了就打不开哈哈哈哈 U2FsdGVkX18tjfzws8YL2yLTKXpwhebTz5bXSMhx1H6KgF5AhvIyPQ0o+2FCXC/E40EzH+NKDNKdvm1JQzbLV8NeM+3vOWISJ56hmvFuGtCmic7/sblWFoeOZMxAmVqrUgCW/bOW+AZme8ec0HRw71A4EM1E0ePqYXoQqs/RyriZ5TWOuKSGrgTmEvTsHG5BWXd27O87+5IzukgUKeI9Xvda8+epuxjh6Z3dU1fbwbUgWmOPiqye7Ze3BAhjSnNHWizha2BMq19TDHB4622mW/usGmYVajrH0rvb7yXrJDBj496pV30iPo96wvHB8WreH1k0g2+a1GfWp8jgjkkWaskEE40pxONLEwDJAUHiOSumtKzfQetuKHiztd4QDsw8jra8qqbJAJoQsHF2nE/Zpg8sMtfW0EwWHg6TqgGD0ly4e+wB0Tdxh3eXPcMve9Y6dnzf/Kf6H5/HdfFzs017uIGuzO0f/wMlLLBxAPxdZMeShH+DZWmO5hXksctwQG1SC8QC06YzPwvj2Vdm1LpeO/uGi/2cQMkOT3Y0xnsb3KJbluUyc1/I/ejiWDk+Oyy3DNTcIjJCZvsDH+qUVYrq4q4j/871ZRwDLZwNXNpC6Lvr+zp3CAP6fyM1Rh9vpnSr4NRP1C8G25l66c+eVqMCjyWDeX1pszjqVWcIUXKC58aidnKGYGusmPwz4zjXmSCAv+5kScW7bKTPF+CVg5MR29cV0Jrz5bxsb0CbNv0qlQUCFCTsaSI193WxQBbry1xLn6SV1u8iSkTy6Yn5JhJUninIAi5LyPiv+VbK9LzIf/vEmCjrrxE04Z2gDCiqVYmj2a9OqRnmO5ZWQYonmDFBKxA/9wAe6F5cY0OIFuzCnB9QbmrQBrsWP/ajIAo17E49gVGO+nCura8bP/HxNWKwEkkg9Sp+eHwL4/v5/pysnAR16DWAJQvLhsIhP09oUW7RuHkKVnDRWKgCdGT9f8VzsncTAgXZ+ZpxbrhpIe4Bd2jKUiLw1RlHCV0MFsepWcQHzNE7ZOhrjsQlusdhc5vfQNcAMDGFW7PZOiibZ2T1UZnE+alalPmnf4Hpw6M4akGc5tWPPnoQCBO4z7AaXK8M3OcJDibjzoPtaixaUlvpVTwDIUV43K5+2agWixsLXtlQ0oeg+NIiZRNI6wENfjVjjmZOZetN3ng0DX1GXofO1FY=]]></content>
+    <content type="text"><![CDATA[下面输入密码, 错了就打不开哈哈哈哈 U2FsdGVkX1+32PGpXubavq9LvHpvSccMdKKzN9AgtRoOycZF9fYNPS/tq/euv5YK1y5Z8SgMqO5UdUSpovnCO3ABQyRLVf8iaehfu/p+6vbENlI5uNA5HbsRtbAxD1JjtCjbk/iuKNPEFyXPcBtFx9vi2P25K6Tt3z+OJhTxoA/wfDn9s9uTd7iYbCp0FwMuCsK2pI7QksSjbjqxqcOaP5J2LBvOANjijmSZ10/1/sFZQx1Of/Cz4fMpgS0kYYPWGDhFFKGDAYK8kPiWBt75XZI1dy1l8GAcl6In3y0Gf/l6ksHr2EujR4RreDCAoGNDZSjk6VudqrSnxtSufUtyhZ5KCig4FslfuISDTKS7a0Q87moYOfPVzLIzoDozvosuYmnlp8Ppx6RNCnLQY61i4GuqGoBpmJDrVKuIFYl5U5pj2hdCE6RxJnPJSu7m7wJ5PMPLVYjOmlTCjfE60RT2++9GRiToLj7Emy8QhYKti5Z9aFfUUsZuYPGJPYM/aAMSZ0zTYn4MrdjNR0ATp/INxikJsQx/f9LmAkKCwGNZP6ohWNefLaIWpvT1iABc/jZrtTVA6zLSa9xK9QknfdzLbWb3XpvyGpHWrFohxTLPDDuDuqEhONG2FxUYRNXQc6zULfWZXQE3aNhW8z/WiEWs0dskqa2wNHjJCaS5bSnMH7lJXYeu7JjRmAdFytFq6bmVYGn925DtaredlgC4izFtUCw1XjQFcFIQVnXkdVzE1NPMCSRdGOn1Z3+1QpjWENaS42IWeJJTIM/p/qUEcxeXb84gItpX0TSL6sDvvE6ugHWMr1Q5n7YDK1IsBPgVo7yAfzr+u+wLLxUxHTgYPiUQ1j1tKPanx4IMf2QNoTggqKRrXBKFbtr1hJmyYz8hjfHwEPTA+TUfU3+znzVMhTO59nHOQSH6nfwjV6KBljCtlT6HSLguKwA16WQgSSEuAgI0ScXC0fXXNQkJHRACMmuno2k31U3T41fMDWzy5OUln6h6aK/Wxzz7vX4XJDVUtgKtjVA6ue5+qj/2ReY4ZBwL3oVmGT/Q1AsubWZpnFzYQtfAtOrCKKmZOZewmG5wY4gHHFxdYzbUK5VVfZgOVgBl0uDXHhfns7jHKTGuVmZ/70zzsYmF4OeGHAHSKC/RY0wkfKF9elAHjdsy2p8kNv76/94+H5q8SqzCtfdvKbouX3s=]]></content>
       <categories>
         <category>Tools</category>
       </categories>
