@@ -10,7 +10,19 @@
       <tags>
         <tag>Android Studio</tag>
         <tag>AS</tag>
-        <tag>gradle</tag>
+        <tag>Gradle</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【不懂就记】Gradle implementation、api命令]]></title>
+    <url>%2Fblog%2Fandroid-gradle-implentation-api%2F</url>
+    <content type="text"><![CDATA[发现Android Studio升级到3.0版本以后，新建工程默认的app包的build.gradle文件有点不认识了，长成这样，主要是implemention这个命令是什么鬼 12345678dependencies &#123; implementation fileTree(dir: 'libs', include: ['*.jar']) implementation 'com.android.support:appcompat-v7:26.1.0' implementation 'com.android.support.constraint:constraint-layout:1.1.2' testImplementation 'junit:junit:4.12' androidTestImplementation 'com.android.support.test:runner:1.0.2' androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'&#125; 背景Android Studio再升级到3.0版本后，gradle插件版本默认升级到了3.0.0版本，在此版本中不推荐使用gradle的compile命令，推荐使用implemention命令和api命令 文档资源 强推: Google I/O 2017 - Speeding Up Your Android Gradle Builds演讲关于Implemention和API的部分 Implementation vs API dependency (大概是把I/O演讲的整理记录了下) 记录的中文翻译版本 谷歌官方迁移(升级)到Android Plugin for Gradle3.0文档 Implemention和API命令的使用 在I/O 2017的演讲中，演讲者将build一个工程比作是pay taxes，给人的感觉确实也是如此，构建工程的速度很重要，立个flag，过段时间整体研究下 api命令和原来的compile命令完全相同 implemention命令对于使用了该命令编译的依赖，对该项目有依赖的项目将无法访问到使用该命令编译的依赖中的任何程序，也就是将该依赖隐藏在内部，而不对外部公开 例子1. 使用compile/api12A compile BB compile C 那么A是可以直接调用C的方法的 2. 使用implemention12A implemention BB implemention C C的内部方法对B可见，对A不可见，即A不能直接调用C的方法 好处：在C源码发生变化的时候，只重新编译直接引用C的module(B)，A不重新编译，提高工程构建速度]]></content>
+      <categories>
+        <category>Android</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+        <tag>Gradle</tag>
       </tags>
   </entry>
   <entry>
@@ -35,7 +47,7 @@
       <tags>
         <tag>Android</tag>
         <tag>Sight</tag>
-        <tag>Google I/O</tag>
+        <tag>Google I/O 2018</tag>
       </tags>
   </entry>
   <entry>
@@ -75,7 +87,7 @@
   <entry>
     <title><![CDATA[博文加密测试]]></title>
     <url>%2Fblog%2Fhexo-encrypt-blog-example%2F</url>
-    <content type="text"><![CDATA[下面输入密码, 错了就打不开哈哈哈哈 U2FsdGVkX1/KLMW/SJrCvv2eiKXC4/nOSd0HryJ9i8vZ9DNL5LfStfMuOrLY97MLS+hg9WwTBZP00AylT7igqD2gPtsVr7nZb2P9FjBk86ynbVtys7vGoIIHXsWR2Qlj7UMd8UcaZp/4nxp7CH50ZHvpVVCOtVgfHFjr5OfsJh1IXPNnyAUVsIs+BHlPiLxam4MQ2BG0MQRYckKzlXqOGMRt/1bEF/BmQWpfZqj+8AXaWYgSGEBJwqADtiEVFvB5Oj9NrAVeNCoPytG8+jfgO8G7QatRR8SdiaMhStQTgK5eJgt6Mh28xXzxwIWJyxL5P60zdRVSs6gg5D+WoAN3NmQ4byFryZGsE/a9WhvbudTG4Z1xQLTpPEomaYEuKyArkIPqTmVTsX1p5/WoGSGuVel9Rw8R8WgBUgsMs/REoOV9v1fJdqshYOL2tXmofMcoVeqmpgKyAQXb87G/YwpIPf8xz6Y61YdoFqq4GX7QZNz12vhZ99pFzKMg6xDRK+NDZcZ2GAjF16E4/QfROU+kgLejwZ5ePddCcyED236sYskG8P6xd9TPdiy0BvXCHa7rQZ3FcgJUqWg4uf8ehivOH39hrPL5E+fmdt1ahq7sz0tjDk5/lI9NS6WqcJUC255Mhhh1s543VaU0ga1ZMF41fxiVv5gVeDTk5WRHtEuY8uBsvvRYuxLk3iZppaTCI9H6F9oXaYYTYOnGpu3yyqvbFyBpvIwOCsxqM4IL6t4YSK9aadWZHL2cGPiW62068wzTMNTf9pF2P3ntyyu/SfVt4UDbtMhMM6vyfUA01pyW5WP7i/8CvGH6co3gkkJE0dr0KYy9SHaF5L9gJTHNkCymdm/s2HG0GRGlOr/XNZeH2A5CsG+sWtHfX+IwJ1qDDp9iCLdYJ6wlL8asucdKQHdhy9n7Nwevmm9HmkD8MjKMFmmxkQeQKI92iXaU0UGIzXe938djUK3sukwXAfVho5U5g3XRvmbUIJmYIzmz0W0K2zc4hCB3g8o6LTritFCoTKG30L/dd3qbg0vOe1/BoyUTiCUMKBwx3qSBGy+m4HPey4rSnLqtyDamx8aJ+USJZNHds7AD4VYGeobVuz+CcGQVB6ZtsjXLWdxzW0fIXM/QhQyk7BXayAJKNmwhCFyjgEBSxDsWKzdlSFMUYhySs5hcp4E/wzA4Musz07VsLtXRavk=]]></content>
+    <content type="text"><![CDATA[下面输入密码, 错了就打不开哈哈哈哈 U2FsdGVkX1+fjvgVuhKsSF/LxmLmV5pSKpGgWB1izkHq7M7X+HNiAw3FJ9+QooxWZMJoUZqVGkLJXxqNBEZxHxh2BvVo6gCiCZZ29iAHHz1O9p/Fj88hhKAddu3DbV+6J/cRyZrps3vyPQZnIMKvZbS5Tj+bXdYrWwRcajQRPXpc9i1uATFyN8K322qWWoFMSfZu1vTeiZsv9gDK+NsKHsvXkOBbnsKIoqbnV1rxVIk2ubf2skbOfognY4zL33leO/XWniwAXTPxv9SdwRXrIF/399I+9Tc/QV8lAIJgvJ6hozsULxq4dwrX1nqDLKWpdJ9tq+UxUzWerq9l/Gi/JLW1Q4AGSCXHgkSfohDYLFeurd1tAobRO+fU43V5qOx5DQ9Te2sAYoVtfxHHTFugXuUp/0hx01rkqvAP6t3useeDuOY6R2+aQQvB/dp1Y1+EXvNjjHcE1fUqsy0AyK/zIvSt9X9OingA9Vj/Np77nOGtojX89V+/9RM2wOxyaAzf4QCBexcFfUASMRsZUWU0Y6EuQLpIV2vJcpn0HOIoOXmkI1Aq3I1cGLuo27ttzWN6VwPDx6xJpkqkiIOuV1oIfV7htSibcBytXr42H7GjzZFiuoWDr9L6W3fI4IY3zDbpJh2JaPkMmdzYkgc3T2whKU9BjFlZL14L4E2LKGFpMszaSk6oaSSAh5LP3QIl6sO1+O9NgvjC2QwBSstuMsLPmRVjWHhQG+f2nwdn/0vzZ6YkCLOkA/B9WQlJtbqllSGomQr2UR18fTvjCZ7yHH4HLWwMm7lq+6Rm+Ne9fcrK1ZltmRpAeivLrIXHbvdV4k96ae2TZPtRkjcGXM8uR6oiKGp+R+/qYL+uhpPaMxO5jYx6+nHPFdyOEmktZw/3YQgwWnxFJwg6DjlYeuKFmTX2ZbMEXcDdGukRXEQZi765MKpfU5MjUgezSMW2mvL6PuyFK1f3GuFOnmslP+w/Iu8yZAApTlC2cbUJeenIBh7PDQPCq+ANYDxoDHpcTBzNo1A7b2v5DaVK15Wo2P7ODMsJR6hgp5OrAajKb6xdRjYwB7fLaBryN1zDzVuCu5k8158Id6VznJw6fnaMscwaQKwK66J8Y//aY3mrVLAsKIFmfVy3pHzar8A7G2MsC0hCujoAdPFrvV6KA4+HAoYjEXQu/lhd0L1s3SaS6bLh+CTyQkQ=]]></content>
       <categories>
         <category>Tools</category>
       </categories>

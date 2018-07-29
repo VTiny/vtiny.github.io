@@ -118,7 +118,7 @@
 
 
 
-  <title>Git常用进阶命令使用笔记 | LiuShaox's Blog</title>
+  <title>【不懂就记】Gradle implementation、api命令 | LiuShaox's Blog</title>
   
 
 
@@ -327,7 +327,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/git-advanced-command-note/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/android-gradle-implentation-api/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Liu Xia">
@@ -344,7 +344,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Git常用进阶命令使用笔记</h1>
+          <h1 class="post-title" itemprop="name headline">【不懂就记】Gradle implementation、api命令</h1>
         
 
         <div class="post-meta">
@@ -356,7 +356,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-10T00:00:00+08:00">2018-01-10</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-29T00:00:00+08:00">2018-07-29</time>
             
 
             
@@ -377,8 +377,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Tools/" itemprop="url" rel="index">
-                    <span itemprop="name">Tools</span>
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
                   </a>
                 </span>
 
@@ -396,8 +396,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/blog/git-advanced-command-note/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="blog/git-advanced-command-note/" itemprop="commentsCount"></span>
+                <a href="/blog/android-gradle-implentation-api/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="blog/android-gradle-implentation-api/" itemprop="commentsCount"></span>
                 </a>
               </span>
               <!--/noindex-->
@@ -406,7 +406,7 @@
 
           
           
-             <span id="/blog/git-advanced-command-note/" class="leancloud_visitors" data-flag-title="Git常用进阶命令使用笔记">
+             <span id="/blog/android-gradle-implentation-api/" class="leancloud_visitors" data-flag-title="【不懂就记】Gradle implementation、api命令">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -437,40 +437,29 @@
       
 
       
-        <p>本文记录了使用git过程中常用的命令，因git基础命令多数人都知道，所以把常用的进阶命令写在前面，也当作是自己的笔记。文章中间有几个使用git遇到的小问题，还挺有意思，给出我的解决方案作为参考～</p>
+        <p>发现Android Studio升级到3.0版本以后，新建工程默认的app包的build.gradle文件有点不认识了，长成这样，主要是implemention这个命令是什么鬼</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    implementation fileTree(<span class="string">dir:</span> <span class="string">'libs'</span>, <span class="string">include:</span> [<span class="string">'*.jar'</span>])</span><br><span class="line">    implementation <span class="string">'com.android.support:appcompat-v7:26.1.0'</span></span><br><span class="line">    implementation <span class="string">'com.android.support.constraint:constraint-layout:1.1.2'</span></span><br><span class="line">    testImplementation <span class="string">'junit:junit:4.12'</span></span><br><span class="line">    androidTestImplementation <span class="string">'com.android.support.test:runner:1.0.2'</span></span><br><span class="line">    androidTestImplementation <span class="string">'com.android.support.test.espresso:espresso-core:3.0.2'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<blockquote>
-<p>建议多查官网  </p>
-<p><a href="https://git-scm.com/book" target="_blank" rel="noopener">https://git-scm.com/book</a><br><a href="https://git-scm.com/book/zh/v2" target="_blank" rel="noopener">https://git-scm.com/book/zh/v2</a></p>
+<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>Android Studio再升级到3.0版本后，gradle插件版本默认升级到了3.0.0版本，在此版本中不推荐使用gradle的compile命令，推荐使用implemention命令和api命令</p>
+<h3 id="文档资源"><a href="#文档资源" class="headerlink" title="文档资源"></a>文档资源</h3><ul>
+<li><a href="https://www.youtube.com/watch?v=7ll-rkLCtyk&amp;feature=youtu.be&amp;t=22m20s" target="_blank" rel="noopener">强推: Google I/O 2017 - Speeding Up Your Android Gradle Builds演讲关于Implemention和API的部分</a></li>
+<li><a href="https://jeroenmols.com/blog/2017/06/14/androidstudio3/" target="_blank" rel="noopener">Implementation vs API dependency (大概是把I/O演讲的整理记录了下)</a></li>
+<li><a href="https://juejin.im/entry/59476897da2f60006786029f" target="_blank" rel="noopener">记录的中文翻译版本</a></li>
+<li><a href="https://developer.android.com/studio/build/gradle-plugin-3-0-0-migration#new_configurations" target="_blank" rel="noopener">谷歌官方迁移(升级)到Android Plugin for Gradle3.0文档</a></li>
+</ul>
+<h3 id="Implemention和API命令的使用"><a href="#Implemention和API命令的使用" class="headerlink" title="Implemention和API命令的使用"></a>Implemention和API命令的使用</h3><blockquote>
+<p>在I/O 2017的演讲中，演讲者将build一个工程比作是pay taxes，给人的感觉确实也是如此，构建工程的速度很重要，立个flag，过段时间整体研究下</p>
 </blockquote>
-<h2 id="常用进阶命令"><a href="#常用进阶命令" class="headerlink" title="常用进阶命令"></a>常用进阶命令</h2><h4 id="1-修改仓库-分支信息"><a href="#1-修改仓库-分支信息" class="headerlink" title="1. 修改仓库/分支信息"></a>1. 修改仓库/分支信息</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote set-url origin https://xxx.git    #修改整个仓库的远程位置</span><br><span class="line">git branch --set-upstream-to=origin/master   #修改当前分支关联的远程分支</span><br></pre></td></tr></table></figure>
-<h4 id="2-修改提交信息-commit-message"><a href="#2-修改提交信息-commit-message" class="headerlink" title="2. 修改提交信息(commit message)"></a>2. 修改提交信息(commit message)</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git commit --amend      #修改上一次提交的commit message</span><br><span class="line">git rebase -i HEAD~n    #修改上n次提交的commit message（也可以用来删除某次提交）</span><br></pre></td></tr></table></figure>
-<h4 id="3-将修改追加到上次到提交"><a href="#3-将修改追加到上次到提交" class="headerlink" title="3. 将修改追加到上次到提交"></a>3. 将修改追加到上次到提交</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add . </span><br><span class="line">git commit --ammend     #多用途</span><br></pre></td></tr></table></figure>
-<h4 id="4-撤销add"><a href="#4-撤销add" class="headerlink" title="4. 撤销add"></a>4. 撤销add</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD                     #全部撤销</span><br><span class="line">git reset HEAD your_file_path      #撤销单个文件</span><br></pre></td></tr></table></figure>
-<h4 id="5-查看git信息"><a href="#5-查看git信息" class="headerlink" title="5. 查看git信息"></a>5. 查看git信息</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git config --list   <span class="comment">#查看git整体配置信息列表</span></span><br><span class="line">git remote -v       <span class="comment">#查看远程仓库地址</span></span><br><span class="line">git branch -v       <span class="comment">#查看本地分支&amp;基本信息</span></span><br><span class="line">git branch -vv      <span class="comment">#比上条多了关联的远程分支（pull/fetch的分支）</span></span><br><span class="line">git branch -r       <span class="comment">#查看所有远程分支</span></span><br><span class="line">git branch -a       <span class="comment">#查看所有分支</span></span><br></pre></td></tr></table></figure>
-<h4 id="6-stash"><a href="#6-stash" class="headerlink" title="6. stash"></a>6. stash</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git stash</span><br><span class="line">git stash save "message"    #将stash命名为message</span><br><span class="line">git stash save -a "message" #将git忽略的文件也stash，不常用</span><br><span class="line">git stash list              #stash列表</span><br><span class="line">git stash pop               #将stash第0条应用并删除</span><br><span class="line">git stash apply stash@&#123;2&#125;   #将index=2的stash应用</span><br></pre></td></tr></table></figure>
-<h4 id="7-patch"><a href="#7-patch" class="headerlink" title="7. patch"></a>7. patch</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git format-patch HEAD^        #HEAD的patch</span><br><span class="line">git format-patch HEAD^^       #HEAD和前一个的patch</span><br><span class="line">git format-patch HEAD~$n -o ~/patchdir       #将前n次提交打patch，保存到～/patchdir目录下</span><br><span class="line">git format-patch HEAD~$n --numbered-files    #将前n次提交打patch，文件名保存为数字</span><br><span class="line">git apply --stat xxx.patch    #检查patch</span><br><span class="line">git apply --check xxx.patch   #查看是否能应用成功</span><br><span class="line">git am -s &lt; xxx.patch         #应用patch</span><br></pre></td></tr></table></figure>
-<h4 id="8-创建新分支"><a href="#8-创建新分支" class="headerlink" title="8. 创建新分支"></a>8. 创建新分支</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b feature/dev_liuxiao</span><br><span class="line">git checkout -b feature/dev_liuxiao --track origin/master #基于远程跟踪分支master创建本地分支</span><br></pre></td></tr></table></figure>
-<h4 id="9-pull-fetch-push"><a href="#9-pull-fetch-push" class="headerlink" title="9. pull/fetch/push"></a>9. pull/fetch/push</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">1. pull</span></span><br><span class="line">git pull origin master:dev                  #拉取远程master分支，和本地dev分支合并</span><br><span class="line">git pull --rabase origin master:dev         #拉取远程master分支，和本地dev分支使用rebase的方式合并</span><br><span class="line"><span class="meta">#</span><span class="bash">如果本地和远程分支之间存在追踪关系（tracking），可以省略分支名</span></span><br><span class="line">git pull origin</span><br><span class="line">git branch --set-upstream dev origin/master #将本地dev分支建立远程追踪分支为origin/master</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">2. fetch </span></span><br><span class="line"><span class="meta">#</span><span class="bash">pull相当于fetch+merge</span></span><br><span class="line">git fetch origin            #拉取远程更新</span><br><span class="line">git merge origin/master     #将远程更新合并到本地当前分支</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">3. push</span></span><br><span class="line"><span class="meta">#</span><span class="bash">-u</span></span><br><span class="line">git push -u origin dev      #将本地dev分支push到远端</span><br><span class="line"><span class="meta">#</span><span class="bash">-u 相当于 没有参数+upstream</span></span><br><span class="line">git branch --set-upstream dev origin/master</span><br><span class="line">git push origin dev</span><br><span class="line"><span class="meta">#</span><span class="bash">-f</span></span><br><span class="line">git push -f origin dev      #将本地dev分支强行push到远端，冲突强行覆盖（保护的分支需要权限）</span><br><span class="line"><span class="meta">#</span><span class="bash">如果本地分支名和远程目标分支名不同</span></span><br><span class="line">git push origin HEAD:master</span><br></pre></td></tr></table></figure>
-<h4 id="10-删除"><a href="#10-删除" class="headerlink" title="10. 删除"></a>10. 删除</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clean -f      #删除untracked files</span><br><span class="line">git clean -f -n   #查看会删除的files</span><br><span class="line">git clean -f -d   #删除untracked文件夹</span><br></pre></td></tr></table></figure>
-<h4 id="11-log"><a href="#11-log" class="headerlink" title="11. log"></a>11. log</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reflog        #历史记录</span><br><span class="line">                  #可以拿到已经回滚reset过的提交的id，通过git reset id，可以把回滚过的提交找回</span><br></pre></td></tr></table></figure>
-<h2 id="可思考-研究的常见问题"><a href="#可思考-研究的常见问题" class="headerlink" title="可思考/研究的常见问题"></a>可思考/研究的常见问题</h2><h4 id="1-如何删除一个远程分支？"><a href="#1-如何删除一个远程分支？" class="headerlink" title="1. 如何删除一个远程分支？"></a>1. 如何删除一个远程分支？</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">方式1. git UI操作，通常在setting/branches中</span></span><br><span class="line"><span class="meta">#</span><span class="bash">方式2. 将一个空目录提交到制定远程</span></span><br><span class="line">git push origin:dev</span><br><span class="line"><span class="meta">#</span><span class="bash">方式3. delete参数</span></span><br><span class="line">git push origin -delete dev</span><br></pre></td></tr></table></figure>
-<h4 id="2-如何将修改追加到已经push了的n次提交之前？"><a href="#2-如何将修改追加到已经push了的n次提交之前？" class="headerlink" title="2. 如何将修改追加到已经push了的n次提交之前？"></a>2. 如何将修改追加到已经push了的n次提交之前？</h4><h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h4 id="1-安装git环境"><a href="#1-安装git环境" class="headerlink" title="1. 安装git环境"></a>1. 安装git环境</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git-core     #windows在官网下载环境</span><br></pre></td></tr></table></figure>
-<h4 id="2-创建代码仓库"><a href="#2-创建代码仓库" class="headerlink" title="2. 创建代码仓库"></a>2. 创建代码仓库</h4><ul>
-<li>配置身份</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">"liushaox"</span></span><br><span class="line">git config --global user.email <span class="string">"liushaox@163.com"</span></span><br></pre></td></tr></table></figure>
+<h4 id="api命令"><a href="#api命令" class="headerlink" title="api命令"></a>api命令</h4><p>和原来的compile命令完全相同</p>
+<h4 id="implemention命令"><a href="#implemention命令" class="headerlink" title="implemention命令"></a>implemention命令</h4><p>对于使用了该命令编译的依赖，对该项目有依赖的项目将无法访问到使用该命令编译的依赖中的任何程序，也就是将该依赖隐藏在内部，而不对外部公开</p>
+<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><h5 id="1-使用compile-api"><a href="#1-使用compile-api" class="headerlink" title="1. 使用compile/api"></a>1. 使用compile/api</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A compile B</span><br><span class="line">B compile C</span><br></pre></td></tr></table></figure>
+<p>那么A是可以直接调用C的方法的</p>
+<h5 id="2-使用implemention"><a href="#2-使用implemention" class="headerlink" title="2. 使用implemention"></a>2. 使用implemention</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A implemention B</span><br><span class="line">B implemention C</span><br></pre></td></tr></table></figure>
 <ul>
-<li>查看身份</li>
+<li>C的内部方法对B可见，对A不可见，即A不能直接调用C的方法</li>
+<li><strong>好处：在C源码发生变化的时候，只重新编译直接引用C的module(B)，A不重新编译，提高工程构建速度</strong></li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name</span><br><span class="line">git config --global user.email</span><br></pre></td></tr></table></figure>
-<ul>
-<li>初始化为git文件夹</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
-<h4 id="3-提交本地代码"><a href="#3-提交本地代码" class="headerlink" title="3. 提交本地代码"></a>3. 提交本地代码</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git add AndroidMainfest.xml    #添加单个文件</span><br><span class="line">git add src                    #添加单个文件夹</span><br><span class="line">git add .                      #添加所有文件</span><br><span class="line">git commit -m "first commit"   #添加提交描述信息</span><br></pre></td></tr></table></figure>
-<h4 id="4-状态相关"><a href="#4-状态相关" class="headerlink" title="4. 状态相关"></a>4. 状态相关</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git status    #查看git状态，包括commit、修改、冲突等</span><br><span class="line">git diff      #查看更改内容</span><br><span class="line">git diff app/src/main/java/activity/MainActivity.java   #查看单个文件更改内容</span><br></pre></td></tr></table></figure>
-<h4 id="5-常见操作流程"><a href="#5-常见操作流程" class="headerlink" title="5. 常见操作流程"></a>5. 常见操作流程</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">clone</span></span></span><br><span class="line">git clone https://xxx.git</span><br><span class="line"><span class="meta">#</span><span class="bash"> 第一次上传</span></span><br><span class="line">git init</span><br><span class="line">git add . </span><br><span class="line">git commit -m "commit message"</span><br><span class="line">git remote add origin https://xxx.git</span><br><span class="line">git push -u origin master</span><br><span class="line"><span class="meta">#</span><span class="bash"> 以后上传</span></span><br><span class="line">git add . </span><br><span class="line">git commit -m "commit message"</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -487,7 +476,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Git/" rel="tag"># Git</a>
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+            <a href="/tags/Gradle/" rel="tag"># Gradle</a>
           
         </div>
       
@@ -500,14 +491,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/blog/generate-qr-code-in-terminal/" rel="next" title="在命令行(Terminal)中自动生成二维码">
+                <i class="fa fa-chevron-left"></i> 在命令行(Terminal)中自动生成二维码
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/hexo-encrypt-blog-example/" rel="prev" title="博文加密测试">
-                博文加密测试 <i class="fa fa-chevron-right"></i>
+              <a href="/blog/android-studio-new-project-build-failed-preDebugAndroidTestBuild/" rel="prev" title="使用AS新建工程preDebugAndroidTestBuild报错">
+                使用AS新建工程preDebugAndroidTestBuild报错 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -659,7 +654,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#常用进阶命令"><span class="nav-text">常用进阶命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-修改仓库-分支信息"><span class="nav-text">1. 修改仓库/分支信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-修改提交信息-commit-message"><span class="nav-text">2. 修改提交信息(commit message)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-将修改追加到上次到提交"><span class="nav-text">3. 将修改追加到上次到提交</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-撤销add"><span class="nav-text">4. 撤销add</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-查看git信息"><span class="nav-text">5. 查看git信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-stash"><span class="nav-text">6. stash</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-patch"><span class="nav-text">7. patch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-创建新分支"><span class="nav-text">8. 创建新分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-pull-fetch-push"><span class="nav-text">9. pull/fetch/push</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-删除"><span class="nav-text">10. 删除</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-log"><span class="nav-text">11. log</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可思考-研究的常见问题"><span class="nav-text">可思考/研究的常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-如何删除一个远程分支？"><span class="nav-text">1. 如何删除一个远程分支？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-如何将修改追加到已经push了的n次提交之前？"><span class="nav-text">2. 如何将修改追加到已经push了的n次提交之前？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基础"><span class="nav-text">基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-安装git环境"><span class="nav-text">1. 安装git环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-创建代码仓库"><span class="nav-text">2. 创建代码仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-提交本地代码"><span class="nav-text">3. 提交本地代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-状态相关"><span class="nav-text">4. 状态相关</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-常见操作流程"><span class="nav-text">5. 常见操作流程</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#背景"><span class="nav-text">背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文档资源"><span class="nav-text">文档资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Implemention和API命令的使用"><span class="nav-text">Implemention和API命令的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#api命令"><span class="nav-text">api命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#implemention命令"><span class="nav-text">implemention命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例子"><span class="nav-text">例子</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-使用compile-api"><span class="nav-text">1. 使用compile/api</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-使用implemention"><span class="nav-text">2. 使用implemention</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -853,7 +848,7 @@
 		_hcwp.push({widget:"Bloggerstream", widget_id: 100371, selector:".hc-comment-count", label: "{\%COUNT%\}" });
 
 		
-		_hcwp.push({widget:"Stream", widget_id: 100371, xid: "blog/git-advanced-command-note/"});
+		_hcwp.push({widget:"Stream", widget_id: 100371, xid: "blog/android-gradle-implentation-api/"});
 		
 
 		(function() {

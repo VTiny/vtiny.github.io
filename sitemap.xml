@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/blog/android-gradle-implentation-api/</loc>
+    
+    <lastmod>2018-07-29T08:11:48.315Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/blog/google-io-2018-1-keynote/</loc>
+    
+    <lastmod>2018-07-29T08:08:20.897Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/blog/android-studio-new-project-build-failed-preDebugAndroidTestBuild/</loc>
     
-    <lastmod>2018-07-29T07:07:18.503Z</lastmod>
+    <lastmod>2018-07-29T08:07:15.623Z</lastmod>
     
   </url>
   
@@ -19,13 +33,6 @@
     <loc>http://yoursite.com/blog/generate-qr-code-in-terminal/</loc>
     
     <lastmod>2018-06-01T10:46:51.138Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/blog/google-io-2018-1-keynote/</loc>
-    
-    <lastmod>2018-05-12T10:18:08.159Z</lastmod>
     
   </url>
   
