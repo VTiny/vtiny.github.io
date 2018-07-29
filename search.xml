@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[使用AS新建工程preDebugAndroidTestBuild报错]]></title>
+    <url>%2Fblog%2Fandroid-studio-new-project-build-failed-preDebugAndroidTestBuild%2F</url>
+    <content type="text"><![CDATA[使用Android Studio 3.0新建工程，一路默认走下来竟然报错了，报错内容： 12Error:Execution failed for task &apos;:app:preDebugAndroidTestBuild&apos;.&gt; Conflict with dependency &apos;com.android.support:support-annotations&apos; in project &apos;:app&apos;. Resolved versions for app (26.1.0) and test app (27.1.1) differ. See https://d.android.com/r/tools/test-apk-dependency-conflicts.html for details. 原因排查 吐槽：讲道理，怎么编译器新建一个默认工程还能报错啊，好吧，解决它 看报错信息，是com.android.support:support-annotations这个包引入了两个版本，看编译后的环境，确实如此 默认的build.gradle dependencies标签下是这样的 12345678dependencies &#123; implementation fileTree(dir: 'libs', include: ['*.jar']) implementation 'com.android.support:appcompat-v7:26.1.0' implementation 'com.android.support.constraint:constraint-layout:1.1.2' testImplementation 'junit:junit:4.12' androidTestImplementation 'com.android.support.test:runner:1.0.2' androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'&#125; 排查后发现，&#39;com.android.support:appcompat-v7:26.1.0&#39;这里包含的是26.1.0版本的annotations包，而&#39;com.android.support.test:runner:1.0.2&#39;和&#39;com.android.support.test.espresso:espresso-core:3.0.2&#39;这两个用于测试的库包含27.1.1版本 解决问题方式1如果需要用runner和espresso这两个用于测试的库，可以直接把这两行去掉，gralde文件变成： 123456dependencies &#123; implementation fileTree(dir: 'libs', include: ['*.jar']) implementation 'com.android.support:appcompat-v7:26.1.0' implementation 'com.android.support.constraint:constraint-layout:1.1.2' testImplementation 'junit:junit:4.12'&#125; 方式2声明runner和espress两个测试库不重复引入annotations包 12345678910111213dependencies &#123; implementation fileTree(dir: 'libs', include: ['*.jar'])Ω implementation 'com.android.support:appcompat-v7:26.1.0' implementation 'com.android.support.constraint:constraint-layout:1.1.2' testImplementation 'junit:junit:4.12' androidTestImplementation 'com.android.support.test:runner:1.0.2', &#123; exclude module: 'junit' exclude group: 'com.android.support', module: 'support-annotations' &#125; androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2', &#123; exclude group: 'com.android.support', module: 'support-annotations' &#125;&#125; 方式3强制声明最终引入的annotations包的版本 12345678910111213dependencies &#123; implementation fileTree(dir: 'libs', include: ['*.jar'])Ω implementation 'com.android.support:appcompat-v7:26.1.0' implementation 'com.android.support.constraint:constraint-layout:1.1.2' testImplementation 'junit:junit:4.12' androidTestImplementation 'com.android.support.test:runner:1.0.2' androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2' androidTestImplementation('com.android.support:support-annotations:26.1.0') &#123; force = true &#125;&#125; 大吉大利好了终于正常了，大吉大利]]></content>
+      <categories>
+        <category>Android</category>
+      </categories>
+      <tags>
+        <tag>Android Studio</tag>
+        <tag>AS</tag>
+        <tag>gradle</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[在命令行(Terminal)中自动生成二维码]]></title>
     <url>%2Fblog%2Fgenerate-qr-code-in-terminal%2F</url>
     <content type="text"><![CDATA[shell小白，此脚本实现的功能是在命令行中自动生成输入的文字/链接的二维码 相关资源 brew: 或许是mac上安装软件最方便的方式？ https://brew.sh/ qrencode: “a fast and compact QR Code encoding library” https://github.com/fukuchi/libqrencode 实现思路 检测brew环境，若没有，则安装 检测qrencode环境，活没有，则安装 使用qrencode生成二维码，并打印 123456789101112131415161718192021222324252627282930313233343536#!/usr/bin/env bash#若没有brew环境，安装brewif which brew &gt; /dev/null ; then echo "brew has been installed."else echo "brew not installed, install brew first." ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"fi#若没有qrencode库，安装qrencodeif which qrencode &gt; /dev/null ; then echo "qrencode has been installed."else echo "qrencode not installed, install brew first" brew install qrencodefi#处理参数，获取要生成二维码的信息if [ $# == 0 ]; then read -p "Enter message here: " messageelif [[ $1 == "help" ]] || [[ $1 == "--help" ]]; then echo "A tool for generating qr code." echo "Example usage:" echo " qrcode \"http://www.163.com\"" echo " qrcode \"n 55!W\"" echo "Further help:" echo " qrcode help" echo " qrcode --help" exitelif [ $1 ]; then message=$1fi#打印二维码echo $message | qrencode -o - -t UTF8 运行效果]]></content>
@@ -49,17 +62,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[博文加密测试]]></title>
-    <url>%2Fblog%2Fhexo-encrypt-blog-example%2F</url>
-    <content type="text"><![CDATA[下面输入密码, 错了就打不开哈哈哈哈 U2FsdGVkX1+32PGpXubavq9LvHpvSccMdKKzN9AgtRoOycZF9fYNPS/tq/euv5YK1y5Z8SgMqO5UdUSpovnCO3ABQyRLVf8iaehfu/p+6vbENlI5uNA5HbsRtbAxD1JjtCjbk/iuKNPEFyXPcBtFx9vi2P25K6Tt3z+OJhTxoA/wfDn9s9uTd7iYbCp0FwMuCsK2pI7QksSjbjqxqcOaP5J2LBvOANjijmSZ10/1/sFZQx1Of/Cz4fMpgS0kYYPWGDhFFKGDAYK8kPiWBt75XZI1dy1l8GAcl6In3y0Gf/l6ksHr2EujR4RreDCAoGNDZSjk6VudqrSnxtSufUtyhZ5KCig4FslfuISDTKS7a0Q87moYOfPVzLIzoDozvosuYmnlp8Ppx6RNCnLQY61i4GuqGoBpmJDrVKuIFYl5U5pj2hdCE6RxJnPJSu7m7wJ5PMPLVYjOmlTCjfE60RT2++9GRiToLj7Emy8QhYKti5Z9aFfUUsZuYPGJPYM/aAMSZ0zTYn4MrdjNR0ATp/INxikJsQx/f9LmAkKCwGNZP6ohWNefLaIWpvT1iABc/jZrtTVA6zLSa9xK9QknfdzLbWb3XpvyGpHWrFohxTLPDDuDuqEhONG2FxUYRNXQc6zULfWZXQE3aNhW8z/WiEWs0dskqa2wNHjJCaS5bSnMH7lJXYeu7JjRmAdFytFq6bmVYGn925DtaredlgC4izFtUCw1XjQFcFIQVnXkdVzE1NPMCSRdGOn1Z3+1QpjWENaS42IWeJJTIM/p/qUEcxeXb84gItpX0TSL6sDvvE6ugHWMr1Q5n7YDK1IsBPgVo7yAfzr+u+wLLxUxHTgYPiUQ1j1tKPanx4IMf2QNoTggqKRrXBKFbtr1hJmyYz8hjfHwEPTA+TUfU3+znzVMhTO59nHOQSH6nfwjV6KBljCtlT6HSLguKwA16WQgSSEuAgI0ScXC0fXXNQkJHRACMmuno2k31U3T41fMDWzy5OUln6h6aK/Wxzz7vX4XJDVUtgKtjVA6ue5+qj/2ReY4ZBwL3oVmGT/Q1AsubWZpnFzYQtfAtOrCKKmZOZewmG5wY4gHHFxdYzbUK5VVfZgOVgBl0uDXHhfns7jHKTGuVmZ/70zzsYmF4OeGHAHSKC/RY0wkfKF9elAHjdsy2p8kNv76/94+H5q8SqzCtfdvKbouX3s=]]></content>
-      <categories>
-        <category>Tools</category>
-      </categories>
-      <tags>
-        <tag>加密</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[如何给博文加密]]></title>
     <url>%2Fblog%2Fhexo-encrypt-blog%2F</url>
     <content type="text"><![CDATA[博客当然也要有记录生活的功能，怎么能放心的记(tu)录(cao)生活而不担心被陌生人看到呢，那就需要对博文进行加密了。本文介绍了使用hexo-blog-encrypt插件完成对博文进行加密的方式，可以放心的写一些羞羞的事情了~ 通过hexo-blog-encrypt插件实现，插件github地址：https://github.com/MikeCoder/hexo-blog-encrypt ，上面有使用方式的介绍 1. 安装encrypt插件在hexo根目录下的package.json中dependencies标签下添加： 1"hexo-blog-encrypt": "2.0.*" 更新环境安装插件 1$ npm install 2. 在配置文件中启用插件在站点配置文件 _config.yml中启用插件，添加如下配置 1234# Security## Docs: https://github.com/MikeCoder/hexo-blog-encryptencrypt: enable: true 3. 使用encrypt插件加密文章在文章头中添加password字段 123456---title: hello worldpassword: liushaoxiaabstract: 加密文章的简介message: 输入密码上方的提示--- 4. live demodemo: 博文加密测试 , 密码是liushaox 5. 高阶使用方式可以对文章目录TOC进行加密、修改加密模板，具体方式转步插件作者wiki查看： github：https://github.com/MikeCoder/hexo-blog-encrypt/ 中文版：https://github.com/MikeCoder/hexo-blog-encrypt/blob/master/ReadMe.zh.md]]></content>
@@ -68,6 +70,17 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[博文加密测试]]></title>
+    <url>%2Fblog%2Fhexo-encrypt-blog-example%2F</url>
+    <content type="text"><![CDATA[下面输入密码, 错了就打不开哈哈哈哈 U2FsdGVkX1/KLMW/SJrCvv2eiKXC4/nOSd0HryJ9i8vZ9DNL5LfStfMuOrLY97MLS+hg9WwTBZP00AylT7igqD2gPtsVr7nZb2P9FjBk86ynbVtys7vGoIIHXsWR2Qlj7UMd8UcaZp/4nxp7CH50ZHvpVVCOtVgfHFjr5OfsJh1IXPNnyAUVsIs+BHlPiLxam4MQ2BG0MQRYckKzlXqOGMRt/1bEF/BmQWpfZqj+8AXaWYgSGEBJwqADtiEVFvB5Oj9NrAVeNCoPytG8+jfgO8G7QatRR8SdiaMhStQTgK5eJgt6Mh28xXzxwIWJyxL5P60zdRVSs6gg5D+WoAN3NmQ4byFryZGsE/a9WhvbudTG4Z1xQLTpPEomaYEuKyArkIPqTmVTsX1p5/WoGSGuVel9Rw8R8WgBUgsMs/REoOV9v1fJdqshYOL2tXmofMcoVeqmpgKyAQXb87G/YwpIPf8xz6Y61YdoFqq4GX7QZNz12vhZ99pFzKMg6xDRK+NDZcZ2GAjF16E4/QfROU+kgLejwZ5ePddCcyED236sYskG8P6xd9TPdiy0BvXCHa7rQZ3FcgJUqWg4uf8ehivOH39hrPL5E+fmdt1ahq7sz0tjDk5/lI9NS6WqcJUC255Mhhh1s543VaU0ga1ZMF41fxiVv5gVeDTk5WRHtEuY8uBsvvRYuxLk3iZppaTCI9H6F9oXaYYTYOnGpu3yyqvbFyBpvIwOCsxqM4IL6t4YSK9aadWZHL2cGPiW62068wzTMNTf9pF2P3ntyyu/SfVt4UDbtMhMM6vyfUA01pyW5WP7i/8CvGH6co3gkkJE0dr0KYy9SHaF5L9gJTHNkCymdm/s2HG0GRGlOr/XNZeH2A5CsG+sWtHfX+IwJ1qDDp9iCLdYJ6wlL8asucdKQHdhy9n7Nwevmm9HmkD8MjKMFmmxkQeQKI92iXaU0UGIzXe938djUK3sukwXAfVho5U5g3XRvmbUIJmYIzmz0W0K2zc4hCB3g8o6LTritFCoTKG30L/dd3qbg0vOe1/BoyUTiCUMKBwx3qSBGy+m4HPey4rSnLqtyDamx8aJ+USJZNHds7AD4VYGeobVuz+CcGQVB6ZtsjXLWdxzW0fIXM/QhQyk7BXayAJKNmwhCFyjgEBSxDsWKzdlSFMUYhySs5hcp4E/wzA4Musz07VsLtXRavk=]]></content>
+      <categories>
+        <category>Tools</category>
+      </categories>
+      <tags>
+        <tag>加密</tag>
       </tags>
   </entry>
   <entry>
