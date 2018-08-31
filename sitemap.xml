@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/about/index.html</loc>
+    
+    <lastmod>2018-08-31T05:24:44.380Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/blog/android-api-history-version/</loc>
     
     <lastmod>2018-08-07T09:36:17.878Z</lastmod>
@@ -54,13 +61,6 @@
     <loc>http://yoursite.com/blog/git-commit-to-swh/</loc>
     
     <lastmod>2018-05-06T08:34:44.370Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/about/index.html</loc>
-    
-    <lastmod>2018-01-25T03:05:12.252Z</lastmod>
     
   </url>
   
