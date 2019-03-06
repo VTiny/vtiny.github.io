@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/blog/google-io-2018-1-keynote/</loc>
+    
+    <lastmod>2019-03-06T03:14:42.985Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/blog/generate-qr-code-in-terminal/</loc>
+    
+    <lastmod>2019-03-06T03:14:42.340Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/blog/android-studio-new-project-build-failed-preDebugAndroidTestBuild/</loc>
+    
+    <lastmod>2019-03-06T03:14:41.254Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/blog/use-mac-notes/</loc>
+    
+    <lastmod>2019-03-06T03:14:39.727Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/blog/shell-programming-note/</loc>
+    
+    <lastmod>2019-03-06T03:14:34.711Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/about/index.html</loc>
     
     <lastmod>2018-08-31T06:22:37.251Z</lastmod>
@@ -16,13 +51,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/blog/use-mac-notes/</loc>
-    
-    <lastmod>2018-08-07T08:50:51.762Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/blog/android-gradle-implentation-api/</loc>
     
     <lastmod>2018-07-29T08:11:48.315Z</lastmod>
@@ -30,30 +58,9 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/blog/google-io-2018-1-keynote/</loc>
-    
-    <lastmod>2018-07-29T08:08:20.897Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/blog/android-studio-new-project-build-failed-preDebugAndroidTestBuild/</loc>
-    
-    <lastmod>2018-07-29T08:07:15.623Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/schedule/index.html</loc>
     
     <lastmod>2018-07-29T06:47:07.034Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/blog/generate-qr-code-in-terminal/</loc>
-    
-    <lastmod>2018-06-01T10:46:51.138Z</lastmod>
     
   </url>
   
