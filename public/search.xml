@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[Shell脚本笔记]]></title>
+    <url>%2Fblog%2Fshell-programming-note%2F</url>
+    <content type="text"><![CDATA[现在算是一个shell编程入了门的小菜鸟，本文是把学习、开发过程中遇到的一些常见的/有用的 语法/命令记录下来 Shell命令篇 一些常见的就不列举出来了，如ls cd等 dig 域名解析命令，可以看到域名状态、重定向等信息 1dig www.mrliuxia.com man 命令介绍手册，不过一些后安装的、非系统自带的命令不一定有，原理是要往系统的一个目录下写入类似于windows chm格式的说明文档 which 查找文件，会在环境变量$PATH设置的目录里查找符合条件的文件 常用于查看指令的绝对路径 Shell编程语法篇while循环1234while 条件do ...done for循环1234# 将输入的所有参数组合起来for args in $* ; do title=$&#123;title&#125;$&#123;args&#125;done 写入文件1234# 覆盖写入echo "$&#123;content&#125;" &gt; $&#123;filePath&#125;# 追加写入echo "$&#123;content&#125;" &gt;&gt; $&#123;filePath&#125; 整数相关自加123456789101112# 相加，4种方法，萝卜白菜let a=$1+$2b=$[$1+$2]((c=$1+$2))d=`expr $1 + $2`# 自加1，6种方法a=$(($a+1))a=$[$a+1]a=`expr $a + 1`let a++let a+=1((a++)) 比较123456789101112131415# 等于if [[ "$a" -eq "$b" ]]...# 不等于if [[ "$a" -ne "$b" ]]...# 大于if [[] "$a" -gt "$b" ]]...# 大于等于if [[ "$a" -ge "$b" ]]...# 小于if [[ "$a" -lt "$b" ]]...# 小于等于if [[ "$a" -le "$b" ]]...# 也可以使用用符号，如if [[ $&#123;a&#125;==$&#123;b&#125; ]]...if (("$a" != "$b"))... 输入是否是整数123456## 记录一种简单的方式if [[ "$1" -gt 0 ]] 2&gt;/dev/null ;then echo "$1 is number." else echo 'no.' fi 字符串相关比较字符串123# 是否相等if [[ "$a" = "$b" ]]...if [[ "$a" == "$b" ]]... 是否为空12if [[ -z "$a" ]]...if [[ -n "$a" ]]... 反转字符串12345678# 判断是否是回文function palindromic()&#123; if [[ !(-z "$1") &amp;&amp; $(rev &lt;&lt;&lt; "$1") == "$1" ]]; then echo yes else echo no fi&#125; 过滤字符串12# 将第一个参数过滤掉","echo $1 | grep -v "," 截取字符串1234# 从第1个字符开始，截取a的两个字符echo $&#123;str:1:2&#125;# 截取最后两位echo $str | sed 's//(.*/)/(../)$//' IFS INIT_PATH脚本常见开头判断参数个数12345# 若参数个数小于2则报错if [[ $# -lt 2 ]]; then echo -e "\033[31mError: need 2 args.\033[0m" exit 2fi 获取输入参数12345678910# 获取-t -i参数while getopts "t:p:g:c:i:" cmddo case $&#123;cmd&#125; in t) title=$&#123;OPTARG&#125;;; i) id=$&#123;OPTARG&#125;;; esacdone 按行读文件1234567# 按行读文件并输出cat $0 | while read lineNodo echo "$lineNo"done# 使用awkcat $0 | awk 'for(i=2;i&lt;NF;i++) &#123;printf $i&#125; printf "\n"&#125;' 附录1. 一元操作符 指令 含义 -e 文件存在 -a 文件存在（已被弃用） -f 被测文件是一个regular文件（正常文件，非目录或设备） -s 文件长度不为0 -d 被测对象是目录 -b 被测对象是块设备 -c 被测对象是字符设备 -p 被测对象是管道 -h 被测文件是符号连接 -L 被测文件是符号连接 -S(大写) 被测文件是一个socket -t 关联到一个终端设备的文件描述符。用来检测脚本的stdin[-t0]或[-t1]是一个终端 -r 文件具有读权限，针对运行脚本的用户 -w 文件具有写权限，针对运行脚本的用户 -x 文件具有执行权限，针对运行脚本的用户 -u set-user-id(suid)标志到文件，即普通用户可以使用的root权限文件，通过chmod +s file实 -k 设置粘贴位 -O 运行脚本的用户是文件的所有者 -G 文件的group-id和运行脚本的用户相同 -N 从文件最后被阅读到现在，是否被修改 2. 二元操作符 指令 含义 -eq 等于 -ne 不等于 -gt 大于 -ge 大于等于 -lt 小于 -le 小于等于 注释: shell中也支持&gt; &gt;= &lt; &lt;= = == !=操作符，其中=和==含义相同]]></content>
+      <categories>
+        <category>Shell</category>
+      </categories>
+      <tags>
+        <tag>Shell</tag>
+        <tag>编程语言</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Mac使用笔记]]></title>
+    <url>%2Fblog%2Fuse-mac-notes%2F</url>
+    <content type="text"><![CDATA[此文的目的是记录下在使用macOS过程中个人觉得还不错的习惯、还不错的软件，帮助大家喜欢上使用Mac…… 更新中…… 文内图片找回中，七牛真坑，图片原外链不让访问，还不让下载 个人观点： macOS在易用性上完爆Windows，Windows只适合用来娱乐和一些必须要用一些不支持macOS或支持得不好的软件的场景（本人使用到的98%的软件都有mac版本，或者有可替代的软件，甚至只有mac版本） 尤其是开发同学，强烈建议使用Mac，个人从Windows转移到Mac并熟悉了系统之后，开发效率提高了至少一倍 个人建议千万不要做双系统，非要用Windows系统还不如再买个Windows电脑 还不错的习惯 多用快捷键，mac的快捷键设计的很合理，不像臭名昭著的win键 Command键用左手大拇指按 使用caps lock（大小写锁定）键来切换中英文 把系统设置里所有东西都过一遍，设置触发脚，显示桌面/进入屏保，很方便 多用Spotlight，很方便，比如 打开应用（建议输入英文名因为快） 文档搜索 直接输入算式以计算 汇率计算（输入：1美元） 单词翻译 如果用的是Mac笔记本/有触控板的话，尽量不要用鼠标 还不错的软件常用软件 因为这个类别没什么技术含量，基本上所有用mac的人都会用，所以不详细说明，只是列举出来 微信、网易云音乐、Chrome、网易邮箱大师、Thunder、百度网盘、腾讯视频等 文本软件 Office三件套有mac版本，但是用起来觉得一般般，总是卡顿，很少用 Mac办公三件套（Page、Keynote、Numbers）用起来很舒服，且很容易上手，也能导出为office的格式，推荐使用 Markdown编辑器： Typora 个人很钟爱用markdown格式写文本，因为可以通过使用简单符号的方式快速排版，这样可以让自己专注在写作上，而不是用在排版这种浪费时间的事情上（对于记录这个行为来说），个人也很建议平时写文档使用markdown格式来记录 关于markdown的介绍可以看这里： 维基百科：Markdown Github中star数最高的Markdown介绍 简书：Markdown新手指南 本人使用过很多Markdown编辑器，多数设计的风格是编辑区和渲染效果区左右分开， 当发现Typora这个软件之后内心的想法是： 卧槽真特么好用，只有正在输入的地方显示编辑效果，其它地方显示的是渲染效果 卧槽界面真舒服，浓浓的性冷淡风，还支持很多渲染主题 卧槽真特么良心，各种格式几乎都有快捷键，所有markdown语法还都支持，还支持中文 卧槽这软件做的这么好还是免费的 Typora官网及下载链接 笔记工具： 有道云笔记本人也使用过很多笔记软件做过横向对比，比如常见的印象笔记、为知笔记、OneNote，也用过小众的Leanote，在综合考虑以下几个方面的原因后，最终选择了有道云笔记+系统自带Notes+个人网站 同步功能 Markdown支持 操作舒适度及界面风格 免费版功能已足够日常使用 官网及下载链接 计划软件 本人对于这类软件要求不是很高，正在使用的是前两个 Reminders + Calendar系统自带的两个应用，个人觉得已经满足大部分人的需求，界面还算友好，操作不算复杂，重点是在mac和手机上同步得很快 Clear操作、界面都很简洁，能够满足平时需要，但是缺点是不能看历史记录 ps 需付费 AppStore 链接 Omni系列应对较复杂的场景，自己用过一次放弃了，不需要这么复杂 AppStore 链接 工具软件剪贴板 - Paste强烈推荐，用着巨舒服，Command+Shift+v会显示剪贴板历史，且几乎支持所有格式 AppStore 链接 截图工具 - Snipaste微软出品的良心软件，功能比同类软件强大很多，且操作也很舒服，和Paste配合起来天衣无缝 ps1 之前用过腾讯的Jietu、Xnip等始终不满意，发现Snipaste之后简直破费，使用方便、功能全、UI舒服 ps2 建议在使用这个软件的时候把其他应用自带的截图工具快捷键取消掉 Snipaste官网及下载 图床工具 - iPic / PicU作为一个以markdown为最常用书写方式的人，图床工具是很必要的（因为markdown插入图片的方式是插入图片的链接），一键上传，一键复制为markdown格式，美滋滋，妥妥的生产力 发现了两个图床工具都很好用，iPic免费版只支持微博图床，PicU是一个开发者模仿iPic开发的工具，很强 iPic AppStore链接 PicU Github地址 PicU 简书介绍地址 清理工具 - CleanMyMac3虽然说mac正常情况下不需要清理，如果实在是磁盘没地方的话清理下也不错，CleanMyMac是很有名的老牌清理工具，能发现这么老多系统垃圾我也是很震惊 CleanMyMac官网及下载 ### 编程软件编译器 - Jetbrains公司全系列产品在用过CodeBlocks、Netbeans、Eclipse等很多个编译器，在接触到Jetbrains公司的编译器产品后发现真特么舒服，再也不会换编译器了，优点大概是 强大、迅速、友好等等该有的随便吹 各种语言都有对应的产品，还有数据库、持续集成等的产品 快捷键很多很舒服（一定要多用快捷键） 插件很多质量很高，自己写也较简单 Jetbrains官网 Java编译器 - IDEA Python编译器 - PyCharm C编译器 - CLion Web编译器 - WebStorm 激活方式：（毕竟几千块还是有点贵……） 自行搜索，有大神的激活教程 学生可以进行学生认证，学生认证后免费使用 API文档工具 - Dash支持的语言很丰富，各种语言的API文档 Dash官网及下载 抓包工具 - Charles功能巨强大，前端客户端开发必备 Charles官网及下载 ####]]></content>
+      <categories>
+        <category>Tools</category>
+      </categories>
+      <tags>
+        <tag>Mac</tag>
+        <tag>macOS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用AS新建工程preDebugAndroidTestBuild报错]]></title>
+    <url>%2Fblog%2Fandroid-studio-new-project-build-failed-preDebugAndroidTestBuild%2F</url>
+    <content type="text"><![CDATA[使用Android Studio 3.0新建工程，一路默认走下来竟然报错了，报错内容： 12Error:Execution failed for task &apos;:app:preDebugAndroidTestBuild&apos;.&gt; Conflict with dependency &apos;com.android.support:support-annotations&apos; in project &apos;:app&apos;. Resolved versions for app (26.1.0) and test app (27.1.1) differ. See https://d.android.com/r/tools/test-apk-dependency-conflicts.html for details. 文内图片找回中，七牛真坑，图片原外链不让访问，还不让下载 原因排查 吐槽：讲道理，怎么编译器新建一个默认工程还能报错啊，好吧，解决它 看报错信息，是com.android.support:support-annotations这个包引入了两个版本，看编译后的环境，确实如此 默认的build.gradle dependencies标签下是这样的 12345678dependencies &#123; implementation fileTree(dir: 'libs', include: ['*.jar']) implementation 'com.android.support:appcompat-v7:26.1.0' implementation 'com.android.support.constraint:constraint-layout:1.1.2' testImplementation 'junit:junit:4.12' androidTestImplementation 'com.android.support.test:runner:1.0.2' androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'&#125; 排查后发现，&#39;com.android.support:appcompat-v7:26.1.0&#39;这里包含的是26.1.0版本的annotations包，而&#39;com.android.support.test:runner:1.0.2&#39;和&#39;com.android.support.test.espresso:espresso-core:3.0.2&#39;这两个用于测试的库包含27.1.1版本 解决问题方式1如果需要用runner和espresso这两个用于测试的库，可以直接把这两行去掉，gralde文件变成： 123456dependencies &#123; implementation fileTree(dir: 'libs', include: ['*.jar']) implementation 'com.android.support:appcompat-v7:26.1.0' implementation 'com.android.support.constraint:constraint-layout:1.1.2' testImplementation 'junit:junit:4.12'&#125; 方式2声明runner和espress两个测试库不重复引入annotations包 12345678910111213dependencies &#123; implementation fileTree(dir: 'libs', include: ['*.jar'])Ω implementation 'com.android.support:appcompat-v7:26.1.0' implementation 'com.android.support.constraint:constraint-layout:1.1.2' testImplementation 'junit:junit:4.12' androidTestImplementation 'com.android.support.test:runner:1.0.2', &#123; exclude module: 'junit' exclude group: 'com.android.support', module: 'support-annotations' &#125; androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2', &#123; exclude group: 'com.android.support', module: 'support-annotations' &#125;&#125; 方式3强制声明最终引入的annotations包的版本 12345678910111213dependencies &#123; implementation fileTree(dir: 'libs', include: ['*.jar'])Ω implementation 'com.android.support:appcompat-v7:26.1.0' implementation 'com.android.support.constraint:constraint-layout:1.1.2' testImplementation 'junit:junit:4.12' androidTestImplementation 'com.android.support.test:runner:1.0.2' androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2' androidTestImplementation('com.android.support:support-annotations:26.1.0') &#123; force = true &#125;&#125; 大吉大利好了终于正常了，大吉大利]]></content>
+      <categories>
+        <category>Android</category>
+      </categories>
+      <tags>
+        <tag>Android Studio</tag>
+        <tag>AS</tag>
+        <tag>Gradle</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【不懂就记】Gradle implementation、api命令]]></title>
+    <url>%2Fblog%2Fandroid-gradle-implentation-api%2F</url>
+    <content type="text"><![CDATA[发现Android Studio升级到3.0版本以后，新建工程默认的app包的build.gradle文件有点不认识了，长成这样，主要是implemention这个命令是什么鬼 12345678dependencies &#123; implementation fileTree(dir: 'libs', include: ['*.jar']) implementation 'com.android.support:appcompat-v7:26.1.0' implementation 'com.android.support.constraint:constraint-layout:1.1.2' testImplementation 'junit:junit:4.12' androidTestImplementation 'com.android.support.test:runner:1.0.2' androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'&#125; 背景Android Studio再升级到3.0版本后，gradle插件版本默认升级到了3.0.0版本，在此版本中不推荐使用gradle的compile命令，推荐使用implemention命令和api命令 文档资源 强推: Google I/O 2017 - Speeding Up Your Android Gradle Builds演讲关于Implemention和API的部分 Implementation vs API dependency (大概是把I/O演讲的整理记录了下) 记录的中文翻译版本 谷歌官方迁移(升级)到Android Plugin for Gradle3.0文档 Implemention和API命令的使用 在I/O 2017的演讲中，演讲者将build一个工程比作是pay taxes，给人的感觉确实也是如此，构建工程的速度很重要，立个flag，过段时间整体研究下 api命令和原来的compile命令完全相同 implemention命令对于使用了该命令编译的依赖，对该项目有依赖的项目将无法访问到使用该命令编译的依赖中的任何程序，也就是将该依赖隐藏在内部，而不对外部公开 例子1. 使用compile/api12A compile BB compile C 那么A是可以直接调用C的方法的 2. 使用implemention12A implemention BB implemention C C的内部方法对B可见，对A不可见，即A不能直接调用C的方法 好处：在C源码发生变化的时候，只重新编译直接引用C的module(B)，A不重新编译，提高工程构建速度]]></content>
+      <categories>
+        <category>Android</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+        <tag>Gradle</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在命令行(Terminal)中自动生成二维码]]></title>
+    <url>%2Fblog%2Fgenerate-qr-code-in-terminal%2F</url>
+    <content type="text"><![CDATA[shell小白，此脚本实现的功能是在命令行中自动生成输入的文字/链接的二维码 相关资源 brew: 或许是mac上安装软件最方便的方式？ https://brew.sh/ qrencode: “a fast and compact QR Code encoding library” https://github.com/fukuchi/libqrencode 实现思路 检测brew环境，若没有，则安装 检测qrencode环境，活没有，则安装 使用qrencode生成二维码，并打印 123456789101112131415161718192021222324252627282930313233343536#!/usr/bin/env bash#若没有brew环境，安装brewif which brew &gt; /dev/null ; then echo "brew has been installed."else echo "brew not installed, install brew first." ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"fi#若没有qrencode库，安装qrencodeif which qrencode &gt; /dev/null ; then echo "qrencode has been installed."else echo "qrencode not installed, install brew first" brew install qrencodefi#处理参数，获取要生成二维码的信息if [ $# == 0 ]; then read -p "Enter message here: " messageelif [[ $1 == "help" ]] || [[ $1 == "--help" ]]; then echo "A tool for generating qr code." echo "Example usage:" echo " qrcode \"http://www.163.com\"" echo " qrcode \"n 55!W\"" echo "Further help:" echo " qrcode help" echo " qrcode --help" exitelif [ $1 ]; then message=$1fi#打印二维码echo $message | qrencode -o - -t UTF8 运行效果]]></content>
+      <categories>
+        <category>Shell</category>
+      </categories>
+      <tags>
+        <tag>Shell</tag>
+        <tag>QR Code</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Google I/O 2018 - (一) Keynote]]></title>
+    <url>%2Fblog%2Fgoogle-io-2018-1-keynote%2F</url>
+    <content type="text"><![CDATA[2018年Google I/O大会5月8日–5月10日美国加利福尼亚州芒廷维尤海岸线圆形剧场举行，这一系列文章是观看视频录像的笔记，此文为第一部分，Keynote 文内图片找回中，七牛真坑，图片原外链不让访问，还不让下载 Google I/O 2018 - KeynoteI/O大会官网：https://events.google.com/io 视频链接：https://www.youtube.com/watch?time_continue=441&amp;v=ogfYd705cRs 1. AI1.1 一些应用场景 语音拆分（7:24） 语音生成（摩尔斯电码） 邮件 输入联想 摄像 一些图像识别 1.2 Google Assistant &amp; Google Duplex Holy -&gt; Siri?（”Hey Google”） 然而。。尴尬的事情。。 Continued conversation、Google Assistant其他使用场景 1.3 Naturally conversation New voices Continued conversation Multiple actions Pretty please Google Assistant 打电话订理发、订饭店 Google duplex 亮点，根本听不出来是机器人(36:30) 1.3 Digital Wellbeing Youtube，看了多久提示该休息了，notification整合 2. Google News2.1 Keep up with news you care about Newscast 2.2 Understand the full story full coverage (专题)（更全面事件的发展 local coverage, time line ） 2.3 Enjoy and support the news sources you love Newsstand(杂志摊) Subscribe with Google -&gt; search we’re rolling out on Android iOS and the web in a hundred and twenty seven countries starting today 3. Android P Android started with a simple goal of bringing open standards to the mobile industry 宣传了一波“OPEN” 开放性 10年 3.1 Android P的三个主题 Intelligence Simplicity Digital wellbeing 3.2 Intelligence3.2.1 Adaptive Battery 3.2.2 Adaptive Brightness 3.2.3 App Actions &amp; Slice 预测下一个应用 -&gt; 预测下一个行为 搜索、语音、应用商店 Slice: app提供一些内容给其他app调用，如搜索结果(spotlight) 3.2.4 ML Kit cross-platfrom Android &amp; iOS 3.3 Simplicity 功能键的衍变 手势+小方块（iPhone X）、旋转等 3.4 Digital wellbeing3.4.1 Dashboard App usage notification 3.4.2 App Timer3.4.3 Do Not Disturb -&gt; Shush Starred Contacts 3.4.4 Wind Down Mode屏幕变灰，帮助睡前少玩手机 3.5 Android P Beta 4. Google Maps 谷歌地图变得更加社交化 match cooperation with carema 增强现实 4.1 GPS -&gt; VPS(Visual Positioning System)4.2 Google Lens4.2.1 Smart text selection 4.2.2 Sytle match 4.2.3 Real-time results 5. Self-driving Cars（WAYMO） 这老哥生活应该挺丰富多彩…… back in those early days Google was perhaps the only company in the world investing in both AI and self-driving technology at the same time 5.1 Perception5.2 Behavior prediction5.3 Decision-making5.4 Mapping]]></content>
+      <categories>
+        <category>Sight</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+        <tag>Sight</tag>
+        <tag>Google I/O 2018</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Android历史版本]]></title>
+    <url>%2Fblog%2Fandroid-api-history-version%2F</url>
+    <content type="text"><![CDATA[Android历史版本信息，code name &amp; version &amp; API level &amp; release date 参考来源 谷歌开发者官网：SDK Platform release notes Code name Version API level Release date — 1.0 1 2008.09.23 Petit Four 1.1 2 2009.02.09 Cupcake 1.5 3 2009.04.27 Donut 1.6 4 2009.09.15 Éclair 2.0-2.1 5-7 2009.10.26 Froyo 2.2 8 2010.05.20 Gingerbread 2.3 9 2010.12.6 Honeycomb 3.0-3.2 11-13 2011.02.22 Ice Cream Sandwich 4.0 14-15 2011.10.18 Jelly Bean 4.1-4.3 16-18 2012.07.09 KitKat 4.4 19-20 2012.10.31 Lollipop 5.0-5.1 21-22 2014.12.12 Marshmallow 6.0 23 2015.10.05 Nougat 7.0-7.1 24-25 2016.08.22 Oreo 8.0 26 2017.08.21 8.1 27 2017.12 Pie 9 28 2018.08.07]]></content>
+      <categories>
+        <category>Android</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Git将修改提交到已经commit的n次提交之前]]></title>
+    <url>%2Fblog%2Fgit-commit-to-swh%2F</url>
+    <content type="text"><![CDATA[在使用git的过程中，遇到了想把新的修改添加到之前的提交中的情况。如果想追加到最后一次提交，那很好办，直接git commit --amend就可以；如果想提交到之前的某次提交，那就有点麻烦了 想法1: 使用stash （❌）1.1 实现步骤： 依次将倒序过去的每次提交git reset --soft后用stash存起来 将要追加的修改commit —amend添加进去 依次将每个stash pop应用出来 1.2 遇到的问题： 使用stash保存，发现apply的时候需要重新commit，达不到好的自动化效果 reset的时候需要将每次commit的信息保存好，再次commit的时候使用，麻烦 想法2: 使用patch+stash （✅）2.1 实现步骤： 将现有修改stash贮存 将距离目标commit中间的若干提交生成patch 将仓库reset --hard到目标commit 应用stash，追加到目标commit 将patch恢复，删除缓存patch文件 2.1 具体实现：123456789101112131415161718192021222324252627282930313233343536373839404142434445464748#!/usr/bin/env bash### 参数为倒数第n次提交### 判断参数是否合法if [ $# == 0 ] ;then echo "there should be an args" exitfiif [ $1 == "help" ] ;then echo "将现有修改提交到n次提交之前" echo "比如commit1&lt;-commit2&lt;-commit3,提交到commit1,则参数为2" exitfiif [ $1 -gt 0 ] 2&gt;/dev/null ;then echo "git add to commit HEAD~$a"else echo "$1 should be a number" exitfi# 正题n=$1# 将现有修改添加到stashgit add .git stash# 将中间n次提交打patchgit format-patch HEAD~$n --numbered-files -o ~/patchtemp# 将git强制reset到n次提交之前git reset --hard HEAD~$n# 将stash应用,并添加到目标提交git stash apply stash@&#123;0&#125;git add .git commit --amend# 将各个patch恢复declare -i i=1while((i&lt;=$n))do git am -s &lt; ~/patchtemp/$i let ++idone# 删除patchrm -r ~/patchtemp]]></content>
+      <categories>
+        <category>Tools</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+        <tag>shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[如何给博文加密]]></title>
+    <url>%2Fblog%2Fhexo-encrypt-blog%2F</url>
+    <content type="text"><![CDATA[博客当然也要有记录生活的功能，怎么能放心的记(tu)录(cao)生活而不担心被陌生人看到呢，那就需要对博文进行加密了。本文介绍了使用hexo-blog-encrypt插件完成对博文进行加密的方式，可以放心的写一些羞羞的事情了~ 通过hexo-blog-encrypt插件实现，插件github地址：https://github.com/MikeCoder/hexo-blog-encrypt ，上面有使用方式的介绍 1. 安装encrypt插件在hexo根目录下的package.json中dependencies标签下添加： 1"hexo-blog-encrypt": "2.0.*" 更新环境安装插件 1$ npm install 2. 在配置文件中启用插件在站点配置文件 _config.yml中启用插件，添加如下配置 1234# Security## Docs: https://github.com/MikeCoder/hexo-blog-encryptencrypt: enable: true 3. 使用encrypt插件加密文章在文章头中添加password字段 123456---title: hello worldpassword: liushaoxiaabstract: 加密文章的简介message: 输入密码上方的提示--- 4. live demodemo: 博文加密测试 , 密码是liushaox 5. 高阶使用方式可以对文章目录TOC进行加密、修改加密模板，具体方式转步插件作者wiki查看： github：https://github.com/MikeCoder/hexo-blog-encrypt/ 中文版：https://github.com/MikeCoder/hexo-blog-encrypt/blob/master/ReadMe.zh.md]]></content>
+      <categories>
+        <category>Tools</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[博文加密测试]]></title>
+    <url>%2Fblog%2Fhexo-encrypt-blog-example%2F</url>
+    <content type="text"><![CDATA[下面输入密码, 错了就打不开哈哈哈哈 Incorrect Password! No content to display! U2FsdGVkX19PV8CBVLVgC23lRPmkZuwnyneTXBF6anwnBXp9vxMbs0SU2SxZd4PjtY1A12RBdtLx4uy4TtFBg3olMCeTAyLJ0CarOanAYIuiA4/cOEZ0eSCzprYolr/2FNu1cyqThX9hwHh0hxzQxdaf9tVPNNYJRG8JF9pWbmsm25ashzpstQsCtmo2P8ujzCNzykUeVKnONOHz2/hJBdnE05+P+0x8iHx0npSb55pk61e8r22o6vo4YMGM0GKPGQTLnygbyD6R+/xN0+zxOaEp3TDVmAJA82OmCBYwTvu6IvFE0/suHEQ3HbiE++ve2haq0irlhfWvY/HQP2QKlvlvtWFyf4biXn1Ua2egDzSZ+GE0F5atr6bYTi4HvKCn3WzdPo9WQlUxPg8pgbXKQii+QPAQ0dXaCSxcALKGfa7nLO6TmntVi1jC7Q5TeENrqczzpXzabu1YN/0l7owVTJ7bawjsdRwUXeJ3MWaS/apwLG9RY9xryxXbYExe8w842hfk3SaBdric8SPUvamVOrk9x0ubKvT9Ndgd6OUTxrqWTE8I3FQ3PTx/AkifB1pbW+PB0nBtb6QClBCor/HFCrOZJYZLCPYLRViOLmoNXDXrvOIfrupxIc4NhJi94hhoxbAWAXJfHkIC7L+9g7paCAjPWa3EHr7CeyY7xw6OWFy4TyPwCv6um/nxCHm4FTmWCU9yDGV+i69v7wnRBwXCb5hguWlonfEXtZjbXsLw5egn6uGKLLE9heqIxAysvtdNa59TbY4Ud5xqZ2smz+KjQRhLkbBGVKDtHTZ/Pafy/jTvSnMAh0qGxW+D7T6KKISN7Ke8u/aRLIHM2Y3Mjx9bCLFzMy/JlYEgD/mzE1BS+AwmciaOuRe9HEtFDkaXYeVjvC7sPhxNDGZpsAw2DE3SxgghHhBOn2HOB0dGZTupL8M/tg6/fsmsoyjxgOXpCSsSAlaVsVS191Vk8e6gO+CPI8BnZwFO1jQ03N80viG+umTaUW2wcfq7SS/gJLV41JhuEbkhAkRGboD/HdHLBngZLaBLuyts+PoL3bh+Ea2vQRQy51g5jIV+GUSPV/VBENDekh7UlZRfG0uoXR2ft037B0r3PA9I1WlG3Un5k4BrTMOosefxKMTF/XZa144Z6OpEQeFs6iFCc0hj7KSInwhpxwquXXgQuJqIZm4wDeP0cnM=]]></content>
+      <categories>
+        <category>Tools</category>
+      </categories>
+      <tags>
+        <tag>加密</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Git常用进阶命令使用笔记]]></title>
+    <url>%2Fblog%2Fgit-advanced-command-note%2F</url>
+    <content type="text"><![CDATA[本文记录了使用git过程中常用的命令，因git基础命令多数人都知道，所以把常用的进阶命令写在前面，也当作是自己的笔记。文章中间有几个使用git遇到的小问题，还挺有意思，给出我的解决方案作为参考～ 建议多查官网 https://git-scm.com/bookhttps://git-scm.com/book/zh/v2 常用进阶命令1. 修改仓库/分支信息12git remote set-url origin https://xxx.git #修改整个仓库的远程位置git branch --set-upstream-to=origin/master #修改当前分支关联的远程分支 2. 修改提交信息(commit message)12git commit --amend #修改上一次提交的commit messagegit rebase -i HEAD~n #修改上n次提交的commit message（也可以用来删除某次提交） 3. 将修改追加到上次到提交12git add . git commit --ammend #多用途 4. 撤销add12git reset HEAD #全部撤销git reset HEAD your_file_path #撤销单个文件 5. 查看git信息123456git config --list #查看git整体配置信息列表git remote -v #查看远程仓库地址git branch -v #查看本地分支&amp;基本信息git branch -vv #比上条多了关联的远程分支（pull/fetch的分支）git branch -r #查看所有远程分支git branch -a #查看所有分支 6. stash123456git stashgit stash save "message" #将stash命名为messagegit stash save -a "message" #将git忽略的文件也stash，不常用git stash list #stash列表git stash pop #将stash第0条应用并删除git stash apply stash@&#123;2&#125; #将index=2的stash应用 7. patch1234567git format-patch HEAD^ #HEAD的patchgit format-patch HEAD^^ #HEAD和前一个的patchgit format-patch HEAD~$n -o ~/patchdir #将前n次提交打patch，保存到～/patchdir目录下git format-patch HEAD~$n --numbered-files #将前n次提交打patch，文件名保存为数字git apply --stat xxx.patch #检查patchgit apply --check xxx.patch #查看是否能应用成功git am -s &lt; xxx.patch #应用patch 8. 创建新分支12git checkout -b feature/dev_liuxiaogit checkout -b feature/dev_liuxiao --track origin/master #基于远程跟踪分支master创建本地分支 -b 参数的意义是什么？ 创建分支，若本地无此分支，会报错 9. pull/fetch/push123456789101112131415161718192021222324252627#1. pullgit pull origin master:dev #拉取远程master分支，和本地dev分支合并git pull --rabase origin master:dev #拉取远程master分支，和本地dev分支使用rebase的方式合并#如果本地和远程分支之间存在追踪关系（tracking），可以省略分支名git pull origingit branch --set-upstream dev origin/master #将本地dev分支建立远程追踪分支为origin/master#2. fetch #pull相当于fetch+mergegit fetch origin #拉取远程更新git merge origin/master #将远程更新合并到本地当前分支#3. rebase#IDE中rebase方式更新代码的本质git fetch origin #拉取远程更新git rebase origin/master #将远程更新以变基的方式应用到本地当前分支#4. push#-ugit push -u origin dev #将本地dev分支push到远端#-u 相当于 没有参数+upstreamgit branch --set-upstream dev origin/mastergit push origin dev#-fgit push -f origin dev #将本地dev分支强行push到远端，冲突强行覆盖（保护的分支需要权限）#如果本地分支名和远程目标分支名不同git push origin HEAD:master -u 参数的意义是什么？ 在push的同时，设置了远程关联分支 git push -u origin feature/webView相当于git push origin feature/webView; git branch —set-upstream-to=origin/feature/webView feature/webView 10. 删除1234git clean -f #删除untracked filesgit clean -f -n #查看会删除的filesgit clean -f -d #删除untracked文件夹git rm -rf --cache &#123;$file&#125; #移除untracked file 11. log12git reflog #历史记录 #可以拿到已经回滚reset过的提交的id，通过git reset id，可以把回滚过的提交找回 12. 将某个文件恢复到修改之前(HEAD)12git rm --cached -f -- $&#123;file&#125;git checkout HEAD -- $&#123;file&#125; 可思考/研究的常见问题1. 如何删除一个远程分支？12345#方式1. git UI操作，通常在setting/branches中#方式2. 将一个空目录提交到制定远程git push origin:dev#方式3. delete参数git push origin -delete dev 2. 如何将修改追加到已经push了的n次提交之前？基础1. 安装git环境1sudo apt-get install git-core #windows在官网下载环境 2. 创建代码仓库 配置身份 12git config --global user.name "liushaox"git config --global user.email "liushaox@163.com" 查看身份 12git config --global user.namegit config --global user.email 初始化为git文件夹 1git init 3. 提交本地代码1234git add AndroidMainfest.xml #添加单个文件git add src #添加单个文件夹git add . #添加所有文件git commit -m "first commit" #添加提交描述信息 4. 状态相关123git status #查看git状态，包括commit、修改、冲突等git diff #查看更改内容git diff app/src/main/java/activity/MainActivity.java #查看单个文件更改内容 5. 常见操作流程123456789101112# clonegit clone https://xxx.git# 第一次上传git initgit add . git commit -m "commit message"git remote add origin https://xxx.gitgit push -u origin master# 以后上传git add . git commit -m "commit message"git push -u origin master]]></content>
+      <categories>
+        <category>Tools</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+</search>
