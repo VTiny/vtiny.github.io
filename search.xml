@@ -1,6 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[三阶魔方还原快速上手]]></title>
+    <url>%2Fblog%2Frestore-magic-cube-quick-start%2F</url>
+    <content type="text"><![CDATA[其实还原一个三阶魔方，如果不追求速度的话，是很容易的，一共分为 步，后半部分需要记 个公式，能熟练记住的话可以稳定在 1 分钟以内 前言首先需要理解三阶魔方（之后简称魔方）的构造原理，它由四部分构成，是不可能互相变化的： 中心轴 中心块： 直接连接在轴上，每个的位置是固定、不可变、不可操作的 棱块： 共 4 * 6 / 2 = 12 个，每个有两个带有颜色的面 角块：共 4 * 6 / 3 = 8 个，每个有三个带有颜色的面 后面的公式会包含以下几种操作： 顺时针旋转90度 逆时针旋转90度 左侧面 L L’ 右侧面 R R’ 正面 F F’ 背面 B B’ 顶面 U U’ 底面 D D’ 面向该面，顺时针 / 逆时针旋转90度 若有数字，表示连续几次 若有括号，表示建议将括号内的操作连起来，顺手 若为小些，表示一起旋转前两层 刚才说了，中心块是固定不可变的，也就意味着颜色的顺序也是固定的，我们一般会逐层还原，从白色面还原到黄色面（即白色面为底层，黄色面为顶层） 求哪位设计小姐姐帮忙画个配图…… Step1 底层十字架目标： 白色面四个棱块归位，并保证其每个面的颜色和它所在面的中心块颜色一致 方法：略（不需要公式，自己想就好） Step2 底层角块还原目标：白色面四个角块归位，并保证其每个面的颜色和它所在面的中心块颜色一致（没有正确的配图…想象一下，图中顶层有颜色的这块应该在底层，左侧面蓝色、右侧面红色、底面白色） 方法：略（不需要公式，自己想就好） Step3 中层棱块还原目标：中间层的四个棱块归位，并保证其每个面的颜色和它所在面的中心块颜色一致 场景一：公式3 - 1 (面向左前面) (R&#39; U&#39;) (R&#39; U&#39;) (R&#39; U R U) 场景二：公式3 - 2 (面向左后面) (R U) (R U) (R U&#39; R&#39; U&#39;) R&#39; 场景三：公式3 - 1 + 公式3 - 2 Step4 顶面十字架目标：顶面的四个棱块归位，保证其顶面的颜色和顶面中心块颜色一致 场景一：公式4 - 1 (面向左前面) F (R U R&#39; U&#39;) F&#39; 场景二：公式4 - 2 (面向右后面) f (R U R&#39; U&#39;) f&#39; 场景三：公式4 - 1 + 公式4 - 2 Step5 顶面角块归位目标：顶面的四个角块归位，保证其顶面的颜色和顶面中心块颜色一致 公式5 - 1 (R&#39; U2) (R U) (R&#39; U R) 以下场景均可用若干次公式5 - 1完成还原 Step6 顶层角块还原目标：顶层的四个角块归位，保证其每个面的颜色和它所在面的中心块颜色一致 公式6 - 1：将右上、左下、右下三个角块逆时针旋转 (面向顶面) (R U&#39; R) B2 (R&#39; U R) B2 R2 Step7 顶层棱块还原目标：顶层的四个棱块归位，保证其每个面的颜色和它所在面的中心块颜色一致 公式6 - 2：将左中、下中、右中三个棱块逆时针旋转 (面向正面) R U&#39; (R U) (R U) (R U&#39; R&#39; U&#39;) R2]]></content>
+      <categories>
+        <category>Tools</category>
+      </categories>
+      <tags>
+        <tag>Life</tag>
+        <tag>Magic-Cube</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在Android中使用Java8语法特性]]></title>
+    <url>%2Fblog%2Fuse-java8-features-in-android%2F</url>
+    <content type="text"><![CDATA[Android and JavaJava 在 Android 的快速发展中扮演着非常重要的角色，开发语言是 Java，Framework 框架（即 Android SDK），引用了 80% 的 JDK-API，开发工具 Android Studio 是基于 Java 开发工具 IDEA 二次开发完成的，这些和 Java 都有着千丝万缕的关系 但是可能是受到与 Oracle 公司法律诉讼的影响，Google 在 Android 上针对 Java 的升级一直都不是很积极 Java7 （2011.07） Android 从1.0 一直升级到4.4，迭代了将近19个Android版本，才在4.4版本中支持了Java 7 Java8 （2014.03） RetraLambda 插件 然后从 Android 4.4 版本开始算起，一直到 Android N(7.0) 共4个 Android 版本，才在 Jack/Jill 工具链勉强支持了Java 8。但由于 Jack/Jill 工具链在构建流程中舍弃了原有 Java 字节码的体系，导致大量既有的技术沉淀无法应用，致使许多 App 工程放弃了接入 最后直到 Android P(9.0) 版本， Google 才在 Android Studio 3.x 中通过新增的 D8 dex 编译器正式支持了 Java 8，但部分 API 并不能全版本支持 Java8 new features overviewJava8 是 Java 非常重要的一个版本，从这个版本开始，Java 开启支持函数式编程。也吸收了运行在JVM上的 Groovy、Scala 这种动态脚本语言的特性后，Java8 在语言的表达力、简洁性优良很大的提高 Java8 的主要语言特性改进概括起来包括以下几点： Lambda expression - Lambda 表达式 Method reference - 方法直接引用，也就是函数式接口 Default method - 抽象接口中允许使用 default 关键字，来定义非抽象方法 Repeating annotation - 可重复使用注解 Stream API - 通过流式调用支持 map、filter 等高阶函数 Date API - 改进、扩展了的关于日期和时间的 API New tools - 新的工具，比如分析器、引擎（Nashorn 引擎 jjs、 类依赖分析器 jdeps） Optional - 用来解决空指针异常的 Optional 类 Nashorn, JavaScript Engine - 增加了一个 JS 引擎，允许在 JVM 上运行特定的 js 程序 接下来我们看一下 Java8 语法特性是如何在 JVM 上工作的，以 Lambda 表达式为例 Lambda expressionLambda 表达式主要用来定义行内执行的方法类型接口，如一个简单的函数式接口，它免去了使用匿名方法的麻烦，并且给予 Java 简单但是强大的函数化编程能力，语法如下： (parameters) -&gt; expression (parameters) -&gt; {statements;} 函数式接口：Java8 对一类特殊类型接口的称呼，这类接口只定义了除了 Object 对象公共方法外的唯一的抽象方法的接口 为什么定义此接口？不想为 Lambda 表达式单独定义一种特殊的函数类型，比如箭头类型，想采用 Java 现有的类型系统，避免增加一个结构化函数类型来增加复杂性 比如我们写了这样的一个包含 Lambda 表达式的 demo： 1234567public class HelloLambda &#123; public static void main(String[] args) &#123; new Thread(() -&gt; System.out.println("hello")).start(); &#125;&#125; 使用 javac HelloLambda.java 命令编译，结果如下 可以看到还是有箭头符号的，使用 javap -c -p HelloLambda 命令进行反汇编，结果如下 可以看到其中有一条 invokedynamic 调用方法指令，我们知道 JVM 中调用方法一共有五种指令，其余四种为： invokestatic - 调用静态方法 invokespecial - 调用私有方法、父类方法、类构造器方法 invokeinterface - 调用接口方法 invokevirtual - 调用需方法（除了以上以外的方法） 这四种指令，都是在变异期间生成的 class 文件中，通过常量池 Constant Pool 的 MethodRef 常量已经固定了目标方法的符号信息（方法所属者及其类型、方法名字、参数顺序和类型、返回值），虚拟机使用符号信息能直接解释出具体的方法，直接调用 invokedynamic - 动态执行方法 那么，invokedynamic 是如何通过引导方法找到所属者及其类型的呢？ 使用 javap -v HelloLambda.class 查看本地变量表，结果如下 对应到了常量池中这一条数据，注意常量池中的 InvokeDynamic 不是指令，代表的是 Constant InvokeDynamic Info结构，后面紧跟的 #0 标识的是 BootstrapMethod 区域中引导方法的索引： 可以发现引导方法中的 java/lang/invoke/LambdaMetafactory.metafactory，才是 invokedynamic 指令执行过程中的关键步骤，源码如下： 可以发现，执行该方法，会在内存中动态生成一个实现 Lambda 表达式对应函数式接口的实例类型，并在接口的实现方法中调用新增的静态私有方法 运行 java -Djdk.internal.lambda.dumpProxyClasses HelloLambda.class，将内存中动态生成的类型输出到本地（⚠️ 需要在项目根目录 src 下执行此命令） 运行 javap -p -c HelloLambda\$\$Lambda\$1 反编译，可以看到生成累的实现为 在 run 方法中使用了 invokestatic 指令，直接调用了 HelloLambda.lambda\$main\$0 这个在编译期间生成的静态私有方法 至此，以上就是 Lambda 表达式在 Java 底层的实现原理，那么在 Android 中，是如何处理的呢？ Run directly on Android?Java Bytecode, JVM 字节码，是不能直接运行在 Android 系统上的，需要转换成 Android Bytecode，也就是 Dalvik / ART 字节码 Android support indirectly因此 Android 进行了间接支持，在 Java 字节码转换到 Android 字节码的过程中增加一个步骤，把字节换转换为 Android 虚拟机支持的字节码，这个过程可以称为 脱糖 (Desugar) 无论是之前的 Jack &amp; Jill 工具，还是现在的 D8 dex 编译器，处理方式都是类似的：在流程上，增加脱糖的过程；在原理上，参考 Lambda 在 Java 底层的实现，把这些实现移植到插件或编译器工具中 Android 中支持的 Java8 语法包括： Lambda expression Method references Default method Repeating annotation 在 D8 编译方式中，脱糖的过程放在了其内部，由 Android Studio 来实现这个转换，本质上也是参考 java/lang/invoke/LambdaMetafactory.metafactory 的方式将原本在运行时生成在内存中的类，在 D8 编译 dex 期间，直接生成并写入到 dex 文件中 实际开发中，保证 Android Studio 版本在 3.0 及以上，在 module 的 build.gradle 文件，在android 节点中增加如下代码后，该 module 即可完成对部分 Java8 语法特性的支持 1234compileOptions &#123; sourceCompatibility JavaVersion.VERSION_1_8 targetCompatibility JavaVersion.VERSION_1_8&#125; 参考： Google 官方指导文档]]></content>
+      <categories>
+        <category>Android</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[mac升级踩坑记录]]></title>
+    <url>%2Fblog%2Fmac-reset-system-note%2F</url>
+    <content type="text"><![CDATA[作为一个 IT 行业从业者，在新系统刚发布的时候当然忍不住第一时间更新，今年也是第一时间更新了 macOS Catalina (10.15) 系统，然而踩了坑，不但很多软件用不了，而且还一直在切焦点，无法正常使用，咋整？？？ 作为一个 IT 行业从业者，在新系统刚发布的时候当然忍不住第一时间更新，今年也是第一时间更新了 macOS Catalina (10.15) 系统，然而踩了坑，不但很多软件用不了，而且还一直在切焦点，无法正常使用，咋整？？？ 还好给自己留了一手，只升级了笔记本的系统，没有升级办公 Mac mini 的系统，还有的参考 想了三种方案： 笔记本恢复出厂设置 下载一个旧版本系统装到笔记本上 将 Mac mini 使用 Time Machine 进行备份，然后把备份应用到笔记本 出于安全和方便的考虑，选择了第三种方案（使用 Time Machine），因为两台电脑的一些配置不同，在应用完成后还需要进行一些设置，操作实录如下 1. 使用 Time Machine 恢复备份https://support.apple.com/zh-cn/HT203981 2. 修改用户名System Preference -&gt; Users &amp; Groups -&gt; Advanced Options -&gt; Full name 3. 修改主机名 (Terminal)1sudo scutil --set HOST liuxia 4. 修改设备名System Preference -&gt; Sharing -&gt; Computer Name 5. 修改根目录重命名根文件夹、System Preference -&gt; Users &amp; Groups -&gt; Home directory]]></content>
+      <categories>
+        <category>mac</category>
+      </categories>
+      <tags>
+        <tag>macOS</tag>
+        <tag>mac</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[IDEA AS中大大提升效率的快捷键]]></title>
+    <url>%2Fblog%2Fidea-as-shortcuts%2F</url>
+    <content type="text"><![CDATA[开发过程中灵活使用编译器快捷键可以大大增加开发效率 动图过段时间补 查找类 Command + O 查找文件 Command + Shift + O 查看当前类的成员Command + F12 打开命令行工具 Option + F12 立刻换行Command + Shift + Return Git Pull Command + T Git Commit Command + K Generate CodeControl + Return / Command + N Implement MethodsControl + I Override MethodsControl + O 参数提示 Command + P 自动提取方法 Command + Alt + M 自动提取参数 Command + Alt + P 自动生成变量 Command + Alt + V 包裹代码 Command + Alt + T 方法调用层级 Command + Option + H 类的层次结构 Control + H 变量高亮 Command + Shift + F7 跳转到父类 Command + U]]></content>
+      <categories>
+        <category>Tools</category>
+      </categories>
+      <tags>
+        <tag>Android Studio</tag>
+        <tag>AS</tag>
+        <tag>IDEA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Keynote使用笔记]]></title>
+    <url>%2Fblog%2Fnote-keynote%2F</url>
+    <content type="text"><![CDATA[在演示期间显示鼠标按下 c 键 粘贴高亮代码块首先安装 highlight 工具 1brew install highlight 先复制代码，接着执行如下代码，最后直接在 Keynote 中 Command + V 粘贴 12# Dart语言、显示行号、字号23pbpaste | highlight --syntax=dart --style=github --line-numbers --font=Monaco --font-size=23 -u "utf-8" --replace-tabs=4 --out-format=rtf --line-number-length=2 | pbcopy]]></content>
+      <categories>
+        <category>Tools</category>
+      </categories>
+      <tags>
+        <tag>Tools</tag>
+        <tag>Keynote</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[登录模块的一种设计与实现]]></title>
+    <url>%2Fblog%2Fdesign-for-login-module%2F</url>
+    <content type="text"><![CDATA[最近在使用 Flutter 做一个新产品，其中一个需求是完成登录模块 开发过程中遇到了临时整体变更方案的问题，由自己请求接口变为接入公司内通用 SDK，因为这部分代码设计的还算不错，没有影响实际项目进展，可见良好的设计是非常重要的 不过还是应该批判这种临时改方案、开发兜时间的行为！ 需求内容 完成登录模块，涉及到以下三端： 用户 - APP URS (User Register Service) - 帐号注册后台 客户端用户信息后台 登录业务有以下四种场景： 手机号验证码登录 第三方登录（需强制绑定手机号） 设置页内绑定第三方账号 普通打开APP 这四种场景内部的业务逻辑为： 手机号：获取验证码 -&gt; 校验验证码 -&gt; 获取个人信息 -&gt; 登录成功 三方：第三方登录 -&gt; 获取账号绑定状态 -&gt; 获取验证码 -&gt; 校验验证码 -&gt; 绑定账号 -&gt; 获取个人信息 -&gt; 登录成功 绑定三方：第三方登录 -&gt; 账号绑定 -&gt; 获取个人信息 -&gt; 登录成功 打开APP：获取个人信息 -&gt; 登录成功 以三方登录为例，时序图如下： 方案设计可以发现，登录这部分的业务场景，都是链式结构，多数比较长，而且其中有一些步骤是相似的，适合复用，因此实现方案应当完成如下的要求： 良好的模块化 - LoginTask，便于复用 支持链式定义 - LoginStream，整体记录日志与异常情况管理 对外只暴露已经定义好的登录事件链，提供可选的入参即可 如此设计后，整体的时序图为： 代码实现 抽象单个模块的行为，ILoginTask，各个小模块实现该接口 定义单个模块的生命周期回调，ILoginTaskCallback，管理类LoginStreamLine实现该接口整体管理 对外只暴露事件流的定义LoginStreamDefine如下：]]></content>
+      <categories>
+        <category>Project</category>
+      </categories>
+      <tags>
+        <tag>Login</tag>
+        <tag>Project Structure</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Flutter实现弹幕热力图]]></title>
+    <url>%2Fblog%2Fflutter-heatline-view%2F</url>
+    <content type="text"><![CDATA[产品提了个需求：播放器中增加弹幕热力图 问视觉小哥：曲线是怎么画出来的 视觉：用手画出来的 好像也没说错？是我高估了他的脚吗 最近 Flutter 使用得比之前熟练了一些，接了一个看起来比较有意思的需求： 一. 需求内容在播放器中增加弹幕热力图组件 （在进度条上方绘制一条根据对应时间弹幕数量多少的有颜色曲线，并将其与进度条区域填充，已播放区域的颜色为激活态颜色） 二. 方案设计前期的讨论与数据处理方式就不赘述了，结果是拿到最多50段时间对应的弹幕数，我们将其定义为关键点，也就说目前已经拿到了最多50个关键点的坐标，接下来说重点部分，也就是热力图的绘制，一开始想了三种实现方式： 引入第三方库 将曲线拆解到点的级别，每两个点连线 自定义View （CustomPaint） 关于引入第三方库的方式 发现了一个 flutter_chart 这个开源库，支持这样的现实效果， 接入过程中发现该库是针对静态图表设计的，进度动态变化的需求无法完成，且该库不支持曲线 该库功能庞大，引入会有很多无用代码 关于拆解到点级别的方式 将曲线拆解为像素，这样就都是直线 绘制曲线上每个像素点到底部进度条对应点的线即可 因为这种方式也有很明显的弊端：对性能开销较大，因此选用自定义 View 的方式 三. 实现过程 Flutter也支持自定义 View，是通过 CustomPaint + 自定义画笔 Painter 来实现的（目前这类资料较少，这也是一开始考虑使用谷歌提供图表库的原因之一） 曲线通过关键点 + 三阶贝塞尔曲线、使用类似于差值器的思想完成 进度由播放器统一控制（即播放器控制进度条与热力图各自的进度） 0. 效果图这里就不列出视觉稿了，实现效果如下，大概也就能理解需求是什么了吧 1. 曲线的绘制我们知道贝塞尔曲线是一种比较优雅的曲线，这里为了节省时间，不和视觉小哥解释，直接使用三阶贝塞尔曲线 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879/// 三阶贝塞尔曲线class CubicBezierMonet &#123; static Path _point(Path path, double x0, double y0, double x1, double y1, double t0, double t1) &#123; double dx = (x1 - x0) / 3 ?? 0; path.cubicTo(x0 + dx, y0 + dx * t0, x1 - dx, y1 - dx * t1, x1, y1); return path; &#125; static Path addCurve(Path path, List&lt;Point&gt; points, &#123;bool reversed = false&#125;) &#123; var targetPoints = List&lt;Point&gt;(); targetPoints.addAll(points); targetPoints.add(Point( points[points.length - 1].x * 2, points[points.length - 1].y * 2)); double x0, y0, x1, y1, t0; if (path == null) &#123; path = Path(); &#125; List&lt;List&lt;double&gt;&gt; arr = []; for (int i = 0; i &lt; targetPoints.length; i++) &#123; double t1; double x = targetPoints[i].x.toDouble(); double y = targetPoints[i].y.toDouble(); if (x == x1 &amp;&amp; y == y1) continue; switch (i) &#123; case 0: break; case 1: break; case 2: t1 = _slope3(x0, y0, x1, y1, x, y); arr.add([x0, y0, x1, y1, _slope2(x0, y0, x1, y1, t1), t1]); break; default: t1 = _slope3(x0, y0, x1, y1, x, y); arr.add([x0, y0, x1, y1, t0, t1]); &#125; x0 = x1; y0 = y1; x1 = x; y1 = y; t0 = t1; &#125; if (reversed) &#123; arr.reversed.forEach((f) &#123; _point(path, f[2], f[3], f[0], f[1], f[5], f[4]); &#125;); &#125; else &#123; arr.forEach((f) &#123; _point(path, f[0], f[1], f[2], f[3], f[4], f[5]); &#125;); &#125; return path; &#125; static num _sign(num x) &#123; return x &lt; 0 ? -1 : 1; &#125; // Calculate a one-sided slope. static double _slope2(double x0, double y0, double x1, double y1, double t) &#123; var h = x1 - x0; return h != 0 ? (3 * (y1 - y0) / h - t) / 2 : t; &#125; static double _slope3( double x0, double y0, double x1, double y1, double x2, double y2) &#123; double h0 = x1 - x0; double h1 = x2 - x1; double s0 = (y1 - y0) / (h0 != 0 ? h0 : (h1 &lt; 0 ? -double.infinity : double.infinity)); double s1 = (y2 - y1) / (h1 != 0 ? h1 : (h0 &lt; 0 ? -double.infinity : double.infinity)); double p = (s0 * h1 + s1 * h0) / (h0 + h1); var source = [s0.abs(), s1.abs(), 0.5 * p.abs()]; source.sort(); return (_sign(s0) + _sign(s1)) * source.first ?? 0; &#125;&#125; 2. 区域的填充这里踩了个坑，一开始想的比较简单，想直接设置好路径、画笔将路径内区域填充，但是发现对于不规则形状的支持很差 然后再一次证明了“厕所是产生灵感的地方”，去了趟 wc 后突然想到可以直接将画布裁切、路径依旧设置为一个比画布区域大的规则图形、直接将其填充绘制，这样真实效果就会是将画布和路径的交集区域填充上颜色 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859class HeatLineMonet &#123; Path _path; /// 画线 HeatLineMonet paintLine(PaintConfig config, Canvas canvas, List&lt;Point&gt; points, [double width]) &#123; _draw(config, canvas, points, true, width); return this; &#125; /// 画区域 HeatLineMonet paintArea( PaintConfig config, Canvas canvas, List&lt;Point&gt; points) &#123; _draw(config, canvas, points, false); return this; &#125; /// 通过上次的路径裁切画布 HeatLineMonet clipPreviousPath(Canvas canvas) &#123; canvas.clipPath(_path); return this; &#125; _draw(PaintConfig config, Canvas canvas, List&lt;Point&gt; points, bool drawLine, [double width]) &#123; Paint p = Paint(); width == null ? p.strokeWidth : p.strokeWidth = width; p.style = drawLine ? PaintingStyle.stroke : PaintingStyle.fill; p.shader = config.shader; config?.color == null ? p.color : p.color = config.color; _path = _getPath(points, config?.smooth, config.bottomToTop, !drawLine); canvas.drawPath(_path, p); if (config.keyPointsVisible) &#123; var offsets = List&lt;Offset&gt;(); p.strokeWidth = 3; points .forEach((p) =&gt; offsets.add(Offset(p.x.toDouble(), p.y.toDouble()))); canvas.drawPoints(PointMode.points, offsets, p); &#125; &#125; Path _getPath( List&lt;Point&gt; points, bool smooth, bool bottomToTop, bool circle) &#123; double minY, maxY; points?.forEach((p) &#123; minY = minY == null ? p.y.toDouble() : min(minY, p.y.toDouble()); maxY = maxY == null ? p.y.toDouble() : max(maxY, p.y.toDouble()); &#125;); final path = Path() ..moveTo(points.first.x.toDouble(), points.first.y.toDouble()); smooth ? CubicBezierMonet.addCurve(path, points) : points.forEach((p) =&gt; path.lineTo(p.x.toDouble(), p.y.toDouble())); circle ? path.lineTo(points.last.x.toDouble(), bottomToTop ? maxY : minY) : path.getBounds(); return path; &#125;&#125; 搞定 PS 这里只列举出比较关键的代码，不是全部]]></content>
+      <categories>
+        <category>Flutter</category>
+      </categories>
+      <tags>
+        <tag>Flutter</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[面向Java开发者的Dart使用建议]]></title>
+    <url>%2Fblog%2Fdart-advice-for-java-developers%2F</url>
+    <content type="text"><![CDATA[Flutter 发展的如火如荼，越来越多的开发者开始使用，Dart 作为它的编程语言，借鉴了很多 Java 的特性，并针对其被人诟病的地方做了大量的优化，以下列出一些针对 Java 开发者的 Dart 使用建议，包括书写思想、特殊语法等 面向对象Dart 中的面向对象更加彻底 null 、操作符、方法 都是对象 privateDart 中没有 public private 关键字，私有通过标识符以下划线开头来表示 var dynamicDart中可以不指定变量类型，或指定为动态类型 操作符操作符是对象，也可以被重载 字符串插值器多使用字符串插值器，${expression} $var，少用 Java 中使用加号连接的方式 方法是对象灵活使用方法，方法可以赋值给变量，可以当作方法的参数 更优雅的重载Dart 中的方法重载于 Java 不同，个人更喜欢 Dart 的实现方式 可选位置参数 123String say(String name, [String message, String device]) &#123; /// ...&#125; 可选命名参数 123updateProfileData(String nickName, &#123;String avatar, int age&#125;) &#123; /// ...&#125; is 与 is!Dart 中有 is! 操作符，不需要 !(object is String) 这种方式 级联操作符 .. 在同一个对象上连续调用多个函数以及访问成员变量 避免创建临时变量，代码整洁流畅 严格来说，不是操作符，可以理解成Dart的语法糖 1234final Paint bgPaint = Paint() ..color = circleBgColor ..strokeWidth = strokeWidth ..style = PaintingStyle.stroke; 条件成员访问操作符 ?. 和访问成员类似，但左面表达式为空则不执行后面的表达式，如foo?.bar，如果foo为空则返回空，否则返回bar成员 减少了大量的判空代码 非空操作符??前面的表达式非空时才执行后面的表达式 空赋值操作符??=指定值为 null 的变量的值 断言 Assert 如果条件表达式结果不满足需要，可以使用assert语句打断代码的执行 断言只在检查模式下运行有效 生产模式下，断言不会执行 断言检查失败，会抛出一个AssertionError异常 多用！ new关键字可省略异步支持 Dart 是基于事件循环机制的单线程模型编程语言 有一些语言特性来支持异步，最常见的是 async 和 await “Dart是单线程的”与“Dart支持异步”是不矛盾的 返回 Future 和 Stream 对象的方法 踩坑 请牢记，await、await for 表达式需要确保使用它的方法被 async 包裹！ 不管有多少层调用，只要有一层没 async，后调用的就可能出现问题！ 因为构造方法不能被 async，所以避免在构造方法中使用 await！ Effective Dart 类命名使用大驼峰，库、导入前缀和文件命名使用小写加下划线，常量使用小驼峰 要使用编译器格式化或 dartfmt 命令格式化代码 要使用 /// 文档注释来为成员和类型增加注释 定义字符串推荐多使用相邻字面量和插值器的方式，避免使用多余的大括号 要尽可能的使用集合字面量来定义集合 推荐使用 final 关键字来限定只读性 推荐使用箭头来实现只有一个单一返回语句的函数 不建议显示捕获 Error 及其子类 推荐使用 await async 完成异步，而不是使用底层的特性 不要在没有作用效果的情况下使用 async 要使用 getter 来定义访问属性的操作 避免在不必要的地方使用 dynamic 类型 要在复写 == 的同时复写 hashCode 踩坑记录 不要在 Iterable.forEach() 中使用函数声明形式 如果想完成异步，包含 await 表达式的函数，包括间接调用的，都需要加上 async 标记 不要在 Iterable.forEach() 中使用 await 语句 不要在构造函数与内使用 await 语句 个人建议 多看源码 学习 发现便捷的函数 list.isEmpty() 与 list.isNotEmpty() 理解面向对象 操作符 方法 多使用提供的语法糖，体验灵活性 ??= ?? .. ?. getter setter 方法的可选参数 不影响阅读的前提下，尽可能简化代码 私有方法，方法返回类型不需要声明 适合一个编译器窗口，左右同时打开两个文件写代码 不要把类和文件当作一个维度]]></content>
+      <categories>
+        <category>Language</category>
+      </categories>
+      <tags>
+        <tag>Dart</tag>
+        <tag>Flutter</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Git Submodule 使用笔记]]></title>
     <url>%2Fblog%2Fgit-submodule-note%2F</url>
     <content type="text"><![CDATA[在学习和工作中，经常会遇到一个Git仓库中要引入另一个Git仓库，或者工程中的一部分代码在单独的Git仓库管理更清晰的情况，如： 整个博客工程对应了一个Git仓库，但展示需要的只是其中一部分，部署在一个单独的Git仓库更合适 实际工作中负责新闻客户端的开发，需要本地集成前端模板，由前端同学维护，是一个独立的Git仓库 遇到这种情况，使用submodule(子模块)的方式集成到主工程中较好。因为平时用得不多，命令总记不住，所以写个博客记录下～ 0. 相关资源 git submodule --help Git子模块 官方文档 1. 添加子模块1git submodule add $&#123;submoduleRepositoryUrl&#125; 运行后会将添加的子模块仓库clone到工程中，完成后会自动出现.gitmodules配置文件，格式如下 2. 更新子模块`方式1 直接在主工程下更新子模块1git submodule update --remote $&#123;submoduleName&#125; 方式2 在子模块工程下更新自己12cd $&#123;submoduleName&#125;git pull #(or fetch + rebase ...) 3. 移除子模块方式1 直接在主工程操作12git rm -f $&#123;submoduleName&#125;git rm -f --cached $&#123;submoduleName&#125; #在本地保留 方式2 在配置文件中删除+操作文件12vi .gitmodulesvi .git/config 4. 克隆含有子模块的工程方式1 递归克隆1git clone --recursive $&#123;repositoryUrl&#125; 方式2 克隆主工程后再拉取子模块123git clone $&#123;repositoryUrl&#125;git submodule initgit submodule update]]></content>
