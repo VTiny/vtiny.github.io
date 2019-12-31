@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/blog/restore-magic-cube-quick-start/</loc>
+    <loc>http://yoursite.com/blog/use-java8-features-in-android/</loc>
     
-    <lastmod>2019-12-31T15:09:55.859Z</lastmod>
+    <lastmod>2019-12-31T17:05:07.477Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/blog/use-java8-features-in-android/</loc>
+    <loc>http://yoursite.com/blog/note-keynote/</loc>
     
-    <lastmod>2019-12-31T15:09:46.660Z</lastmod>
+    <lastmod>2019-12-31T16:07:32.734Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/blog/restore-magic-cube-quick-start/</loc>
+    
+    <lastmod>2019-12-31T15:09:55.859Z</lastmod>
     
   </url>
   
@@ -26,13 +33,6 @@
     <loc>http://yoursite.com/blog/idea-as-shortcuts/</loc>
     
     <lastmod>2019-12-31T15:07:47.255Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/blog/note-keynote/</loc>
-    
-    <lastmod>2019-12-31T15:06:12.396Z</lastmod>
     
   </url>
   
