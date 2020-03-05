@@ -2,65 +2,72 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/blog/use-java8-features-in-android/</loc>
+    <loc>http://yoursite.com/blog/android-adb-command-summary/</loc>
     
-    <lastmod>2019-12-31T17:05:07.477Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/blog/note-keynote/</loc>
-    
-    <lastmod>2019-12-31T16:07:32.734Z</lastmod>
+    <lastmod>2020-03-05T07:24:15.375Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/blog/restore-magic-cube-quick-start/</loc>
     
-    <lastmod>2019-12-31T15:09:55.859Z</lastmod>
+    <lastmod>2020-03-04T07:38:17.329Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/blog/use-java8-features-in-android/</loc>
+    
+    <lastmod>2020-03-04T07:38:17.329Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/blog/mac-reset-system-note/</loc>
     
-    <lastmod>2019-12-31T15:08:49.965Z</lastmod>
+    <lastmod>2020-03-04T07:38:17.328Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/blog/idea-as-shortcuts/</loc>
     
-    <lastmod>2019-12-31T15:07:47.255Z</lastmod>
+    <lastmod>2020-03-04T07:38:17.328Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/blog/note-keynote/</loc>
+    
+    <lastmod>2020-03-04T07:38:17.328Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/blog/design-for-login-module/</loc>
     
-    <lastmod>2019-12-31T15:05:16.188Z</lastmod>
+    <lastmod>2020-03-04T07:38:17.327Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/blog/flutter-heatline-view/</loc>
     
-    <lastmod>2019-12-31T15:03:20.082Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/blog/dart-advice-for-java-developers/</loc>
-    
-    <lastmod>2019-12-31T15:02:43.860Z</lastmod>
+    <lastmod>2020-03-04T07:38:17.327Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/blog/git-submodule-note/</loc>
     
-    <lastmod>2019-12-31T14:59:48.936Z</lastmod>
+    <lastmod>2020-03-04T07:38:17.326Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/blog/dart-advice-for-java-developers/</loc>
+    
+    <lastmod>2020-03-04T07:38:17.326Z</lastmod>
     
   </url>
   
@@ -135,14 +142,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/blog/hexo-encrypt-blog-example/</loc>
+    <loc>http://yoursite.com/blog/hexo-encrypt-blog/</loc>
     
     <lastmod>2018-01-10T16:00:00.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/blog/hexo-encrypt-blog/</loc>
+    <loc>http://yoursite.com/blog/hexo-encrypt-blog-example/</loc>
     
     <lastmod>2018-01-10T16:00:00.000Z</lastmod>
     

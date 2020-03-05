@@ -334,6 +334,163 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/android-adb-command-summary/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liu Xia">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="少年刘夏">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/android-adb-command-summary/" itemprop="url">Android adb 命令总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-04T00:00:00+08:00">2020-03-04</time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/blog/android-adb-command-summary/" class="leancloud_visitors" data-flag-title="Android adb 命令总结">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>Android Debug Bridge (adb) 是 Android 开发中常用的命令行工具，可以与设备进行通信。本文记录了常用的 adb 命令，其中重点会用 ❗️ 标出，“骚操作”会用 🌟 标出<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/blog/android-adb-command-summary/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/restore-magic-cube-quick-start/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -592,14 +749,101 @@
 
       
         
-          <p>做了三个月 Flutter 开发后，逐渐喜欢上了 Dart 语言，在回归到主项目后惊喜的发现也可以使用多数 Java8 语法了，因此研究了下原理～</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/blog/use-java8-features-in-android/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <a id="more"></a>
+<h3 id="Android-and-Java"><a href="#Android-and-Java" class="headerlink" title="Android and Java"></a>Android and Java</h3><p>Java 在 Android 的快速发展中扮演着非常重要的角色，开发语言是 Java，Framework 框架（即 Android SDK），引用了 80% 的 JDK-API，开发工具 Android Studio 是基于 Java 开发工具 IDEA 二次开发完成的，这些和 Java 都有着千丝万缕的关系</p>
+<p>但是可能是受到与 Oracle 公司法律诉讼的影响，Google 在 Android 上针对 Java 的升级一直都不是很积极</p>
+<ul>
+<li>Java7 （2011.07）<ul>
+<li>Android 从1.0 一直升级到4.4，迭代了将近19个Android版本，才在4.4版本中支持了Java 7</li>
+</ul>
+</li>
+<li>Java8 （2014.03）<ul>
+<li>RetraLambda 插件</li>
+<li>然后从 Android 4.4 版本开始算起，一直到 Android N(7.0) 共4个 Android 版本，才在 Jack/Jill 工具链勉强支持了Java 8。但由于 Jack/Jill 工具链在构建流程中舍弃了原有 Java 字节码的体系，导致大量既有的技术沉淀无法应用，致使许多 App 工程放弃了接入</li>
+<li>最后直到 Android P(9.0) 版本， Google 才在 Android Studio 3.x 中通过新增的 D8 dex 编译器正式支持了 Java 8，但部分 API 并不能全版本支持</li>
+</ul>
+</li>
+</ul>
+<h3 id="Java8-new-features-overview"><a href="#Java8-new-features-overview" class="headerlink" title="Java8 new features overview"></a>Java8 new features overview</h3><p>Java8 是 Java 非常重要的一个版本，从这个版本开始，Java 开启支持函数式编程。也吸收了运行在JVM上的 Groovy、Scala 这种动态脚本语言的特性后，Java8 在语言的表达力、简洁性优良很大的提高</p>
+<p>Java8 的主要语言特性改进概括起来包括以下几点：</p>
+<ul>
+<li><strong>Lambda expression</strong> - Lambda 表达式</li>
+<li><strong>Method reference</strong> - 方法直接引用，也就是函数式接口</li>
+<li><strong>Default method</strong> - 抽象接口中允许使用 default 关键字，来定义非抽象方法</li>
+<li><strong>Repeating annotation</strong> - 可重复使用注解</li>
+<li><strong>Stream API</strong> - 通过流式调用支持 map、filter 等高阶函数</li>
+<li><strong>Date API</strong> - 改进、扩展了的关于日期和时间的 API</li>
+<li><strong>New tools</strong> - 新的工具，比如分析器、引擎（Nashorn 引擎 jjs、 类依赖分析器 jdeps）</li>
+<li><strong>Optional</strong> - 用来解决空指针异常的 Optional 类</li>
+<li><strong>Nashorn, JavaScript Engine</strong> - 增加了一个 JS 引擎，允许在 JVM 上运行特定的 js 程序</li>
+</ul>
+<blockquote>
+<p>接下来我们看一下 Java8 语法特性是如何在 JVM 上工作的，以 Lambda 表达式为例</p>
+</blockquote>
+<h3 id="Lambda-expression"><a href="#Lambda-expression" class="headerlink" title="Lambda expression"></a>Lambda expression</h3><p>Lambda 表达式主要用来定义行内执行的方法类型接口，如一个简单的<strong>函数式接口</strong>，它免去了使用匿名方法的麻烦，并且给予 Java 简单但是强大的函数化编程能力，语法如下：</p>
+<ul>
+<li><code>(parameters) -&gt; expression</code></li>
+<li><code>(parameters) -&gt; {statements;}</code></li>
+</ul>
+<blockquote>
+<p>函数式接口：Java8 对一类特殊类型接口的称呼，这类接口只定义了除了 Object 对象公共方法外的唯一的抽象方法的接口</p>
+<p>为什么定义此接口？不想为 Lambda 表达式单独定义一种特殊的函数类型，比如箭头类型，想采用 Java 现有的类型系统，避免增加一个结构化函数类型来增加复杂性</p>
+</blockquote>
+<p>比如我们写了这样的一个包含 Lambda 表达式的 demo：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloLambda</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">new</span> Thread(() -&gt; System.out.println(<span class="string">"hello"</span>)).start();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用  <code>javac HelloLambda.java</code> 命令编译，结果如下</p>
+<p><img src="../images/image-20191231142159833.png" alt="image-20191231142159833" style="zoom: 50%;"></p>
+<p>可以看到还是有箭头符号的，使用 <code>javap -c -p HelloLambda</code> 命令进行反汇编，结果如下</p>
+<p><img src="../images/image-20191231142429303.png" alt="image-20191231142429303" style="zoom: 50%;"></p>
+<p>可以看到其中有一条 <code>invokedynamic</code> 调用方法指令，我们知道 JVM 中调用方法一共有五种指令，其余四种为：</p>
+<ul>
+<li><code>invokestatic</code> - 调用静态方法</li>
+<li><code>invokespecial</code> - 调用私有方法、父类方法、类构造器方法</li>
+<li><code>invokeinterface</code> - 调用接口方法</li>
+<li><code>invokevirtual</code> - 调用需方法（除了以上以外的方法）</li>
+</ul>
+<p>这四种指令，都是在变异期间生成的 class 文件中，通过常量池 Constant Pool 的 MethodRef 常量已经固定了目标方法的符号信息（方法所属者及其类型、方法名字、参数顺序和类型、返回值），虚拟机使用符号信息能直接解释出具体的方法，直接调用</p>
+<ul>
+<li><code>invokedynamic</code> - 动态执行方法</li>
+</ul>
+<blockquote>
+<p>那么，<code>invokedynamic</code> 是如何通过引导方法找到所属者及其类型的呢？</p>
+</blockquote>
+<p>使用 <code>javap  -v HelloLambda.class</code> 查看本地变量表，结果如下</p>
+<p><img src="/Users/liuxia/Library/Mobile Documents/com~apple~CloudDocs/Workspace/Blog/source/images/image-20191231142628776.png" alt="image-20191231142628776" style="zoom:50%;"></p>
+<p>对应到了常量池中这一条数据，注意常量池中的 <code>InvokeDynamic</code> 不是指令，代表的是 <code>Constant InvokeDynamic Info</code>结构，后面紧跟的 <code>#0</code> 标识的是 <code>BootstrapMethod</code> 区域中引导方法的索引：</p>
+<p><img src="../images/image-20191231142732850.png" alt="image-20191231142732850" style="zoom:50%;"></p>
+<p>可以发现引导方法中的  <code>java/lang/invoke/LambdaMetafactory.metafactory</code>，才是 <code>invokedynamic</code> 指令执行过程中的关键步骤，源码如下：</p>
+<p><img src="../images/image-20191231142827188.png" alt="image-20191231142827188" style="zoom: 45%;"></p>
+<p><img src="/Users/liuxia/Library/Mobile Documents/com~apple~CloudDocs/Workspace/Blog/source/images/image-20191231142922291.png" alt="image-20191231142922291" style="zoom:45%;"></p>
+<p>可以发现，执行该方法，会在内存中动态生成一个实现 Lambda 表达式对应函数式接口的实例类型，并在接口的实现方法中调用新增的静态私有方法</p>
+<p>运行 <code>java -Djdk.internal.lambda.dumpProxyClasses HelloLambda.class</code>，将内存中动态生成的类型输出到本地（⚠️ 需要在项目根目录 src 下执行此命令）</p>
+<p><img src="/Users/liuxia/Library/Mobile Documents/com~apple~CloudDocs/Workspace/Blog/source/images/image-20191231143117751.png" alt="image-20191231143117751" style="zoom:50%;"></p>
+<p>运行 <code>javap -p -c HelloLambda\$\$Lambda\$1</code> 反编译，可以看到生成累的实现为</p>
+<p><img src="/Users/liuxia/Library/Mobile Documents/com~apple~CloudDocs/Workspace/Blog/source/images/image-20191231143229176.png" alt="image-20191231143229176" style="zoom:45%;"></p>
+<p>在 run 方法中使用了 invokestatic 指令，直接调用了 <code>HelloLambda.lambda\$main\$0</code> 这个在编译期间生成的静态私有方法</p>
+<blockquote>
+<p>至此，以上就是 Lambda 表达式在 Java 底层的实现原理，那么在 Android 中，是如何处理的呢？</p>
+</blockquote>
+<h3 id="Run-directly-on-Android"><a href="#Run-directly-on-Android" class="headerlink" title="Run directly on Android?"></a>Run directly on Android?</h3><p>Java Bytecode, JVM 字节码，是不能直接运行在 Android 系统上的，需要转换成 Android Bytecode，也就是 Dalvik / ART 字节码</p>
+<p><img src="../images/image-20191231104544007.png" alt="image-20191231104544007"></p>
+<h3 id="Android-support-indirectly"><a href="#Android-support-indirectly" class="headerlink" title="Android support indirectly"></a>Android support indirectly</h3><p>因此 Android 进行了间接支持，在 Java 字节码转换到 Android 字节码的过程中增加一个步骤，把字节换转换为 Android 虚拟机支持的字节码，这个过程可以称为 <strong>脱糖 (Desugar)</strong></p>
+<p><img src="../images/image-20191231104735897.png" alt="image-20191231104735897"></p>
+<p>无论是之前的 Jack &amp; Jill 工具，还是现在的 D8 dex 编译器，处理方式都是类似的：在流程上，增加脱糖的过程；在原理上，参考 Lambda 在 Java 底层的实现，把这些实现移植到插件或编译器工具中</p>
+<p>Android 中支持的 Java8 语法包括：</p>
+<ul>
+<li>Lambda expression</li>
+<li>Method references</li>
+<li>Default method</li>
+<li>Repeating annotation</li>
+</ul>
+<p>在 D8 编译方式中，脱糖的过程放在了其内部，由 Android Studio 来实现这个转换，本质上也是参考 <code>java/lang/invoke/LambdaMetafactory.metafactory</code> 的方式将原本在运行时生成在内存中的类，在 D8 编译 dex 期间，直接生成并写入到 dex 文件中</p>
+<p>实际开发中，保证 Android Studio 版本在 3.0 及以上，在 module 的 build.gradle 文件，在android 节点中增加如下代码后，该 module 即可完成对部分 Java8 语法特性的支持   </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">compileOptions &#123;</span><br><span class="line">    sourceCompatibility JavaVersion.VERSION_1_8</span><br><span class="line">    targetCompatibility JavaVersion.VERSION_1_8</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>参考： <a href="https://developer.android.com/studio/write/java8-support?hl=zh-cn" target="_blank" rel="noopener">Google 官方指导文档</a></p>
+
+          
         
       
     </div>
@@ -1064,14 +1308,14 @@
 
       
         
-          <p>以前 Keynote 用的比较少，现在把使用过程中遇到的问题记录下来</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/blog/note-keynote/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h4 id="在演示期间显示鼠标"><a href="#在演示期间显示鼠标" class="headerlink" title="在演示期间显示鼠标"></a>在演示期间显示鼠标</h4><p>按下 <code>c</code> 键</p>
+<h4 id="粘贴高亮代码块"><a href="#粘贴高亮代码块" class="headerlink" title="粘贴高亮代码块"></a>粘贴高亮代码块</h4><p>首先安装 highlight 工具 </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install highlight</span><br></pre></td></tr></table></figure>
+<p>先复制代码，接着执行如下代码，最后直接在 Keynote 中 Command + V 粘贴</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> Dart语言、显示行号、字号23</span><br><span class="line">pbpaste | highlight --syntax=dart --style=github --line-numbers --font=Monaco --font-size=23 -u "utf-8" --replace-tabs=4 --out-format=rtf --line-number-length=2 | pbcopy</span><br></pre></td></tr></table></figure>
+
+          
         
       
     </div>
@@ -1743,168 +1987,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/shell-programming-note/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Liu Xia">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="少年刘夏">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blog/shell-programming-note/" itemprop="url">Shell脚本笔记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-07T00:00:00+08:00">2019-02-07</time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Shell/" itemprop="url" rel="index">
-                    <span itemprop="name">Shell</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/blog/shell-programming-note/" class="leancloud_visitors" data-flag-title="Shell脚本笔记">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>现在算是一个shell编程入了门的小菜鸟，本文是把学习、开发过程中遇到的一些常见的/有用的 语法/命令记录下来</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/blog/shell-programming-note/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1954,7 +2041,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-count">21</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
