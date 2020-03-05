@@ -2,65 +2,72 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/blog/android-adb-command-summary/</loc>
-    
-    <lastmod>2020-03-05T07:24:15.375Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/blog/restore-magic-cube-quick-start/</loc>
     
-    <lastmod>2020-03-04T07:38:17.329Z</lastmod>
+    <lastmod>2020-03-05T08:06:07.783Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/blog/use-java8-features-in-android/</loc>
     
-    <lastmod>2020-03-04T07:38:17.329Z</lastmod>
+    <lastmod>2020-03-05T08:06:03.185Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/blog/mac-reset-system-note/</loc>
     
-    <lastmod>2020-03-04T07:38:17.328Z</lastmod>
+    <lastmod>2020-03-05T08:05:59.685Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/blog/idea-as-shortcuts/</loc>
     
-    <lastmod>2020-03-04T07:38:17.328Z</lastmod>
+    <lastmod>2020-03-05T08:05:54.472Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/blog/note-keynote/</loc>
     
-    <lastmod>2020-03-04T07:38:17.328Z</lastmod>
+    <lastmod>2020-03-05T08:05:51.874Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/blog/design-for-login-module/</loc>
     
-    <lastmod>2020-03-04T07:38:17.327Z</lastmod>
+    <lastmod>2020-03-05T08:05:48.458Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/blog/flutter-heatline-view/</loc>
     
-    <lastmod>2020-03-04T07:38:17.327Z</lastmod>
+    <lastmod>2020-03-05T08:05:45.654Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/blog/git-submodule-note/</loc>
     
-    <lastmod>2020-03-04T07:38:17.326Z</lastmod>
+    <lastmod>2020-03-05T08:05:39.613Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/blog/shell-programming-note/</loc>
+    
+    <lastmod>2020-03-05T08:05:35.981Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/blog/android-adb-command-summary/</loc>
+    
+    <lastmod>2020-03-05T07:24:15.375Z</lastmod>
     
   </url>
   
@@ -75,13 +82,6 @@
     <loc>http://yoursite.com/blog/generate-qr-code-in-terminal/</loc>
     
     <lastmod>2019-08-19T03:57:22.796Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/blog/shell-programming-note/</loc>
-    
-    <lastmod>2019-03-06T03:24:40.289Z</lastmod>
     
   </url>
   
