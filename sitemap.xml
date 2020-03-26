@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/blog/mac-timer-task/</loc>
+    
+    <lastmod>2020-03-26T07:06:29.494Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/blog/android-adb-command-summary/</loc>
+    
+    <lastmod>2020-03-16T06:46:16.446Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/blog/mac-reset-system-note/</loc>
+    
+    <lastmod>2020-03-05T08:07:01.401Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/blog/restore-magic-cube-quick-start/</loc>
     
     <lastmod>2020-03-05T08:06:07.783Z</lastmod>
@@ -12,13 +33,6 @@
     <loc>http://yoursite.com/blog/use-java8-features-in-android/</loc>
     
     <lastmod>2020-03-05T08:06:03.185Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/blog/mac-reset-system-note/</loc>
-    
-    <lastmod>2020-03-05T08:05:59.685Z</lastmod>
     
   </url>
   
@@ -61,13 +75,6 @@
     <loc>http://yoursite.com/blog/shell-programming-note/</loc>
     
     <lastmod>2020-03-05T08:05:35.981Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/blog/android-adb-command-summary/</loc>
-    
-    <lastmod>2020-03-05T07:24:15.375Z</lastmod>
     
   </url>
   
@@ -123,7 +130,7 @@
   <url>
     <loc>http://yoursite.com/blog/use-mac-notes/</loc>
     
-    <lastmod>2019-03-06T03:14:39.727Z</lastmod>
+    <lastmod>2019-03-06T03:14:39.000Z</lastmod>
     
   </url>
   
@@ -142,14 +149,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/blog/hexo-encrypt-blog/</loc>
+    <loc>http://yoursite.com/blog/hexo-encrypt-blog-example/</loc>
     
     <lastmod>2018-01-10T16:00:00.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/blog/hexo-encrypt-blog-example/</loc>
+    <loc>http://yoursite.com/blog/hexo-encrypt-blog/</loc>
     
     <lastmod>2018-01-10T16:00:00.000Z</lastmod>
     

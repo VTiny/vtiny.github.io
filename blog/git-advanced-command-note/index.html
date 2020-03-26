@@ -461,7 +461,7 @@
 </li>
 </ul>
 </blockquote>
-<h4 id="10-删除"><a href="#10-删除" class="headerlink" title="10. 删除"></a>10. 删除</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clean -f      #删除untracked files</span><br><span class="line">git clean -f -n   #查看会删除的files</span><br><span class="line">git clean -f -d   #删除untracked文件夹</span><br></pre></td></tr></table></figure>
+<h4 id="10-删除"><a href="#10-删除" class="headerlink" title="10. 删除"></a>10. 删除</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clean -f      #删除untracked files</span><br><span class="line">git clean -f -n   #查看会删除的files</span><br><span class="line">git clean -f -d   #删除untracked文件夹</span><br><span class="line">git clean -df			#可简写</span><br></pre></td></tr></table></figure>
 <h4 id="11-log"><a href="#11-log" class="headerlink" title="11. log"></a>11. log</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reflog        #历史记录</span><br><span class="line">                  #可以拿到已经回滚reset过的提交的id，通过git reset id，可以把回滚过的提交找回</span><br></pre></td></tr></table></figure>
 <h2 id="可思考-研究的常见问题"><a href="#可思考-研究的常见问题" class="headerlink" title="可思考/研究的常见问题"></a>可思考/研究的常见问题</h2><h4 id="1-如何删除一个远程分支？"><a href="#1-如何删除一个远程分支？" class="headerlink" title="1. 如何删除一个远程分支？"></a>1. 如何删除一个远程分支？</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">方式1. git UI操作，通常在setting/branches中</span></span><br><span class="line"><span class="meta">#</span><span class="bash">方式2. 将一个空目录提交到制定远程</span></span><br><span class="line">git push origin:dev</span><br><span class="line"><span class="meta">#</span><span class="bash">方式3. delete参数</span></span><br><span class="line">git push origin -delete dev</span><br></pre></td></tr></table></figure>
 <h4 id="2-如何将修改追加到已经push了的n次提交之前？"><a href="#2-如何将修改追加到已经push了的n次提交之前？" class="headerlink" title="2. 如何将修改追加到已经push了的n次提交之前？"></a>2. 如何将修改追加到已经push了的n次提交之前？</h4><h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h4 id="1-安装git环境"><a href="#1-安装git环境" class="headerlink" title="1. 安装git环境"></a>1. 安装git环境</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git-core     #windows在官网下载环境</span><br></pre></td></tr></table></figure>
@@ -515,8 +515,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/hexo-encrypt-blog-example/" rel="prev" title="博文加密测试">
-                博文加密测试 <i class="fa fa-chevron-right"></i>
+              <a href="/blog/hexo-encrypt-blog/" rel="prev" title="如何给博文加密">
+                如何给博文加密 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -598,7 +598,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -609,7 +609,7 @@
                 
                 <div class="site-state-item site-state-categories">
                   <a href="/categories/index.html">
-                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -620,7 +620,7 @@
                 
                 <div class="site-state-item site-state-tags">
                   <a href="/tags/index.html">
-                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

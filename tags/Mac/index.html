@@ -124,7 +124,7 @@
 
 
 
-  <title>标签: Mac | 少年刘夏</title>
+  <title>标签: mac | 少年刘夏</title>
   
 
 
@@ -324,7 +324,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>Mac<small>标签</small>
+        <h1>mac<small>标签</small>
         </h1>
       </div>
 
@@ -336,9 +336,9 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/blog/use-mac-notes/" itemprop="url">
+            <a class="post-title-link" href="/blog/mac-reset-system-note/" itemprop="url">
               
-                <span itemprop="name">Mac使用笔记</span>
+                <span itemprop="name">mac升级踩坑记录</span>
               
             </a>
         
@@ -346,9 +346,9 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-06T17:28:00+08:00"
-              content="2018-08-06" >
-          08-06
+              datetime="2019-10-30T00:00:00+08:00"
+              content="2019-10-30" >
+          10-30
         </time>
       </div>
 
@@ -412,7 +412,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -423,7 +423,7 @@
                 
                 <div class="site-state-item site-state-categories">
                   <a href="/categories/index.html">
-                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -434,7 +434,7 @@
                 
                 <div class="site-state-item site-state-tags">
                   <a href="/tags/index.html">
-                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1115,5 +1115,44 @@
 
 </body>
 </html>
-body>
+t').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
 </html>
