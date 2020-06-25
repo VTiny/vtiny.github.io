@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/blog/use-java8-features-in-android/</loc>
+    
+    <lastmod>2020-06-25T02:17:29.212Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/blog/android-api-history-version/</loc>
+    
+    <lastmod>2020-05-08T07:29:53.416Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/blog/mac-timer-task/</loc>
     
     <lastmod>2020-03-26T07:06:29.494Z</lastmod>
@@ -26,13 +40,6 @@
     <loc>http://yoursite.com/blog/restore-magic-cube-quick-start/</loc>
     
     <lastmod>2020-03-05T08:06:07.783Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/blog/use-java8-features-in-android/</loc>
-    
-    <lastmod>2020-03-05T08:06:03.185Z</lastmod>
     
   </url>
   
@@ -96,13 +103,6 @@
     <loc>http://yoursite.com/blog/git-commit-to-swh/</loc>
     
     <lastmod>2019-03-06T03:14:44.534Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/blog/android-api-history-version/</loc>
-    
-    <lastmod>2019-03-06T03:14:43.638Z</lastmod>
     
   </url>
   
