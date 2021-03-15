@@ -124,7 +124,7 @@
 
 
 
-  <title>标签: mac | 少年刘夏</title>
+  <title>标签: Mac | 少年刘夏</title>
   
 
 
@@ -324,7 +324,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>mac<small>标签</small>
+        <h1>Mac<small>标签</small>
         </h1>
       </div>
 
@@ -336,9 +336,9 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/blog/mac-reset-system-note/" itemprop="url">
+            <a class="post-title-link" href="/blog/mac-timer-task/" itemprop="url">
               
-                <span itemprop="name">mac升级踩坑记录</span>
+                <span itemprop="name">Mac执行定时任务</span>
               
             </a>
         
@@ -346,9 +346,37 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2019-10-30T00:00:00+08:00"
-              content="2019-10-30" >
-          10-30
+              datetime="2020-03-26T00:00:00+08:00"
+              content="2020-03-26" >
+          03-26
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/blog/use-mac-notes/" itemprop="url">
+              
+                <span itemprop="name">Mac使用笔记</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-08-06T17:28:00+08:00"
+              content="2018-08-06" >
+          08-06
         </time>
       </div>
 
@@ -412,7 +440,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">23</span>
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1075,47 +1103,6 @@
               success: function(newcounter) {
                 var $element = $(document.getElementById(url));
                 $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
-
-
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
-
-</body>
-</html>
-t').text(newcounter.get('time'));
               },
               error: function(newcounter, error) {
                 console.log('Failed to create');
