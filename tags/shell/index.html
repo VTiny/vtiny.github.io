@@ -82,7 +82,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7xravb.com1.z0.glb.clouddn.com/20180831153569294599258.jpg">
 <meta property="og:image" content="http://7xravb.com1.z0.glb.clouddn.com/20180831153569301062389.png">
-<meta property="og:updated_time" content="2018-08-31T06:22:37.251Z">
+<meta property="og:updated_time" content="2018-08-31T06:22:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="about">
 <meta name="twitter:description" content="基本信息 黑龙江哈尔滨人，现居北京 生日1994年3月，2017年毕业开始工作 不抽烟，酒量还行但不喜欢喝 哈尔滨市松雷中学、哈尔滨市第三中学、东北大学 滴滴实习（螺丝工）、网易新闻Android开发（四爷饲养员）  兴趣爱好 篮球、羽毛球、DotA、吃鸡 库里、纳什 周杰伦 摄影入门玩家、旅游入门玩家、半程马拉松入门玩家  愿望 成为一个有趣、谦逊、敬畏的👨  找到一个明媚、爱生活的👧">
@@ -124,7 +124,7 @@
 
 
 
-  <title>标签: shell | 少年刘夏</title>
+  <title>标签: Shell | 少年刘夏</title>
   
 
 
@@ -324,7 +324,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>shell<small>标签</small>
+        <h1>Shell<small>标签</small>
         </h1>
       </div>
 
@@ -336,9 +336,9 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/blog/git-commit-to-swh/" itemprop="url">
+            <a class="post-title-link" href="/blog/mac-timer-task/" itemprop="url">
               
-                <span itemprop="name">Git将修改提交到已经commit的n次提交之前</span>
+                <span itemprop="name">Mac执行定时任务</span>
               
             </a>
         
@@ -346,9 +346,93 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-02T11:55:12+08:00"
-              content="2018-04-02" >
-          04-02
+              datetime="2020-03-26T00:00:00+08:00"
+              content="2020-03-26" >
+          03-26
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/blog/android-adb-command-summary/" itemprop="url">
+              
+                <span itemprop="name">Android ADB 命令总结</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2020-03-04T00:00:00+08:00"
+              content="2020-03-04" >
+          03-04
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/blog/shell-programming-note/" itemprop="url">
+              
+                <span itemprop="name">Shell脚本笔记</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2019-02-07T00:00:00+08:00"
+              content="2019-02-07" >
+          02-07
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/blog/generate-qr-code-in-terminal/" itemprop="url">
+              
+                <span itemprop="name">在命令行(Terminal)中自动生成二维码</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-05-24T00:00:00+08:00"
+              content="2018-05-24" >
+          05-24
         </time>
       </div>
 
@@ -412,7 +496,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1042,80 +1126,6 @@
       var $visitors = $(".leancloud_visitors");
       var url = $visitors.attr('id').trim();
       var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
-
-
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
-
-</body>
-</html>
-data-flag-title').trim();
       var query = new AV.Query(Counter);
 
       query.equalTo("url", url);

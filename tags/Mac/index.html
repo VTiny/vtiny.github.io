@@ -82,7 +82,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7xravb.com1.z0.glb.clouddn.com/20180831153569294599258.jpg">
 <meta property="og:image" content="http://7xravb.com1.z0.glb.clouddn.com/20180831153569301062389.png">
-<meta property="og:updated_time" content="2018-08-31T06:22:37.251Z">
+<meta property="og:updated_time" content="2018-08-31T06:22:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="about">
 <meta name="twitter:description" content="基本信息 黑龙江哈尔滨人，现居北京 生日1994年3月，2017年毕业开始工作 不抽烟，酒量还行但不喜欢喝 哈尔滨市松雷中学、哈尔滨市第三中学、东北大学 滴滴实习（螺丝工）、网易新闻Android开发（四爷饲养员）  兴趣爱好 篮球、羽毛球、DotA、吃鸡 库里、纳什 周杰伦 摄影入门玩家、旅游入门玩家、半程马拉松入门玩家  愿望 成为一个有趣、谦逊、敬畏的👨  找到一个明媚、爱生活的👧">
@@ -124,7 +124,7 @@
 
 
 
-  <title>标签: Mac | 少年刘夏</title>
+  <title>标签: mac | 少年刘夏</title>
   
 
 
@@ -324,7 +324,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>Mac<small>标签</small>
+        <h1>mac<small>标签</small>
         </h1>
       </div>
 
@@ -336,37 +336,9 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/blog/mac-timer-task/" itemprop="url">
+            <a class="post-title-link" href="/blog/mac-reset-system-note/" itemprop="url">
               
-                <span itemprop="name">Mac执行定时任务</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-03-26T00:00:00+08:00"
-              content="2020-03-26" >
-          03-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/blog/use-mac-notes/" itemprop="url">
-              
-                <span itemprop="name">Mac使用笔记</span>
+                <span itemprop="name">mac升级踩坑记录</span>
               
             </a>
         
@@ -374,9 +346,9 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-06T17:28:00+08:00"
-              content="2018-08-06" >
-          08-06
+              datetime="2019-10-30T00:00:00+08:00"
+              content="2019-10-30" >
+          10-30
         </time>
       </div>
 
@@ -440,7 +412,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1103,6 +1075,47 @@
               success: function(newcounter) {
                 var $element = $(document.getElementById(url));
                 $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+t').text(newcounter.get('time'));
               },
               error: function(newcounter, error) {
                 console.log('Failed to create');
