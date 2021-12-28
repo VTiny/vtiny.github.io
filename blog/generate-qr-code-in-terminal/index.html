@@ -73,20 +73,17 @@
 
 
 
-<meta name="description" content="基本信息 黑龙江哈尔滨人，现居北京 生日1994年3月，2017年毕业开始工作 不抽烟，酒量还行但不喜欢喝 哈尔滨市松雷中学、哈尔滨市第三中学、东北大学 滴滴实习（螺丝工）、网易新闻Android开发（四爷饲养员）  兴趣爱好 篮球、羽毛球、DotA、吃鸡 库里、纳什 周杰伦 摄影入门玩家、旅游入门玩家、半程马拉松入门玩家  愿望 成为一个有趣、谦逊、敬畏的👨  找到一个明媚、爱生活的👧">
+<meta name="description" content="向死而生">
 <meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="http://yoursite.com/about/index.html">
+<meta property="og:title" content="tags">
+<meta property="og:url" content="http://yoursite.com/tags/index.html">
 <meta property="og:site_name" content="少年刘夏">
-<meta property="og:description" content="基本信息 黑龙江哈尔滨人，现居北京 生日1994年3月，2017年毕业开始工作 不抽烟，酒量还行但不喜欢喝 哈尔滨市松雷中学、哈尔滨市第三中学、东北大学 滴滴实习（螺丝工）、网易新闻Android开发（四爷饲养员）  兴趣爱好 篮球、羽毛球、DotA、吃鸡 库里、纳什 周杰伦 摄影入门玩家、旅游入门玩家、半程马拉松入门玩家  愿望 成为一个有趣、谦逊、敬畏的👨  找到一个明媚、爱生活的👧">
+<meta property="og:description" content="向死而生">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://7xravb.com1.z0.glb.clouddn.com/20180831153569294599258.jpg">
-<meta property="og:image" content="http://7xravb.com1.z0.glb.clouddn.com/20180831153569301062389.png">
-<meta property="og:updated_time" content="2018-08-31T06:22:37.000Z">
+<meta property="og:updated_time" content="2018-01-10T14:13:41.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="基本信息 黑龙江哈尔滨人，现居北京 生日1994年3月，2017年毕业开始工作 不抽烟，酒量还行但不喜欢喝 哈尔滨市松雷中学、哈尔滨市第三中学、东北大学 滴滴实习（螺丝工）、网易新闻Android开发（四爷饲养员）  兴趣爱好 篮球、羽毛球、DotA、吃鸡 库里、纳什 周杰伦 摄影入门玩家、旅游入门玩家、半程马拉松入门玩家  愿望 成为一个有趣、谦逊、敬畏的👨  找到一个明媚、爱生活的👧">
-<meta name="twitter:image" content="http://7xravb.com1.z0.glb.clouddn.com/20180831153569294599258.jpg">
+<meta name="twitter:title" content="tags">
+<meta name="twitter:description" content="向死而生">
 
 
 
@@ -118,7 +115,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/about/"/>
+  <link rel="canonical" href="http://yoursite.com/tags/"/>
 
 
 
@@ -442,7 +439,7 @@
 <li>使用qrencode生成二维码，并打印</li>
 </ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/usr/bin/env bash</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">若没有brew环境，安装brew</span></span><br><span class="line">if which brew &gt; /dev/null ; then</span><br><span class="line">    echo "brew has been installed."</span><br><span class="line">else</span><br><span class="line">    echo "brew not installed, install brew first."</span><br><span class="line">    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">若没有qrencode库，安装qrencode</span></span><br><span class="line">if which qrencode &gt; /dev/null ; then</span><br><span class="line">    echo "qrencode has been installed."</span><br><span class="line">else</span><br><span class="line">    echo "qrencode not installed, install brew first"</span><br><span class="line">    brew install qrencode</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">处理参数，获取要生成二维码的信息</span></span><br><span class="line">if [ $# == 0 ]; then</span><br><span class="line">    read -p "Enter message here: " message</span><br><span class="line">elif [[ $1 == "help" ]] || [[ $1 == "--help" ]]; then</span><br><span class="line">    echo "A tool for generating qr code."</span><br><span class="line">    echo "Example usage:"</span><br><span class="line">    echo "  qrcode \"http://www.163.com\""</span><br><span class="line">    echo "  qrcode \"n 55!W\""</span><br><span class="line">    echo "Further help:"</span><br><span class="line">    echo "  qrcode help"</span><br><span class="line">    echo "  qrcode --help"</span><br><span class="line">    exit</span><br><span class="line">elif [ $1 ]; then</span><br><span class="line">    message=$1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">打印二维码</span></span><br><span class="line">echo $message | qrencode -o - -t UTF8</span><br></pre></td></tr></table></figure>
-<h3 id="运行效果"><a href="#运行效果" class="headerlink" title="运行效果"></a>运行效果</h3><p><img src="../images/image-20190306111207633.png" alt="image-20190306111207633"></p>
+<h3 id="运行效果"><a href="#运行效果" class="headerlink" title="运行效果"></a>运行效果</h3><p><img src="/images/image-20190306111207633.png" alt="image-20190306111207633"></p>
 
       
     </div>
@@ -485,8 +482,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/android-gradle-implentation-api/" rel="prev" title="【不懂就记】Gradle implementation、api命令">
-                【不懂就记】Gradle implementation、api命令 <i class="fa fa-chevron-right"></i>
+              <a href="/blog/android-studio-new-project-build-failed-preDebugAndroidTestBuild/" rel="prev" title="使用AS新建工程preDebugAndroidTestBuild报错">
+                使用AS新建工程preDebugAndroidTestBuild报错 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

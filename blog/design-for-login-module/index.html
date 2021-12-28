@@ -73,20 +73,17 @@
 
 
 
-<meta name="description" content="基本信息 黑龙江哈尔滨人，现居北京 生日1994年3月，2017年毕业开始工作 不抽烟，酒量还行但不喜欢喝 哈尔滨市松雷中学、哈尔滨市第三中学、东北大学 滴滴实习（螺丝工）、网易新闻Android开发（四爷饲养员）  兴趣爱好 篮球、羽毛球、DotA、吃鸡 库里、纳什 周杰伦 摄影入门玩家、旅游入门玩家、半程马拉松入门玩家  愿望 成为一个有趣、谦逊、敬畏的👨  找到一个明媚、爱生活的👧">
+<meta name="description" content="向死而生">
 <meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="http://yoursite.com/about/index.html">
+<meta property="og:title" content="tags">
+<meta property="og:url" content="http://yoursite.com/tags/index.html">
 <meta property="og:site_name" content="少年刘夏">
-<meta property="og:description" content="基本信息 黑龙江哈尔滨人，现居北京 生日1994年3月，2017年毕业开始工作 不抽烟，酒量还行但不喜欢喝 哈尔滨市松雷中学、哈尔滨市第三中学、东北大学 滴滴实习（螺丝工）、网易新闻Android开发（四爷饲养员）  兴趣爱好 篮球、羽毛球、DotA、吃鸡 库里、纳什 周杰伦 摄影入门玩家、旅游入门玩家、半程马拉松入门玩家  愿望 成为一个有趣、谦逊、敬畏的👨  找到一个明媚、爱生活的👧">
+<meta property="og:description" content="向死而生">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://7xravb.com1.z0.glb.clouddn.com/20180831153569294599258.jpg">
-<meta property="og:image" content="http://7xravb.com1.z0.glb.clouddn.com/20180831153569301062389.png">
-<meta property="og:updated_time" content="2018-08-31T06:22:37.000Z">
+<meta property="og:updated_time" content="2018-01-10T14:13:41.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="基本信息 黑龙江哈尔滨人，现居北京 生日1994年3月，2017年毕业开始工作 不抽烟，酒量还行但不喜欢喝 哈尔滨市松雷中学、哈尔滨市第三中学、东北大学 滴滴实习（螺丝工）、网易新闻Android开发（四爷饲养员）  兴趣爱好 篮球、羽毛球、DotA、吃鸡 库里、纳什 周杰伦 摄影入门玩家、旅游入门玩家、半程马拉松入门玩家  愿望 成为一个有趣、谦逊、敬畏的👨  找到一个明媚、爱生活的👧">
-<meta name="twitter:image" content="http://7xravb.com1.z0.glb.clouddn.com/20180831153569294599258.jpg">
+<meta name="twitter:title" content="tags">
+<meta name="twitter:description" content="向死而生">
 
 
 
@@ -118,7 +115,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/about/"/>
+  <link rel="canonical" href="http://yoursite.com/tags/"/>
 
 
 
@@ -458,7 +455,7 @@
 </li>
 <li>以三方登录为例，时序图如下：</li>
 </ul>
-<p><img src="../images/image-20191231161633908.png" alt="image-20191231161633908" style="zoom:67%;"></p>
+<p><img src="/images/image-20191231161633908.png" alt="image-20191231161633908" style="zoom:67%;"></p>
 <h3 id="方案设计"><a href="#方案设计" class="headerlink" title="方案设计"></a>方案设计</h3><p>可以发现，登录这部分的业务场景，都是<strong>链式结构</strong>，多数比<strong>较长</strong>，而且其中有一些步骤是相似的，适合<strong>复用</strong>，因此实现方案应当完成如下的要求：</p>
 <ul>
 <li>良好的模块化 - LoginTask，便于复用</li>
@@ -466,7 +463,7 @@
 </ul>
 <p>对外只暴露已经定义好的登录事件链，提供可选的入参即可</p>
 <p>如此设计后，整体的时序图为：</p>
-<p><img src="../images/image-20191231164835072.png" alt="image-20191231164835072" style="zoom:67%;"></p>
+<p><img src="/images/image-20191231164835072.png" alt="image-20191231164835072" style="zoom:67%;"></p>
 <h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><ul>
 <li>抽象单个模块的行为，<code>ILoginTask</code>，各个小模块实现该接口</li>
 <li>定义单个模块的生命周期回调，<code>ILoginTaskCallback</code>，管理类<code>LoginStreamLine</code>实现该接口整体管理</li>
