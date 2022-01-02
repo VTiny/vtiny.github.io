@@ -106,8 +106,8 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/blog/images/image-20191231161633908.png">
 <meta property="og:image" content="http://yoursite.com/blog/images/image-20191231164835072.png">
-<meta property="og:image" content="http://yoursite.com/Users/liuxia/Library/Mobile%20Documents/com~apple~CloudDocs/Workspace/Blog/source/images/image-20191231165745020.png">
-<meta property="og:updated_time" content="2021-12-28T12:01:46.000Z">
+<meta property="og:image" content="http://yoursite.com/blog/images/image-20191231165745020.png">
+<meta property="og:updated_time" content="2022-01-02T11:10:04.691Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="登录模块的一种设计与实现">
 <meta name="twitter:description" content="最近在使用 Flutter 做一个新产品，其中一个需求是完成登录模块 开发过程中遇到了临时整体变更方案的问题，由自己请求接口变为接入公司内通用 SDK，因为这部分代码设计的还算不错，没有影响实际项目进展，可见良好的设计是非常重要的 不过还是应该批判这种临时改方案、开发兜时间的行为！">
@@ -457,7 +457,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2021-12-28 20:01:46" itemprop="dateModified" datetime="2021-12-28T20:01:46+08:00">2021-12-28</time>
+                <time title="修改时间：2022-01-02 19:10:04" itemprop="dateModified" datetime="2022-01-02T19:10:04+08:00">2022-01-02</time>
               
             
           </span>
@@ -488,17 +488,6 @@
           
 
           
-          
-            <span id="/blog/design-for-login-module/" class="leancloud_visitors" data-flag-title="登录模块的一种设计与实现">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
           
 
           
@@ -569,7 +558,7 @@
 <li>定义单个模块的生命周期回调，<code>ILoginTaskCallback</code>，管理类<code>LoginStreamLine</code>实现该接口整体管理</li>
 <li>对外只暴露事件流的定义<code>LoginStreamDefine</code>如下：</li>
 </ul>
-<p><img src="/Users/liuxia/Library/Mobile Documents/com~apple~CloudDocs/Workspace/Blog/source/images/image-20191231165745020.png" alt="image-20191231165745020" style="zoom:50%;"></p>
+<p><img src="/images/image-20191231165745020.png" alt="image-20191231165745020" style="zoom:50%;"></p>
 
       
     </div>
@@ -579,12 +568,6 @@
     
     
     
-
-    
-      <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center;">
-  <img id="wechat_subscriber_qcode" src="/" alt="Liu Xia wechat" style="width: 200px; max-width: 100%;"/>
-  <div></div>
-</div>
 
     
 
@@ -862,7 +845,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#需求内容"><span class="nav-number">1.</span> <span class="nav-text">需求内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方案设计"><span class="nav-number">2.</span> <span class="nav-text">方案设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实现"><span class="nav-number">3.</span> <span class="nav-text">代码实现</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#需求内容"><span class="nav-text">需求内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方案设计"><span class="nav-text">方案设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实现"><span class="nav-text">代码实现</span></a></li></ol></div>
             
 
           </div>
@@ -917,6 +900,7 @@
       <i class="fa fa-user"></i>
     </span>
     <span class="site-uv" title="总访客量">
+      访客数
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
     </span>
   
@@ -930,6 +914,7 @@
       <i class="fa fa-eye"></i>
     </span>
     <span class="site-pv" title="总访问量">
+      访问量
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
     </span>
   
@@ -1383,66 +1368,6 @@
 
 
   
-  
-  <script>
-    
-    function addCount(Counter) {
-      var $visitors = $('.leancloud_visitors');
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-
-      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
-        .done(function({ results }) {
-          if (results.length > 0) {
-            var counter = results[0];
-            
-            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
-            
-              .done(function() {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.time + 1);
-              })
-            
-              .fail(function ({ responseJSON }) {
-                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
-              })
-          } else {
-            
-              var $element = $(document.getElementById(url));
-              $element.find('.leancloud-visitors-count').text('Counter not initialized! More info at console err msg.');
-              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
-            
-          }
-        })
-        .fail(function ({ responseJSON }) {
-          console.log('LeanCloud Counter Error: ' + responseJSON.code + ' ' + responseJSON.error);
-        });
-    }
-    
-
-    $(function() {
-      $.get('https://app-router.leancloud.cn/2/route?appId=' + '4l1VzcpqeGXL32I3nBBrH4mS-gzGzoHsz')
-        .done(function({ api_server }) {
-          var Counter = function(method, url, data) {
-            return $.ajax({
-              method: method,
-              url: 'https://' + api_server + '/1.1' + url,
-              headers: {
-                'X-LC-Id': '4l1VzcpqeGXL32I3nBBrH4mS-gzGzoHsz',
-                'X-LC-Key': 'AMcnjgvvGSIaYsfJpEfOxBn1',
-                'Content-Type': 'application/json',
-              },
-              data: data
-            });
-          };
-          
-            addCount(Counter);
-          
-        });
-    });
-  </script>
-
-
 
   
 

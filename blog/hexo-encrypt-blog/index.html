@@ -469,17 +469,6 @@
 
           
           
-            <span id="/blog/hexo-encrypt-blog/" class="leancloud_visitors" data-flag-title="如何给博文加密">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
 
           
             <span class="post-meta-divider">|</span>
@@ -514,7 +503,7 @@
 <h3 id="1-安装encrypt插件"><a href="#1-安装encrypt插件" class="headerlink" title="1. 安装encrypt插件"></a>1. 安装encrypt插件</h3><p>在hexo根目录下的<strong>package.json</strong>中<strong>dependencies</strong>标签下添加：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"hexo-blog-encrypt": "2.0.*"</span><br></pre></td></tr></table></figure>
 <p>更新环境安装插件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> npm install</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install</span></span><br></pre></td></tr></table></figure>
 <h3 id="2-在配置文件中启用插件"><a href="#2-在配置文件中启用插件" class="headerlink" title="2. 在配置文件中启用插件"></a>2. 在配置文件中启用插件</h3><p>在<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">站点配置文件</a> <strong>_config.yml</strong>中启用插件，添加如下配置</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Security</span></span><br><span class="line"><span class="comment">## Docs: https://github.com/MikeCoder/hexo-blog-encrypt</span></span><br><span class="line"><span class="attr">encrypt:</span></span><br><span class="line"><span class="attr">    enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 <h3 id="3-使用encrypt插件加密文章"><a href="#3-使用encrypt插件加密文章" class="headerlink" title="3. 使用encrypt插件加密文章"></a>3. 使用encrypt插件加密文章</h3><p>在文章头中添加password字段</p>
@@ -536,12 +525,6 @@
     
     
     
-
-    
-      <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center;">
-  <img id="wechat_subscriber_qcode" src="/" alt="Liu Xia wechat" style="width: 200px; max-width: 100%;"/>
-  <div></div>
-</div>
 
     
 
@@ -817,7 +800,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-安装encrypt插件"><span class="nav-number">1.</span> <span class="nav-text">1. 安装encrypt插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-在配置文件中启用插件"><span class="nav-number">2.</span> <span class="nav-text">2. 在配置文件中启用插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-使用encrypt插件加密文章"><span class="nav-number">3.</span> <span class="nav-text">3. 使用encrypt插件加密文章</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-live-demo"><span class="nav-number">4.</span> <span class="nav-text">4. live demo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-高阶使用方式"><span class="nav-number">5.</span> <span class="nav-text">5. 高阶使用方式</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-安装encrypt插件"><span class="nav-text">1. 安装encrypt插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-在配置文件中启用插件"><span class="nav-text">2. 在配置文件中启用插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-使用encrypt插件加密文章"><span class="nav-text">3. 使用encrypt插件加密文章</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-live-demo"><span class="nav-text">4. live demo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-高阶使用方式"><span class="nav-text">5. 高阶使用方式</span></a></li></ol></div>
             
 
           </div>
@@ -872,6 +855,7 @@
       <i class="fa fa-user"></i>
     </span>
     <span class="site-uv" title="总访客量">
+      访客数
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
     </span>
   
@@ -885,6 +869,7 @@
       <i class="fa fa-eye"></i>
     </span>
     <span class="site-pv" title="总访问量">
+      访问量
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
     </span>
   
@@ -1338,66 +1323,6 @@
 
 
   
-  
-  <script>
-    
-    function addCount(Counter) {
-      var $visitors = $('.leancloud_visitors');
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-
-      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
-        .done(function({ results }) {
-          if (results.length > 0) {
-            var counter = results[0];
-            
-            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
-            
-              .done(function() {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.time + 1);
-              })
-            
-              .fail(function ({ responseJSON }) {
-                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
-              })
-          } else {
-            
-              var $element = $(document.getElementById(url));
-              $element.find('.leancloud-visitors-count').text('Counter not initialized! More info at console err msg.');
-              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
-            
-          }
-        })
-        .fail(function ({ responseJSON }) {
-          console.log('LeanCloud Counter Error: ' + responseJSON.code + ' ' + responseJSON.error);
-        });
-    }
-    
-
-    $(function() {
-      $.get('https://app-router.leancloud.cn/2/route?appId=' + '4l1VzcpqeGXL32I3nBBrH4mS-gzGzoHsz')
-        .done(function({ api_server }) {
-          var Counter = function(method, url, data) {
-            return $.ajax({
-              method: method,
-              url: 'https://' + api_server + '/1.1' + url,
-              headers: {
-                'X-LC-Id': '4l1VzcpqeGXL32I3nBBrH4mS-gzGzoHsz',
-                'X-LC-Key': 'AMcnjgvvGSIaYsfJpEfOxBn1',
-                'Content-Type': 'application/json',
-              },
-              data: data
-            });
-          };
-          
-            addCount(Counter);
-          
-        });
-    });
-  </script>
-
-
 
   
 

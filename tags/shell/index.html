@@ -99,7 +99,7 @@
   <meta name="description" content="向死而生">
 <meta property="og:type" content="website">
 <meta property="og:title" content="少年刘夏">
-<meta property="og:url" content="http://yoursite.com/tags/Shell/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/shell/index.html">
 <meta property="og:site_name" content="少年刘夏">
 <meta property="og:description" content="向死而生">
 <meta property="og:locale" content="zh-CN">
@@ -113,7 +113,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/tags/Shell/"/>
+  <link rel="canonical" href="http://yoursite.com/tags/shell/"/>
 
 
 
@@ -123,7 +123,7 @@
   };
 </script>
 
-  <title>标签: Shell | 少年刘夏</title>
+  <title>标签: shell | 少年刘夏</title>
   
 
 
@@ -407,7 +407,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>Shell<small>标签</small>
+        <h1>shell<small>标签</small>
         </h1>
       </div>
 
@@ -419,37 +419,9 @@
 
       <h2 class="post-title">
         
-          <a class="post-title-link" href="/blog/mac-timer-task/" itemprop="url">
+          <a class="post-title-link" href="/blog/git-commit-to-swh/" itemprop="url">
             
-              <span itemprop="name">Mac执行定时任务</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-03-26T00:00:00+08:00"
-              content="2020-03-26">
-          03-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/blog/android-adb-command-summary/" itemprop="url">
-            
-              <span itemprop="name">Android ADB 命令总结</span>
+              <span itemprop="name">Git将修改提交到已经commit的n次提交之前</span>
             
           </a>
         
@@ -457,65 +429,9 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2020-03-04T00:00:00+08:00"
-              content="2020-03-04">
-          03-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/blog/shell-programming-note/" itemprop="url">
-            
-              <span itemprop="name">Shell脚本笔记</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-02-07T00:00:00+08:00"
-              content="2019-02-07">
-          02-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/blog/generate-qr-code-in-terminal/" itemprop="url">
-            
-              <span itemprop="name">在命令行(Terminal)中自动生成二维码</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-24T00:00:00+08:00"
-              content="2018-05-24">
-          05-24
+              datetime="2018-04-02T11:55:12+08:00"
+              content="2018-04-02">
+          04-02
         </time>
       </div>
 
@@ -777,6 +693,7 @@
       <i class="fa fa-user"></i>
     </span>
     <span class="site-uv" title="总访客量">
+      访客数
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
     </span>
   
@@ -790,6 +707,7 @@
       <i class="fa fa-eye"></i>
     </span>
     <span class="site-pv" title="总访问量">
+      访问量
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
     </span>
   
@@ -1237,74 +1155,100 @@
 
 
   
+
   
-  <script>
-    
-    function showTime(Counter) {
-      var entries = [];
-      var $visitors = $('.leancloud_visitors');
 
-      $visitors.each(function() {
-        entries.push( $(this).attr('id').trim() );
-      });
+  
 
-      Counter('get', '/classes/Counter', { where: JSON.stringify({ url: { '$in': entries } }) })
-        .done(function({ results }) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+  
 
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
+  
 
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.url;
-            var time = item.time;
-            var element = document.getElementById(url);
+  
 
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for (var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if (countSpan.text() == '') {
-              countSpan.text(0);
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+ount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
             }
           }
-        })
-        .fail(function ({ responseJSON }) {
-          console.log('LeanCloud Counter Error: ' + responseJSON.code + ' ' + responseJSON.error);
-        });
-    }
-    
 
-    $(function() {
-      $.get('https://app-router.leancloud.cn/2/route?appId=' + '4l1VzcpqeGXL32I3nBBrH4mS-gzGzoHsz')
-        .done(function({ api_server }) {
-          var Counter = function(method, url, data) {
-            return $.ajax({
-              method: method,
-              url: 'https://' + api_server + '/1.1' + url,
-              headers: {
-                'X-LC-Id': '4l1VzcpqeGXL32I3nBBrH4mS-gzGzoHsz',
-                'X-LC-Key': 'AMcnjgvvGSIaYsfJpEfOxBn1',
-                'Content-Type': 'application/json',
-              },
-              data: data
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
             });
-          };
-          
-            if ($('.post-title-link').length >= 1) {
-              showTime(Counter);
-            }
-          
-        });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
     });
   </script>
 
 
+
+
+
+  
 
   
 
