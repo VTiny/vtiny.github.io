@@ -32,8 +32,8 @@
         <category>Mac</category>
       </categories>
       <tags>
-        <tag>Shell</tag>
         <tag>Mac</tag>
+        <tag>Shell</tag>
         <tag>定时任务</tag>
       </tags>
   </entry>
@@ -141,8 +141,8 @@
         <category>Language</category>
       </categories>
       <tags>
-        <tag>Dart</tag>
         <tag>Flutter</tag>
+        <tag>Dart</tag>
       </tags>
   </entry>
   <entry>
@@ -181,19 +181,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[使用AS新建工程preDebugAndroidTestBuild报错]]></title>
-    <url>%2Fblog%2Fandroid-studio-new-project-build-failed-preDebugAndroidTestBuild%2F</url>
-    <content type="text"><![CDATA[使用Android Studio 3.0新建工程，一路默认走下来竟然报错了，报错内容： 12Error:Execution failed for task &apos;:app:preDebugAndroidTestBuild&apos;.&gt; Conflict with dependency &apos;com.android.support:support-annotations&apos; in project &apos;:app&apos;. Resolved versions for app (26.1.0) and test app (27.1.1) differ. See https://d.android.com/r/tools/test-apk-dependency-conflicts.html for details. Gg, 文内图片找不回来了，七牛真坑，图片原外链不让访问，还不让下载 原因排查 吐槽：讲道理，怎么编译器新建一个默认工程还能报错啊，好吧，解决它 看报错信息，是com.android.support:support-annotations这个包引入了两个版本，看编译后的环境，确实如此 默认的build.gradle dependencies标签下是这样的 12345678dependencies &#123; implementation fileTree(dir: 'libs', include: ['*.jar']) implementation 'com.android.support:appcompat-v7:26.1.0' implementation 'com.android.support.constraint:constraint-layout:1.1.2' testImplementation 'junit:junit:4.12' androidTestImplementation 'com.android.support.test:runner:1.0.2' androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'&#125; 排查后发现，&#39;com.android.support:appcompat-v7:26.1.0&#39;这里包含的是26.1.0版本的annotations包，而&#39;com.android.support.test:runner:1.0.2&#39;和&#39;com.android.support.test.espresso:espresso-core:3.0.2&#39;这两个用于测试的库包含27.1.1版本 解决问题方式1如果需要用runner和espresso这两个用于测试的库，可以直接把这两行去掉，gralde文件变成： 123456dependencies &#123; implementation fileTree(dir: 'libs', include: ['*.jar']) implementation 'com.android.support:appcompat-v7:26.1.0' implementation 'com.android.support.constraint:constraint-layout:1.1.2' testImplementation 'junit:junit:4.12'&#125; 方式2声明runner和espress两个测试库不重复引入annotations包 12345678910111213dependencies &#123; implementation fileTree(dir: 'libs', include: ['*.jar'])Ω implementation 'com.android.support:appcompat-v7:26.1.0' implementation 'com.android.support.constraint:constraint-layout:1.1.2' testImplementation 'junit:junit:4.12' androidTestImplementation 'com.android.support.test:runner:1.0.2', &#123; exclude module: 'junit' exclude group: 'com.android.support', module: 'support-annotations' &#125; androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2', &#123; exclude group: 'com.android.support', module: 'support-annotations' &#125;&#125; 方式3强制声明最终引入的annotations包的版本 12345678910111213dependencies &#123; implementation fileTree(dir: 'libs', include: ['*.jar'])Ω implementation 'com.android.support:appcompat-v7:26.1.0' implementation 'com.android.support.constraint:constraint-layout:1.1.2' testImplementation 'junit:junit:4.12' androidTestImplementation 'com.android.support.test:runner:1.0.2' androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2' androidTestImplementation('com.android.support:support-annotations:26.1.0') &#123; force = true &#125;&#125; 大吉大利好了终于正常了，大吉大利]]></content>
-      <categories>
-        <category>Android</category>
-      </categories>
-      <tags>
-        <tag>Android Studio</tag>
-        <tag>AS</tag>
-        <tag>Gradle</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[【不懂就记】Gradle implementation、api命令]]></title>
     <url>%2Fblog%2Fandroid-gradle-implentation-api%2F</url>
     <content type="text"><![CDATA[发现Android Studio升级到3.0版本以后，新建工程默认的app包的build.gradle文件有点不认识了，长成这样，主要是implemention这个命令是什么鬼 12345678dependencies &#123; implementation fileTree(dir: 'libs', include: ['*.jar']) implementation 'com.android.support:appcompat-v7:26.1.0' implementation 'com.android.support.constraint:constraint-layout:1.1.2' testImplementation 'junit:junit:4.12' androidTestImplementation 'com.android.support.test:runner:1.0.2' androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'&#125; 背景Android Studio再升级到3.0版本后，gradle插件版本默认升级到了3.0.0版本，在此版本中不推荐使用gradle的compile命令，推荐使用implemention命令和api命令 文档资源 强推: Google I/O 2017 - Speeding Up Your Android Gradle Builds演讲关于Implemention和API的部分 Implementation vs API dependency (大概是把I/O演讲的整理记录了下) 记录的中文翻译版本 谷歌官方迁移(升级)到Android Plugin for Gradle3.0文档 Implemention和API命令的使用 在I/O 2017的演讲中，演讲者将build一个工程比作是pay taxes，给人的感觉确实也是如此，构建工程的速度很重要，立个flag，过段时间整体研究下 api命令和原来的compile命令完全相同 implemention命令对于使用了该命令编译的依赖，对该项目有依赖的项目将无法访问到使用该命令编译的依赖中的任何程序，也就是将该依赖隐藏在内部，而不对外部公开 例子1. 使用compile/api12A compile BB compile C 那么A是可以直接调用C的方法的 2. 使用implemention12A implemention BB implemention C C的内部方法对B可见，对A不可见，即A不能直接调用C的方法 好处：在C源码发生变化的时候，只重新编译直接引用C的module(B)，A不重新编译，提高工程构建速度]]></content>
@@ -203,6 +190,19 @@
       <tags>
         <tag>Android</tag>
         <tag>Gradle</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用AS新建工程preDebugAndroidTestBuild报错]]></title>
+    <url>%2Fblog%2Fandroid-studio-new-project-build-failed-preDebugAndroidTestBuild%2F</url>
+    <content type="text"><![CDATA[使用Android Studio 3.0新建工程，一路默认走下来竟然报错了，报错内容： 12Error:Execution failed for task &apos;:app:preDebugAndroidTestBuild&apos;.&gt; Conflict with dependency &apos;com.android.support:support-annotations&apos; in project &apos;:app&apos;. Resolved versions for app (26.1.0) and test app (27.1.1) differ. See https://d.android.com/r/tools/test-apk-dependency-conflicts.html for details. Gg, 文内图片找不回来了，七牛真坑，图片原外链不让访问，还不让下载 原因排查 吐槽：讲道理，怎么编译器新建一个默认工程还能报错啊，好吧，解决它 看报错信息，是com.android.support:support-annotations这个包引入了两个版本，看编译后的环境，确实如此 默认的build.gradle dependencies标签下是这样的 12345678dependencies &#123; implementation fileTree(dir: 'libs', include: ['*.jar']) implementation 'com.android.support:appcompat-v7:26.1.0' implementation 'com.android.support.constraint:constraint-layout:1.1.2' testImplementation 'junit:junit:4.12' androidTestImplementation 'com.android.support.test:runner:1.0.2' androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'&#125; 排查后发现，&#39;com.android.support:appcompat-v7:26.1.0&#39;这里包含的是26.1.0版本的annotations包，而&#39;com.android.support.test:runner:1.0.2&#39;和&#39;com.android.support.test.espresso:espresso-core:3.0.2&#39;这两个用于测试的库包含27.1.1版本 解决问题方式1如果需要用runner和espresso这两个用于测试的库，可以直接把这两行去掉，gralde文件变成： 123456dependencies &#123; implementation fileTree(dir: 'libs', include: ['*.jar']) implementation 'com.android.support:appcompat-v7:26.1.0' implementation 'com.android.support.constraint:constraint-layout:1.1.2' testImplementation 'junit:junit:4.12'&#125; 方式2声明runner和espress两个测试库不重复引入annotations包 12345678910111213dependencies &#123; implementation fileTree(dir: 'libs', include: ['*.jar'])Ω implementation 'com.android.support:appcompat-v7:26.1.0' implementation 'com.android.support.constraint:constraint-layout:1.1.2' testImplementation 'junit:junit:4.12' androidTestImplementation 'com.android.support.test:runner:1.0.2', &#123; exclude module: 'junit' exclude group: 'com.android.support', module: 'support-annotations' &#125; androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2', &#123; exclude group: 'com.android.support', module: 'support-annotations' &#125;&#125; 方式3强制声明最终引入的annotations包的版本 12345678910111213dependencies &#123; implementation fileTree(dir: 'libs', include: ['*.jar'])Ω implementation 'com.android.support:appcompat-v7:26.1.0' implementation 'com.android.support.constraint:constraint-layout:1.1.2' testImplementation 'junit:junit:4.12' androidTestImplementation 'com.android.support.test:runner:1.0.2' androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2' androidTestImplementation('com.android.support:support-annotations:26.1.0') &#123; force = true &#125;&#125; 大吉大利好了终于正常了，大吉大利]]></content>
+      <categories>
+        <category>Android</category>
+      </categories>
+      <tags>
+        <tag>Gradle</tag>
+        <tag>Android Studio</tag>
+        <tag>AS</tag>
       </tags>
   </entry>
   <entry>
@@ -254,17 +254,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[博文加密测试]]></title>
-    <url>%2Fblog%2Fhexo-encrypt-blog-example%2F</url>
-    <content type="text"><![CDATA[下面输入密码, 错了就打不开哈哈哈哈 U2FsdGVkX1+VSexHnrh2DKnDFAiJRHxsEaIwjCuNjWVnmPyhzU/Qvwoz7gAl92HcyTW2nIwAj/lhmovFwlH+dKSrztO7293sa/j6p4ZaDOElyriBJtbFSqmpgIyD5RQNrD9HoyJ2pAKMh9qQxQf63M71Av+/6T1HdfmK5fOXiQ5q+WPlG1pcbU7jE+xB8qqfA9a5dC5z6QRlSziY7KUF+LL1yXj3/RH2cfYgm28u7Fy8vypo22wVDZRA/wjFjGRo/60JkKyvDvSsxG+6N8PV625OVIfrOCB3Zz1b/DxDlXzavxYbQuzqwiseI/XVXKxgvhvQbxR7mNVniomt+WnYQxvQksF1ccK7fpqrsQ/IlVh3mobHQWbFlDEMR5LFKGq4Z5iznCsmnEy05jBtMvkDddPUfCbbq4VHXBUENU//hS7k0CwVh0d2eairTpyAx7I7FxkCNtB71lJirLC1CFJKKokU7OuCggAo19tu8u4mcZclyygN8URZCjAxxfkTObu9YgsIngfUP6+Rggk9K3V12bdHdUFuiaXZZRsKikCi66+CZZxBf5QnIcol0GRSVQ7pL0JOwG0hb+pU6HEXTbn5l6zWpPJ4HQLjmGXUVgnaLtm2wO/hhfiCSVmX6nCkX8HRzAuL8pTYb843R3fnu8QW9yeEsxGR9qGKtIj7/zYEnA0CcHAAH215wDgdnuw642sqc+76aqLvGPzZl8T0fV5DGGYU7DIMxYtdkiia6RNtSkTCH2ZqrwUgGM07L3A1JIHDo22gBx7JcXleLxDSBMi8Q2DzAa2MK8E8a0Cbd431rXvu2OLCjeNwvBXsDEXwuPCZCPNKHOMDDFamt2gmFFBa5efc1KivuZjUnDOEJsKK9DJCXgTomyH9F+JdhpkjuDOzodSNq8+KZKv4MogJpGBmbJVYMoMqV0a8tXZuvy+fJ/VrUl0v/Y/fZC+AUMcuKdZJicv5qxeNlOQ5DlEus6t0de1iDa0PTEyJfhns16svRe/cnT0M3PnL7gNN4tnaI2coYFxbJSoFP228J9WtW0JprLKEzMPaVCjntBSE3KEeO1ZV+J2EXJzob6yt+pJnaOpzf1mANNkOuZKTA/HhsNMJsxcpLtcnOVo/4OWlb3kpyYPMOlwGFn5mPiA8jhN/4q8dh8ZUotBwPa3FNS7g2afK1ZR8/bp83O+OEemGe0Njfhg=]]></content>
-      <categories>
-        <category>Tools</category>
-      </categories>
-      <tags>
-        <tag>加密</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[如何给博文加密]]></title>
     <url>%2Fblog%2Fhexo-encrypt-blog%2F</url>
     <content type="text"><![CDATA[博客当然也要有记录生活的功能，怎么能放心的记(tu)录(cao)生活而不担心被陌生人看到呢，那就需要对博文进行加密了。本文介绍了使用hexo-blog-encrypt插件完成对博文进行加密的方式，可以放心的写一些羞羞的事情了~ 通过hexo-blog-encrypt插件实现，插件github地址：https://github.com/MikeCoder/hexo-blog-encrypt ，上面有使用方式的介绍 1. 安装encrypt插件在hexo根目录下的package.json中dependencies标签下添加： 1"hexo-blog-encrypt": "2.0.*" 更新环境安装插件 1$ npm install 2. 在配置文件中启用插件在站点配置文件 _config.yml中启用插件，添加如下配置 1234# Security## Docs: https://github.com/MikeCoder/hexo-blog-encryptencrypt: enable: true 3. 使用encrypt插件加密文章在文章头中添加password字段 123456---title: hello worldpassword: liushaoxiaabstract: 加密文章的简介message: 输入密码上方的提示--- 4. live demodemo: 博文加密测试 , 密码是liushaox 5. 高阶使用方式可以对文章目录TOC进行加密、修改加密模板，具体方式转步插件作者wiki查看： github：https://github.com/MikeCoder/hexo-blog-encrypt/ 中文版：https://github.com/MikeCoder/hexo-blog-encrypt/blob/master/ReadMe.zh.md]]></content>
@@ -273,6 +262,17 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[博文加密测试]]></title>
+    <url>%2Fblog%2Fhexo-encrypt-blog-example%2F</url>
+    <content type="text"><![CDATA[下面输入密码, 错了就打不开哈哈哈哈 U2FsdGVkX1+mc+hmWrhhbNoGecWxPRuMPfJo6xFazDrMVWUPkFjHTsYltZsRTw8Cu/dr69/k3gh3ZAwMPgDkmvAqH3Re76RtpVgnBa1SOy33Y+EyP64UXF3xL+fdElwU1SSLHWUUz+UA2W3lULKWkW5nEmETyg70FWXyA5Tm7JiHJRSBj1NPfSepvxnSnouIx3ydI88ovxU2HormHjKrqjfR6Q7Z2pyRsYF5YpnwfDWl/OmmF4Jaxci8vS0EZl9qH3T5RpcOG1HTunDTHZQ+DAEF6pUfOeNI12TCMujgowTV0V9mO98yrcEHSNxjpiD5aGusJ5nl24aOw3/syq6+eYW8AywMeEPkNCT74SUZ4n5frCDpB6G0hgVg+nNp2fEM/W7buka8JMK+Ajr0KOfOxyaB8k+kkg5q1C6hEoKWqREtCCchs0buFPbDRTjTqLDEIIh7i4U0IbsfCr4AegkHr4LKN9S0V4wYsziVSKYDnMSwaYyuzfEE3QDF8b+/PQi1puknlb5WgIY1XoVKDChO37RBaUpVMIi79pQfwMe7YeBX4+mdTBoUOteczTg9swFIj8puaqnRNTwZhr+kNTfTi8s6PsxwkY4B6+AGOfJtTjObJU7KvPznyacQwvZNbeWiRzyz3UFwZqpF/hb0b+HoWC8NZKuBLnMVmgFJuomKabM/aySKGosGhyWZs7Se0bTrJn4ea4lA+y48fUFE8BegAAXhG/loRM4plxEU7zzNaFfOyfoA9czmjeCMJM+g7lVq9/ZFXni7DpkzKu6rLm0nh+Fi/b3ik113fg6kHS0Xzjapc+UpqpUAbpGeAHRzVFJIWm+mGxqqQTsG7uQqNXQdzMKy9vYorgDYeeVpztURbYJzxWe2G//RtdBahKfaKY0MYR5eRMYttPghAOLfU6xCTM5qeMAzq84DBPJP+fDtK38rsuJSqUTHOnfZtVeLdAJf8l54Jt+IYNUNRpgOurbzJDDsC+rD+N7M2w/eiFuB8pUJA5ishAcdZmsrJO6FjJNvPQ/A8b+554geNKZxiQ7UoI4ovUSFDN/Akg9lMbk0ObBxVKd4we4jh0qXlM1aqtDYrdYtdY1LNGcyCGP4pYAfiR4tK0JFAGWqq5DJTzmlV+IcUDhYqlEgmKHk7LRF0cltHkqPQKXwh97GZPhJg69qzB+rKQoo8VrYFj+Vwwd+9i8=]]></content>
+      <categories>
+        <category>Tools</category>
+      </categories>
+      <tags>
+        <tag>加密</tag>
       </tags>
   </entry>
   <entry>
