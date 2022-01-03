@@ -99,7 +99,7 @@
   <meta name="description" content="向死而生">
 <meta property="og:type" content="website">
 <meta property="og:title" content="少年刘夏">
-<meta property="og:url" content="http://yoursite.com/tags/shell/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/Shell/index.html">
 <meta property="og:site_name" content="少年刘夏">
 <meta property="og:description" content="向死而生">
 <meta property="og:locale" content="zh-CN">
@@ -113,7 +113,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/tags/shell/"/>
+  <link rel="canonical" href="http://yoursite.com/tags/Shell/"/>
 
 
 
@@ -123,7 +123,7 @@
   };
 </script>
 
-  <title>标签: shell | 少年刘夏</title>
+  <title>标签: Shell | 少年刘夏</title>
   
 
 
@@ -407,7 +407,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>shell<small>标签</small>
+        <h1>Shell<small>标签</small>
         </h1>
       </div>
 
@@ -419,9 +419,9 @@
 
       <h2 class="post-title">
         
-          <a class="post-title-link" href="/blog/git-commit-to-swh/" itemprop="url">
+          <a class="post-title-link" href="/blog/mac-timer-task/" itemprop="url">
             
-              <span itemprop="name">Git将修改提交到已经commit的n次提交之前</span>
+              <span itemprop="name">Mac执行定时任务</span>
             
           </a>
         
@@ -429,9 +429,93 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-02T11:55:12+08:00"
-              content="2018-04-02">
-          04-02
+              datetime="2020-03-26T00:00:00+08:00"
+              content="2020-03-26">
+          03-26
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+          <a class="post-title-link" href="/blog/android-adb-command-summary/" itemprop="url">
+            
+              <span itemprop="name">Android ADB 命令总结</span>
+            
+          </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2020-03-04T00:00:00+08:00"
+              content="2020-03-04">
+          03-04
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+          <a class="post-title-link" href="/blog/shell-programming-note/" itemprop="url">
+            
+              <span itemprop="name">Shell脚本笔记</span>
+            
+          </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2019-02-07T00:00:00+08:00"
+              content="2019-02-07">
+          02-07
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+          <a class="post-title-link" href="/blog/generate-qr-code-in-terminal/" itemprop="url">
+            
+              <span itemprop="name">在命令行(Terminal)中自动生成二维码</span>
+            
+          </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-05-24T00:00:00+08:00"
+              content="2018-05-24">
+          05-24
         </time>
       </div>
 
@@ -492,7 +576,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-count">25</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -602,7 +686,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">28</span>
+                      
+                    
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1091,100 +1177,6 @@
             } else {
               resultItems.sort(function (resultLeft, resultRight) {
                 if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-</body>
-</html>
-ount) {
                   return resultRight.searchTextCount - resultLeft.searchTextCount;
                 } else if (resultLeft.hitCount !== resultRight.hitCount) {
                   return resultRight.hitCount - resultLeft.hitCount;
