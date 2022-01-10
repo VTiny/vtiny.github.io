@@ -1,534 +1,297 @@
 <!DOCTYPE html>
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<html class="theme-next gemini use-motion" lang="zh-CN">
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
-<meta name="theme-color" content="#222"/>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)">
+<meta name="generator" content="Hexo 5.4.0">
 
 
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-lx.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-lx.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-lx.png">
+  <link rel="mask-icon" href="/images/favicon-32x32-lx.png" color="#222">
 
+<link rel="stylesheet" href="/css/main.css">
 
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic%7CLexend:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-  
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css"/>
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
-
-<link rel="stylesheet" href="/css/main.css?v=7.1.2"/>
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-lx.png?v=7.1.2">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-lx.png?v=7.1.2">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-lx.png?v=7.1.2">
-
-
-  <link rel="mask-icon" href="/images/favicon-32x32-lx.png?v=7.1.2" color="#222">
-
-
-
-
-
-
-
-<script id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '7.1.2',
-    sidebar: {"position":"left","display":"always","offset":12,"onmobile":false,"dimmer":false},
-    back2top: true,
-    back2top_sidebar: false,
-    fancybox: true,
-    fastclick: false,
-    lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-  
-
-
-
-
-  <meta name="description" content="Android Debug Bridge (adb) 是 Android 开发中常用的命令行工具，可以与设备进行通信。本文记录了常用的 adb 命令，其中重点会用 ❗️ 标出，“骚操作”会用 🌟 标出">
-<meta name="keywords" content="Android,Shell">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.8.2","exturl":false,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="Android Debug Bridge (adb) 是 Android 开发中常用的命令行工具，可以与设备进行通信。本文记录了常用的 adb 命令，其中重点会用 ❗️ 标出，“骚操作”会用 🌟 标出">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android ADB 命令总结">
-<meta property="og:url" content="http://yoursite.com/blog/android-adb-command-summary/index.html">
+<meta property="og:url" content="http://example.com/blog/android-adb-command-summary/index.html">
 <meta property="og:site_name" content="少年刘夏">
 <meta property="og:description" content="Android Debug Bridge (adb) 是 Android 开发中常用的命令行工具，可以与设备进行通信。本文记录了常用的 adb 命令，其中重点会用 ❗️ 标出，“骚操作”会用 🌟 标出">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2022-01-03T05:17:18.270Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-03T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-01-08T07:56:52.657Z">
+<meta property="article:author" content="Liu Xia">
+<meta property="article:tag" content="Android">
+<meta property="article:tag" content="Shell">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android ADB 命令总结">
-<meta name="twitter:description" content="Android Debug Bridge (adb) 是 Android 开发中常用的命令行工具，可以与设备进行通信。本文记录了常用的 adb 命令，其中重点会用 ❗️ 标出，“骚操作”会用 🌟 标出">
+
+
+<link rel="canonical" href="http://example.com/blog/android-adb-command-summary/">
 
 
 
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/blog/android-adb-command-summary/","path":"blog/android-adb-command-summary/","title":"Android ADB 命令总结"}</script>
 
-
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Android ADB 命令总结 | 少年刘夏</title>
   
-  
-  <link rel="canonical" href="http://yoursite.com/blog/android-adb-command-summary/"/>
-
-
-
-<script id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
-  };
-</script>
-
-  <title>Android ADB 命令总结 | 少年刘夏</title>
-  
-
-
-
-
-
-
-
-
 
 
 
 
   <noscript>
-  <style>
-  .use-motion .motion-element,
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
-
-  .use-motion .logo,
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
 
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">少年刘夏</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
-    
-      
-        <p class="site-subtitle">一杯敬故乡，一杯敬远方</p>
-      
-    
-    
   </div>
 
-  <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">少年刘夏</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">一杯敬故乡，一杯敬远方</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
   </div>
 </div>
 
 
 
 <nav class="site-nav">
-  
-    <ul id="menu" class="menu">
-      
-        
-        
-        
-          
-          <li class="menu-item menu-item-home">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>标签</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>分类</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-schedule">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br/>日程表</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-about">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>关于</a>
-
-  </li>
-
-      
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>搜索</a>
-        </li>
-      
-    </ul>
-  
-
-  
-
-  
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
-
-
-
-    </div>
-  
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
 </nav>
 
 
 
-  
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
 
-
+    </div>
+  </div>
 
 </div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80-%E5%B7%A5%E4%BD%9C%E7%8E%AF%E5%A2%83"><span class="nav-text">一. 工作环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C-%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E6%A6%82%E8%BF%B0"><span class="nav-text">二. 工作原理概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89-%E9%80%9A%E8%BF%87-WLAN-%E8%BF%9E%E6%8E%A5%E5%88%B0%E8%AE%BE%E5%A4%87-%F0%9F%8C%9F"><span class="nav-text">三. 通过 WLAN 连接到设备 🌟</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B-%E5%91%BD%E4%BB%A4%E5%B0%8F%E5%85%A8"><span class="nav-text">四. 命令小全</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%90%AF%E5%8A%A8%E4%B8%8E%E5%85%B3%E9%97%AD"><span class="nav-text">1. 启动与关闭</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%88%97%E5%87%BA%E8%AE%BE%E5%A4%87"><span class="nav-text">2. 列出设备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%AE%89%E8%A3%85%E5%BA%94%E7%94%A8"><span class="nav-text">3. 安装应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E8%AE%BE%E7%BD%AE%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91"><span class="nav-text">4. 设置端口转发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E4%B8%8E%E8%AE%BE%E5%A4%87%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6"><span class="nav-text">5. 与设备传输文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E5%8F%91%E5%87%BA-adb-%E5%91%BD%E4%BB%A4"><span class="nav-text">6. 发出 adb 命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-%E5%8F%91%E5%87%BA-shell-%E5%91%BD%E4%BB%A4"><span class="nav-text">7. 发出 shell 命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-%E6%9F%A5%E7%9C%8B%E5%8F%AF%E7%94%A8%E7%9A%84%E5%B7%A5%E5%85%B7%E5%88%97%E8%A1%A8"><span class="nav-text">7.1 查看可用的工具列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2-Activity-%E7%AE%A1%E7%90%86%E5%99%A8-am"><span class="nav-text">7.2 Activity 管理器 - am</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-3-%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8-pm"><span class="nav-text">7.3 软件包管理器 -  pm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-4-%E8%8E%B7%E5%8F%96%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-%F0%9F%8C%9F"><span class="nav-text">7.4 获取屏幕截图 🌟</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-5-%E8%8E%B7%E5%8F%96%E5%BD%95%E5%B1%8F-%F0%9F%8C%9F"><span class="nav-text">7.5 获取录屏 🌟</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-6-%E4%B8%8D-root-%E8%AF%BB%E5%8F%96-data-%E4%B8%8B%E5%BA%94%E7%94%A8%E6%89%80%E6%9C%89%E6%95%B0%E6%8D%AE-%E2%9D%97%EF%B8%8F%F0%9F%8C%9F"><span class="nav-text">7.6 不 root 读取 data 下应用所有数据 ❗️🌟</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-7-sqlite"><span class="nav-text">7.7 sqlite</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-8-logcat"><span class="nav-text">7.8 logcat</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Liu Xia"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Liu Xia</p>
+  <div class="site-description" itemprop="description">向死而生</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="mailto:cxyliuxiao@163.com" title="E-Mail → mailto:cxyliuxiao@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
     </header>
 
     
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
 
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-            
+    <div class="main-inner post posts-expand">
 
-          
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-    
 
   
 
-  
+
+<div class="post-block">
   
   
 
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/android-adb-command-summary/"/>
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/blog/android-adb-command-summary/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Liu Xia"/>
-      <meta itemprop="description" content="向死而生"/>
-      <meta itemprop="image" content="/images/avatar.jpeg"/>
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Liu Xia">
+      <meta itemprop="description" content="向死而生">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="少年刘夏"/>
+      <meta itemprop="name" content="少年刘夏">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Android ADB 命令总结
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-04 00:00:00" itemprop="dateCreated datePublished" datetime="2020-03-04T00:00:00+08:00">2020-03-04</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-01-08 15:56:52" itemprop="dateModified" datetime="2022-01-08T15:56:52+08:00">2022-01-08</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
+        </span>
     </span>
 
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">Android ADB 命令总结
-
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2020-03-04 00:00:00" itemprop="dateCreated datePublished" datetime="2020-03-04T00:00:00+08:00">2020-03-04</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2022-01-03 13:17:18" itemprop="dateModified" datetime="2022-01-03T13:17:18+08:00">2022-01-03</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon"
-            >
-            <i class="fa fa-eye"></i>
-             阅读次数： 
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
-            </span>
-          
-
-          
-
-          
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
 
         </div>
       </header>
-    
 
     
     
     
     <div class="post-body" itemprop="articleBody">
+        <p>Android Debug Bridge (adb) 是 Android 开发中常用的命令行工具，可以与设备进行通信。本文记录了常用的 adb 命令，其中重点会用 ❗️ 标出，“骚操作”会用 🌟 标出</p>
+<span id="more"></span>
 
-      
-      
-
-      
-        <p>Android Debug Bridge (adb) 是 Android 开发中常用的命令行工具，可以与设备进行通信。本文记录了常用的 adb 命令，其中重点会用 ❗️ 标出，“骚操作”会用 🌟 标出<br><a id="more"></a></p>
 <blockquote>
-<p><a href="https://developer.android.com/studio/command-line/adb" target="_blank" rel="noopener">官方文档 - Android Debug Bridge</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.android.com/studio/command-line/adb">官方文档 - Android Debug Bridge</a></p>
 </blockquote>
 <h2 id="一-工作环境"><a href="#一-工作环境" class="headerlink" title="一. 工作环境"></a>一. 工作环境</h2><ul>
 <li>adb 工具在 Android SDK 中，需配置环境变量</li>
-<li><code>${android_sdk}/platform-tools</code> 目录下</li>
+<li><code> $&#123;android_sdk&#125;/platform-tools</code> 目录下</li>
 </ul>
 <h2 id="二-工作原理概述"><a href="#二-工作原理概述" class="headerlink" title="二. 工作原理概述"></a>二. 工作原理概述</h2><blockquote>
-<p><a href="https://developer.android.com/studio/command-line/adb#howadbworks" target="_blank" rel="noopener">官方说明</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.android.com/studio/command-line/adb#howadbworks">官方说明</a></p>
 </blockquote>
 <ul>
 <li>启动某个 adb 客户端，若未在运行，则启动服务器进程</li>
@@ -537,6 +300,7 @@
 <li>偶数号端口用户控制台连接</li>
 <li>奇数号端口用于 adb 连接</li>
 </ul>
+<p>Asd</p>
 <h2 id="三-通过-WLAN-连接到设备-🌟"><a href="#三-通过-WLAN-连接到设备-🌟" class="headerlink" title="三. 通过 WLAN 连接到设备 🌟"></a>三. 通过 WLAN 连接到设备 🌟</h2><p>一般情况下，adb 通过 USB 与设备进行通信，但也可以在通过 USB 完成一些初始设置后通过 WLAN 使用 adb 工具，步骤如下：</p>
 <ol>
 <li>将 Android 设备和 adb 主机连接到两者都可以访问的同一 WLAN 网络</li>
@@ -548,62 +312,91 @@
 <li>通过 adb shell 命令行，<code>ifconfig wlan0</code></li>
 </ul>
 </li>
-<li>使用命令 <code>adb connect ${device_ip_address}</code> 来连接到设备</li>
+<li>使用命令 <code>adb connect $&#123;device_ip_address&#125;</code> 来连接到设备</li>
 <li>确认主机已连接到目标设备</li>
 </ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb devices</span><br><span class="line">List of devices attached</span><br><span class="line"><span class="meta">$</span><span class="bash">&#123;device_ip&#125;:5555	device</span></span><br></pre></td></tr></table></figure>
+
 <p>🌟 因为 Android Studio 的 debug 调试，也是通过 ADB Server 与 设备间的通信来完成的，所以如上设置成功后，不用连接数据线即可 debug 调试代码！</p>
-<h2 id="四-命令小全"><a href="#四-命令小全" class="headerlink" title="四. 命令小全"></a>四. 命令小全</h2><h3 id="1-启动与关闭"><a href="#1-启动与关闭" class="headerlink" title="1. 启动与关闭"></a>1. 启动与关闭</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 启动 adb</span></span><br><span class="line">➜  ~ adb start-server </span><br><span class="line"><span class="meta">#</span><span class="bash"> 杀死 adb</span></span><br><span class="line">➜  ~ adb kill-server</span><br></pre></td></tr></table></figure>
+<h2 id="四-命令小全"><a href="#四-命令小全" class="headerlink" title="四. 命令小全"></a>四. 命令小全</h2><h3 id="1-启动与关闭"><a href="#1-启动与关闭" class="headerlink" title="1. 启动与关闭"></a>1. 启动与关闭</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 启动 adb</span></span><br><span class="line">➜  ~ adb start-server </span><br><span class="line"><span class="meta">#</span><span class="bash"> 杀死 adb</span></span><br><span class="line">➜  ~ adb kill-server </span><br></pre></td></tr></table></figure>
+
 <h3 id="2-列出设备"><a href="#2-列出设备" class="headerlink" title="2. 列出设备"></a>2. 列出设备</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb devices</span><br><span class="line">List of devices attached</span><br><span class="line">B2T7N16711003140	device</span><br><span class="line"><span class="meta">$</span><span class="bash">&#123;device_ip&#125;:5555	device</span></span><br><span class="line"></span><br><span class="line">➜  ~ adb devices -l</span><br><span class="line">List of devices attached</span><br><span class="line">B2T7N16711003140       device usb:338690048X product:EVA-TL00 model:EVA_TL00 device:HWEVA transport_id:4</span><br><span class="line"><span class="meta">$</span><span class="bash">&#123;device_ip&#125;:5555    device product:EVA-TL00 model:EVA_TL00 device:HWEVA transport_id:3</span></span><br></pre></td></tr></table></figure>
-<h3 id="3-安装应用"><a href="#3-安装应用" class="headerlink" title="3. 安装应用"></a>3. 安装应用</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb install $&#123;apk_file_path&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装测试APK</span></span><br><span class="line">➜  ~ adb -t install $&#123;apk_file_path&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-安装应用"><a href="#3-安装应用" class="headerlink" title="3. 安装应用"></a>3. 安装应用</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb install $&#123;apk_file_path&#125;</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装测试APK</span></span><br><span class="line">➜  ~ adb -t install $&#123;apk_file_path&#125;</span><br></pre></td></tr></table></figure>
+
 <h3 id="4-设置端口转发"><a href="#4-设置端口转发" class="headerlink" title="4. 设置端口转发"></a>4. 设置端口转发</h3><p>将对特定主机端口上的请求转发到设备上的其他端口</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 设置主机端口 6100 到设备端口 7100 的转发</span></span><br><span class="line">➜  ~ adb forword tcp:6100 tcp:7100</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置主机端口 6100 到 <span class="built_in">local</span>:logd 的转发</span></span><br><span class="line">➜  ~ adb forword tcp:6100 local:logd</span><br></pre></td></tr></table></figure>
-<h3 id="5-与设备传输文件"><a href="#5-与设备传输文件" class="headerlink" title="5. 与设备传输文件"></a>5. 与设备传输文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 从设备复制文件 或 目录及其子目录</span></span><br><span class="line">➜  ~ adb pull $&#123;remote&#125; $&#123;local&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 将文件 或 目录及其子目录 复制到设备</span></span><br><span class="line">➜  ~ adb push $&#123;local&#125; $&#123;remote&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 设置主机端口 6100 到设备端口 7100 的转发</span></span><br><span class="line">➜  ~ adb forword tcp:6100 tcp:7100</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置主机端口 6100 到 <span class="built_in">local</span>:logd 的转发</span></span><br><span class="line">➜  ~ adb forword tcp:6100 local:logd</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-与设备传输文件"><a href="#5-与设备传输文件" class="headerlink" title="5. 与设备传输文件"></a>5. 与设备传输文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 从设备复制文件 或 目录及其子目录</span></span><br><span class="line">➜  ~ adb pull $&#123;remote&#125; $&#123;local&#125;</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 将文件 或 目录及其子目录 复制到设备</span></span><br><span class="line">➜  ~ adb push $&#123;local&#125; $&#123;remote&#125;</span><br></pre></td></tr></table></figure>
+
 <h3 id="6-发出-adb-命令"><a href="#6-发出-adb-命令" class="headerlink" title="6. 发出 adb 命令"></a>6. 发出 adb 命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb [ -d | -e | -s $&#123;serial_number&#125;] $&#123;command&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="7-发出-shell-命令"><a href="#7-发出-shell-命令" class="headerlink" title="7. 发出 shell 命令"></a>7. 发出 shell 命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 可以使用 shell 命令，通过 adb 发出命令</span></span><br><span class="line">➜  ~ adb [ -d | -e | -s $&#123;serial_number&#125;] shell $&#123;shell_command&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 也可以启动交互式 shell</span></span><br><span class="line">➜  ~ adb [ -d | -e | -s $&#123;serial_number&#125;] shell</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-发出-shell-命令"><a href="#7-发出-shell-命令" class="headerlink" title="7. 发出 shell 命令"></a>7. 发出 shell 命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 可以使用 shell 命令，通过 adb 发出命令</span></span><br><span class="line">➜  ~ adb [ -d | -e | -s $&#123;serial_number&#125;] shell $&#123;shell_command&#125;</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 也可以启动交互式 shell</span></span><br><span class="line">➜  ~ adb [ -d | -e | -s $&#123;serial_number&#125;] shell</span><br></pre></td></tr></table></figure>
+
 <p>可以按 <code>Control + D</code> 或输入 <code>exit</code> 退出交互式 shell</p>
 <h4 id="7-1-查看可用的工具列表"><a href="#7-1-查看可用的工具列表" class="headerlink" title="7.1 查看可用的工具列表"></a>7.1 查看可用的工具列表</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ db shell ls /system/bin</span><br></pre></td></tr></table></figure>
-<h4 id="7-2-Activity-管理器-am"><a href="#7-2-Activity-管理器-am" class="headerlink" title="7.2 Activity 管理器 - am"></a>7.2 Activity 管理器 - am</h4><p>可以使用 am 工具发出命令以执行各种系统操作，如启动 Activity、强行停止进程、广播 intent、修改设备屏幕属性等，语法为: <code>adb shell am ${command}</code></p>
+
+<h4 id="7-2-Activity-管理器-am"><a href="#7-2-Activity-管理器-am" class="headerlink" title="7.2 Activity 管理器 - am"></a>7.2 Activity 管理器 - am</h4><p>可以使用 am 工具发出命令以执行各种系统操作，如启动 Activity、强行停止进程、广播 intent、修改设备屏幕属性等，语法为: <code>adb shell am $&#123;command&#125;</code></p>
 <p>下面列出常用 Activity 管理器命令</p>
 <h5 id="7-2-1-启动指定的-Activity-🌟"><a href="#7-2-1-启动指定的-Activity-🌟" class="headerlink" title="7.2.1 启动指定的 Activity 🌟"></a>7.2.1 启动指定的 Activity 🌟</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb shell am start [$&#123;options&#125;] $&#123;intent&#125;</span><br></pre></td></tr></table></figure>
+
 <p>常见 intent 参数的规范：</p>
 <ul>
-<li><p><code>-a ${action}</code>: 指定 action 的 intent</p>
+<li><p><code>-a $&#123;action&#125;</code>: 指定 action 的 intent</p>
 </li>
-<li><p><code>-d ${data_uri}</code>: 指定数据 URI 的 intent (intent-filter scheme)</p>
+<li><p><code>-d $&#123;data_uri&#125;</code>: 指定数据 URI 的 intent (intent-filter scheme)</p>
 </li>
-<li><code>-f ${flags}</code>: 将标志添加到 setFlags() 支持的 intent</li>
-<li><code>-e | --es ${extra_key} ${extra_string_value}</code>: 添加字符串数据</li>
-<li><code>--ez ${extra_key} ${extra_boolean_value}</code>: 添加布尔值数据</li>
-<li><code>--ei ${extra_key} ${extra_int_value}</code>: 添加整数数据</li>
-<li><code>--el ${extra_key} ${extra_long_value}</code>: 添加长整数数据</li>
-<li><code>--ef ${extra_key} ${extra_float_value}</code>: 添加浮点数数据</li>
-<li><code>--eu ${extra_key} ${extra_uri_value}</code>: 添加 URI 数据</li>
+<li><p><code>-f $&#123;flags&#125;</code>: 将标志添加到 setFlags() 支持的 intent</p>
+</li>
+<li><p><code>-e | --es $&#123;extra_key&#125; $&#123;extra_string_value&#125;</code>: 添加字符串数据</p>
+</li>
+<li><p><code>--ez $&#123;extra_key&#125; $&#123;extra_boolean_value&#125;</code>: 添加布尔值数据</p>
+</li>
+<li><p><code>--ei $&#123;extra_key&#125; $&#123;extra_int_value&#125;</code>: 添加整数数据</p>
+</li>
+<li><p><code>--el $&#123;extra_key&#125; $&#123;extra_long_value&#125;</code>: 添加长整数数据</p>
+</li>
+<li><p><code>--ef $&#123;extra_key&#125; $&#123;extra_float_value&#125;</code>: 添加浮点数数据</p>
+</li>
+<li><p><code>--eu $&#123;extra_key&#125; $&#123;extra_uri_value&#125;</code>: 添加 URI 数据</p>
+</li>
 </ul>
 <blockquote>
-<p><a href="https://developer.android.com/studio/command-line/adb#IntentSpec" target="_blank" rel="noopener">完整的 intent 参数规范</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.android.com/studio/command-line/adb#IntentSpec">完整的 intent 参数规范</a></p>
 </blockquote>
 <p>🌟 通过 action 启动 Activity</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb shell am start -a android.intent.action.VIEW</span><br></pre></td></tr></table></figure>
+
 <p>🌟 通过 URI 启动 Activity (scheme 协议的方式)</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb shell am start -d newsapp://nc/doc/F6CM029U000189FH</span><br></pre></td></tr></table></figure>
+
 <h5 id="7-2-2-启动指定的-Service"><a href="#7-2-2-启动指定的-Service" class="headerlink" title="7.2.2 启动指定的 Service"></a>7.2.2 启动指定的 Service</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb shell am startservice [$&#123;options&#125;] $&#123;intent&#125;</span><br></pre></td></tr></table></figure>
+
 <h5 id="7-2-3-强制关闭进程-🌟"><a href="#7-2-3-强制关闭进程-🌟" class="headerlink" title="7.2.3 强制关闭进程 🌟"></a>7.2.3 强制关闭进程 🌟</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 强行停止与包名关联的所有进程</span></span><br><span class="line">➜  ~ adb shell am force-stop $&#123;package_name&#125;</span><br></pre></td></tr></table></figure>
+
 <h5 id="7-2-4-安全终止进程"><a href="#7-2-4-安全终止进程" class="headerlink" title="7.2.4 安全终止进程"></a>7.2.4 安全终止进程</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 终止与包名关联的所有进程，仅可终止可安全终止且不会影响用户体验的进程</span></span><br><span class="line">➜  ~ adb shell am kill [$&#123;options&#125;] $&#123;package_name&#125;</span><br></pre></td></tr></table></figure>
+
 <p>选项如下：</p>
 <ul>
-<li><code>--user ${user_id} | all | current</code>: 指定要终止哪个用户的进程，若未指定，则终止所有用户的进程</li>
+<li><code>--user $&#123;user_id&#125; | all | current</code>: 指定要终止哪个用户的进程，若未指定，则终止所有用户的进程</li>
 </ul>
 <h5 id="7-2-5-终止所有后台进程"><a href="#7-2-5-终止所有后台进程" class="headerlink" title="7.2.5 终止所有后台进程"></a>7.2.5 终止所有后台进程</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb shell am kill-all</span><br></pre></td></tr></table></figure>
+
 <h5 id="7-2-6-开始监控崩溃或-ANR"><a href="#7-2-6-开始监控崩溃或-ANR" class="headerlink" title="7.2.6 开始监控崩溃或 ANR"></a>7.2.6 开始监控崩溃或 ANR</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb shell am monitor</span><br></pre></td></tr></table></figure>
-<h5 id="7-2-7-控制应用的屏幕兼容模式"><a href="#7-2-7-控制应用的屏幕兼容模式" class="headerlink" title="7.2.7 控制应用的屏幕兼容模式"></a>7.2.7 控制应用的<a href="https://developer.android.com/guide/topics/manifest/supports-screens-element#compat-mode" target="_blank" rel="noopener">屏幕兼容</a>模式</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb shell am screen-compat &#123; on | off &#125; $&#123;package_name&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="7-2-8-替换设备显示尺寸-🌟"><a href="#7-2-8-替换设备显示尺寸-🌟" class="headerlink" title="7.2.8 替换设备显示尺寸 🌟"></a>7.2.8 替换设备显示尺寸 🌟</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb shell am display-size [reset | $&#123;width&#125;x$&#123;height&#125;]</span><br><span class="line">➜  ~ adb shell am display-size 1280x880</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 若无效可使用 wm 命令</span></span><br><span class="line">➜  ~ adb shell wm size [reset | $&#123;width&#125;x$&#123;height&#125;]</span><br></pre></td></tr></table></figure>
-<h5 id="7-2-9-替换设备显示密度-🌟"><a href="#7-2-9-替换设备显示密度-🌟" class="headerlink" title="7.2.9 替换设备显示密度 🌟"></a>7.2.9 替换设备显示密度 🌟</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb shell am display-density $&#123;dpi&#125;</span><br><span class="line">➜  ~ adb shell am display-density 480</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 若无效可使用 wm 命令</span></span><br><span class="line">➜  ~ adb shell wm density [reset | $&#123;dpi&#125;]</span><br></pre></td></tr></table></figure>
+
+<h5 id="7-2-7-控制应用的屏幕兼容模式"><a href="#7-2-7-控制应用的屏幕兼容模式" class="headerlink" title="7.2.7 控制应用的屏幕兼容模式"></a>7.2.7 控制应用的<a target="_blank" rel="noopener" href="https://developer.android.com/guide/topics/manifest/supports-screens-element#compat-mode">屏幕兼容</a>模式</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb shell am screen-compat &#123; on | off &#125; $&#123;package_name&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="7-2-8-替换设备显示尺寸-🌟"><a href="#7-2-8-替换设备显示尺寸-🌟" class="headerlink" title="7.2.8 替换设备显示尺寸 🌟"></a>7.2.8 替换设备显示尺寸 🌟</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb shell am display-size [reset | $&#123;width&#125;x$&#123;height&#125;]</span><br><span class="line">➜  ~ adb shell am display-size 1280x880</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 若无效可使用 wm 命令</span></span><br><span class="line">➜  ~ adb shell wm size [reset | $&#123;width&#125;x$&#123;height&#125;]</span><br></pre></td></tr></table></figure>
+
+<h5 id="7-2-9-替换设备显示密度-🌟"><a href="#7-2-9-替换设备显示密度-🌟" class="headerlink" title="7.2.9 替换设备显示密度 🌟"></a>7.2.9 替换设备显示密度 🌟</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb shell am display-density $&#123;dpi&#125;</span><br><span class="line">➜  ~ adb shell am display-density 480</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 若无效可使用 wm 命令</span></span><br><span class="line">➜  ~ adb shell wm density [reset | $&#123;dpi&#125;]</span><br></pre></td></tr></table></figure>
+
 <blockquote>
-<p><a href="https://developer.android.com/studio/command-line/adb#am" target="_blank" rel="noopener">所有可用的 Actiivty 管理器命令</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.android.com/studio/command-line/adb#am">所有可用的 Actiivty 管理器命令</a></p>
 </blockquote>
 <h4 id="7-3-软件包管理器-pm"><a href="#7-3-软件包管理器-pm" class="headerlink" title="7.3 软件包管理器 -  pm"></a>7.3 软件包管理器 -  pm</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb shell pm $&#123;command&#125;</span><br></pre></td></tr></table></figure>
+
 <h5 id="7-3-1-列出所有软件包"><a href="#7-3-1-列出所有软件包" class="headerlink" title="7.3.1 列出所有软件包"></a>7.3.1 列出所有软件包</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb shell pm list packages [$&#123;options&#125;] $&#123;filter&#125;</span><br></pre></td></tr></table></figure>
+
 <p>options:</p>
 <ul>
 <li><code>-f</code>: 查看关联文件</li>
@@ -613,10 +406,12 @@
 <li><code>-3</code>: 仅显示第三方软件包</li>
 <li><code>-i</code>: 查看软件包的安装程序</li>
 <li><code>-u</code>: 包括写在的软件包</li>
-<li><code>--user ${user_id}</code>: 要查询的用户空间</li>
+<li><code>--user $&#123;user_id&#125;</code>: 要查询的用户空间</li>
 </ul>
 <h5 id="7-3-2-输出所有已知权限组"><a href="#7-3-2-输出所有已知权限组" class="headerlink" title="7.3.2 输出所有已知权限组"></a>7.3.2 输出所有已知权限组</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb shell pm list permission-groups</span><br></pre></td></tr></table></figure>
+
 <h5 id="7-3-3-输出所有已知权限"><a href="#7-3-3-输出所有已知权限" class="headerlink" title="7.3.3 输出所有已知权限"></a>7.3.3 输出所有已知权限</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb shell pm list permission [$&#123;options&#125;] $&#123;group&#125;</span><br></pre></td></tr></table></figure>
+
 <p>options：</p>
 <ul>
 <li><code>-g</code>: 按组进行整理</li>
@@ -626,10 +421,15 @@
 <li><code>-u</code>: 仅列出用户将看到的权限</li>
 </ul>
 <h5 id="7-3-4-输出系统的所有功能"><a href="#7-3-4-输出系统的所有功能" class="headerlink" title="7.3.4 输出系统的所有功能"></a>7.3.4 输出系统的所有功能</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb shell pm list features</span><br></pre></td></tr></table></figure>
+
 <h5 id="7-3-5-输出当前设备所有支持的库"><a href="#7-3-5-输出当前设备所有支持的库" class="headerlink" title="7.3.5 输出当前设备所有支持的库"></a>7.3.5 输出当前设备所有支持的库</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb shell pm list libraries</span><br></pre></td></tr></table></figure>
+
 <h5 id="7-3-6-输出系统中的所有用户"><a href="#7-3-6-输出系统中的所有用户" class="headerlink" title="7.3.6 输出系统中的所有用户"></a>7.3.6 输出系统中的所有用户</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb shell pm list users</span><br></pre></td></tr></table></figure>
+
 <h5 id="7-3-7-输出指定应用的安装包路径-🌟"><a href="#7-3-7-输出指定应用的安装包路径-🌟" class="headerlink" title="7.3.7 输出指定应用的安装包路径 🌟"></a>7.3.7 输出指定应用的安装包路径 🌟</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb shell pm path $&#123;package&#125;</span><br></pre></td></tr></table></figure>
+
 <h5 id="7-3-8-安装应用-❗️"><a href="#7-3-8-安装应用-❗️" class="headerlink" title="7.3.8 安装应用 ❗️"></a>7.3.8 安装应用 ❗️</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb shell install [$&#123;options&#125;] $&#123;apk_path&#125;</span><br></pre></td></tr></table></figure>
+
 <p>options:</p>
 <ul>
 <li><code>-r</code>: 重新安装现有应用，保留其数据</li>
@@ -640,25 +440,34 @@
 </ul>
 <p>可简写为：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb install [$&#123;options&#125;] $&#123;apk_path&#125;</span><br></pre></td></tr></table></figure>
+
 <h5 id="7-3-9-卸载应用-❗️"><a href="#7-3-9-卸载应用-❗️" class="headerlink" title="7.3.9 卸载应用 ❗️"></a>7.3.9 卸载应用 ❗️</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb shell pm uninstall [$&#123;options&#125;] $&#123;package_name&#125;</span><br></pre></td></tr></table></figure>
+
 <p>options:</p>
 <ul>
 <li><code>-k</code>: 卸载后保留数据和缓存目录</li>
 </ul>
 <p>可简写为：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb uninstall [$&#123;options&#125;] $&#123;package_name&#125;</span><br></pre></td></tr></table></figure>
+
 <h5 id="7-3-10-删除数据"><a href="#7-3-10-删除数据" class="headerlink" title="7.3.10 删除数据"></a>7.3.10 删除数据</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb shell pm clear $&#123;package_name&#125;</span><br></pre></td></tr></table></figure>
+
 <h5 id="7-3-11-向应用授予权限"><a href="#7-3-11-向应用授予权限" class="headerlink" title="7.3.11 向应用授予权限"></a>7.3.11 向应用授予权限</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb shell pm grant $&#123;package_name&#125; $&#123;permission_name&#125;</span><br></pre></td></tr></table></figure>
+
 <h5 id="7-3-12-撤销授予应用的权限-🌟"><a href="#7-3-12-撤销授予应用的权限-🌟" class="headerlink" title="7.3.12 撤销授予应用的权限 🌟"></a>7.3.12 撤销授予应用的权限 🌟</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb shell pm revoke $&#123;package_name&#125; $&#123;permission_name&#125;</span><br></pre></td></tr></table></figure>
+
 <blockquote>
-<p><a href="https://developer.android.com/studio/command-line/adb#pm" target="_blank" rel="noopener">所有可用的包管理器命令</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.android.com/studio/command-line/adb#pm">所有可用的包管理器命令</a></p>
 </blockquote>
 <h4 id="7-4-获取屏幕截图-🌟"><a href="#7-4-获取屏幕截图-🌟" class="headerlink" title="7.4 获取屏幕截图 🌟"></a>7.4 获取屏幕截图 🌟</h4><p>截图格式默认为 png</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb shell screencap $&#123;file_path&#125;</span><br></pre></td></tr></table></figure>
+
 <p>可配合 pull 命令使用</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb shell screencap</span><br><span class="line">/sdcard/com.netease.newsreader.activity/screenshot.png</span><br><span class="line">➜  ~ adb pull /sdcard/com.netease.newsreader.activity/screenshot.png ~/Downloads/screenshot.png</span><br></pre></td></tr></table></figure>
+
 <h4 id="7-5-获取录屏-🌟"><a href="#7-5-获取录屏-🌟" class="headerlink" title="7.5 获取录屏 🌟"></a>7.5 获取录屏 🌟</h4><p>录屏默认格式为 MPEG-4 (mp4)</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb shell screenrecord [$&#123;options&#125;] $&#123;file_path&#125;</span><br></pre></td></tr></table></figure>
+
 <p>按 <code>Command + C</code> 键停止录制视频，否则到三分钟，或 <code>--time-limit</code> 设置的时间限制时，录制将自动终止</p>
 <p>screenrecord 的局限性：</p>
 <ul>
@@ -670,866 +479,123 @@
 <p>options：</p>
 <ul>
 <li><code>--help</code>:  显示命令语法和选项</li>
-<li><code>--size ${width}x${height}</code>: 设置视频分辨率</li>
-<li><code>--bit-rate ${rate}</code>: 设置视频的视频比特率，默认4Mbps (400000000)</li>
-<li><code>--time-limit ${time}</code>: 设置最大录制时长，最大值和默认值均为180 (3 分钟)</li>
+<li><code>--size $&#123;width&#125;x$&#123;height&#125;</code>: 设置视频分辨率</li>
+<li><code>--bit-rate $&#123;rate&#125;</code>: 设置视频的视频比特率，默认4Mbps (400000000)</li>
+<li><code>--time-limit $&#123;time&#125;</code>: 设置最大录制时长，最大值和默认值均为180 (3 分钟)</li>
 <li><code>--rotate</code>: 将输出旋转 90 度</li>
 <li><code>--verbose</code>: 在命令行屏幕显示日志信息</li>
 </ul>
 <h4 id="7-6-不-root-读取-data-下应用所有数据-❗️🌟"><a href="#7-6-不-root-读取-data-下应用所有数据-❗️🌟" class="headerlink" title="7.6 不 root 读取 data 下应用所有数据 ❗️🌟"></a>7.6 不 root 读取 data 下应用所有数据 ❗️🌟</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb shell run-as $&#123;package_name&#125;</span><br></pre></td></tr></table></figure>
+
 <p>可结合 <code>cat</code> / <code>adb pull</code> 使用</p>
 <h4 id="7-7-sqlite"><a href="#7-7-sqlite" class="headerlink" title="7.7 sqlite"></a>7.7 sqlite</h4><ul>
 <li><code>sqlite3</code> 可启动用于检查 sqlite 数据库的 sqlite 命令行程序</li>
 <li>包含用于输出表格内容的 <code>.dump</code> 以及用于输出现有表格的 <code>SQL CREATE</code> 语句的 <code>.schema</code> 等命令</li>
 <li>也可以从命令行执行 SQLite 命令</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb -s emulator-5554 shell</span><br><span class="line">➜  ~ sqlite3 /data/data/com.example.app/databases/rssitems.db</span><br><span class="line">    SQLite version 3.3.12</span><br><span class="line">    Enter ".help" for instructions</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb -s emulator-5554 shell</span><br><span class="line">➜  ~ sqlite3 /data/data/com.example.app/databases/rssitems.db</span><br><span class="line">    SQLite version 3.3.12</span><br><span class="line">    Enter &quot;.help&quot; for instructions</span><br></pre></td></tr></table></figure>
+
 <h4 id="7-8-logcat"><a href="#7-8-logcat" class="headerlink" title="7.8 logcat"></a>7.8 logcat</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb logcat</span><br><span class="line">➜  ~ adb logcat | grep $&#123;keyword&#125; &gt; /Downloads/my_log.txt</span><br></pre></td></tr></table></figure>
+
 <blockquote>
-<p><a href="https://developer.android.com/studio/command-line/logcat" target="_blank" rel="noopener">logcat完整使用方式可参看此官方文档</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.android.com/studio/command-line/logcat">logcat完整使用方式可参看此官方文档</a></p>
 </blockquote>
 
-      
     </div>
 
     
-
     
-    
-    
-
-    
-
-    
-      
-    
-    
-
     
 
     <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Android/" rel="tag"># Android</a>
-          
-            <a href="/tags/Shell/" rel="tag"># Shell</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/blog/restore-magic-cube-quick-start/" rel="next" title="三阶魔方还原快速上手">
-                <i class="fa fa-chevron-left"></i> 三阶魔方还原快速上手
-              </a>
-            
+          <div class="post-tags">
+              <a href="/tags/Android/" rel="tag"># Android</a>
+              <a href="/tags/Shell/" rel="tag"># Shell</a>
           </div>
 
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/blog/mac-timer-task/" rel="prev" title="Mac执行定时任务">
-                Mac执行定时任务 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-  </div>
-
-
-          </div>
-          
-
-  
-
-
-
-        </div>
         
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
 
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.jpeg"
-                alt="Liu Xia"/>
-            
-              <p class="site-author-name" itemprop="name">Liu Xia</p>
-              <div class="site-description motion-element" itemprop="description">向死而生</div>
-          </div>
-
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">25</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  
-                    
-                      <a href="/categories/">
-                    
-                  
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">10</span>
-                    <span class="site-state-item-name">分类</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  
-                    
-                      <a href="/tags/">
-                    
-                  
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">29</span>
-                    <span class="site-state-item-name">标签</span>
-                  </a>
-                </div>
-              
-            </nav>
-          
-
-          
-
-          
-
-          
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="mailto:cxyliuxiao@163.com" title="E-Mail &rarr; mailto:cxyliuxiao@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                </span>
-              
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/blog/restore-magic-cube-quick-start/" rel="prev" title="三阶魔方还原快速上手">
+                  <i class="fa fa-chevron-left"></i> 三阶魔方还原快速上手
+                </a>
             </div>
-          
-
-          
-
-          
-          
-
-          
-            
-          
-          
-
-        </div>
-      </div>
-
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一-工作环境"><span class="nav-text">一. 工作环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-工作原理概述"><span class="nav-text">二. 工作原理概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三-通过-WLAN-连接到设备-🌟"><span class="nav-text">三. 通过 WLAN 连接到设备 🌟</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四-命令小全"><span class="nav-text">四. 命令小全</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-启动与关闭"><span class="nav-text">1. 启动与关闭</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-列出设备"><span class="nav-text">2. 列出设备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-安装应用"><span class="nav-text">3. 安装应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-设置端口转发"><span class="nav-text">4. 设置端口转发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-与设备传输文件"><span class="nav-text">5. 与设备传输文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-发出-adb-命令"><span class="nav-text">6. 发出 adb 命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-发出-shell-命令"><span class="nav-text">7. 发出 shell 命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-查看可用的工具列表"><span class="nav-text">7.1 查看可用的工具列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2-Activity-管理器-am"><span class="nav-text">7.2 Activity 管理器 - am</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-3-软件包管理器-pm"><span class="nav-text">7.3 软件包管理器 -  pm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-4-获取屏幕截图-🌟"><span class="nav-text">7.4 获取屏幕截图 🌟</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-5-获取录屏-🌟"><span class="nav-text">7.5 获取录屏 🌟</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-6-不-root-读取-data-下应用所有数据-❗️🌟"><span class="nav-text">7.6 不 root 读取 data 下应用所有数据 ❗️🌟</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-7-sqlite"><span class="nav-text">7.7 sqlite</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-8-logcat"><span class="nav-text">7.8 logcat</span></a></li></ol></li></ol></li></ol></div>
-            
-
+            <div class="post-nav-item">
+                <a href="/blog/mac-timer-task/" rel="next" title="Mac执行定时任务">
+                  Mac执行定时任务 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
           </div>
-        </div>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-  
+    </footer>
+  </article>
+</div>
 
 
-        
-      </div>
-    </main>
 
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fab fa-android"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Liu Xia</span>
-
-  
-
-  
 </div>
-
-
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.4.4</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.1.2</div>
-
-
-
-
-        
 <div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="post-meta-item-icon">
-      <i class="fa fa-user"></i>
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
     </span>
-    <span class="site-uv" title="总访客量">
-      访客数
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
     </span>
-  
-
-  
-    <span class="post-meta-divider">|</span>
-  
-
-  
-    <span class="post-meta-item-icon">
-      <i class="fa fa-eye"></i>
-    </span>
-    <span class="site-pv" title="总访问量">
-      访问量
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-    </span>
-  
 </div>
-
-
-
-
-
-  <script>
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "//tajs.qq.com/stats?sId=66170495";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
-
-
-
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
-    
-
-    
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
-  
-
-<script>
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-
-
-
-
-
-
-
-
-
-
-
+    </div>
+  </footer>
 
   
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
 
 
 
-
-
-
-
-
-
-
-
-
-
+  <script src="/js/third-party/fancybox.js"></script>
 
 
   
-  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-  
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
-  
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
-  
-  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
 
-
-  
-
-
-  <script src="/js/utils.js?v=7.1.2"></script>
-
-  <script src="/js/motion.js?v=7.1.2"></script>
-
-
-
-  
-  
-
-
-  <script src="/js/affix.js?v=7.1.2"></script>
-
-  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
-
-
-
-
-  
-  <script src="/js/scrollspy.js?v=7.1.2"></script>
-<script src="/js/post-details.js?v=7.1.2"></script>
-
-
-
-  
-
-
-  <script src="/js/next-boot.js?v=7.1.2"></script>
-
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-
-  
-  <script>
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 
 </body>
 </html>

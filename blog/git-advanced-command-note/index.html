@@ -1,529 +1,310 @@
 <!DOCTYPE html>
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<html class="theme-next gemini use-motion" lang="zh-CN">
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
-<meta name="theme-color" content="#222"/>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)">
+<meta name="generator" content="Hexo 5.4.0">
 
 
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-lx.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-lx.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-lx.png">
+  <link rel="mask-icon" href="/images/favicon-32x32-lx.png" color="#222">
 
+<link rel="stylesheet" href="/css/main.css">
 
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic%7CLexend:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-  
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css"/>
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
-
-<link rel="stylesheet" href="/css/main.css?v=7.1.2"/>
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-lx.png?v=7.1.2">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-lx.png?v=7.1.2">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-lx.png?v=7.1.2">
-
-
-  <link rel="mask-icon" href="/images/favicon-32x32-lx.png?v=7.1.2" color="#222">
-
-
-
-
-
-
-
-<script id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '7.1.2',
-    sidebar: {"position":"left","display":"always","offset":12,"onmobile":false,"dimmer":false},
-    back2top: true,
-    back2top_sidebar: false,
-    fancybox: true,
-    fastclick: false,
-    lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-  
-
-
-
-
-  <meta name="description" content="本文记录了使用git过程中常用的命令，因git基础命令多数人都知道，所以把常用的进阶命令写在前面，也当作是自己的笔记。文章中间有几个使用git遇到的小问题，还挺有意思，给出我的解决方案作为参考～">
-<meta name="keywords" content="Git">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.8.2","exturl":false,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="本文记录了使用git过程中常用的命令，因git基础命令多数人都知道，所以把常用的进阶命令写在前面，也当作是自己的笔记。文章中间有几个使用git遇到的小问题，还挺有意思，给出我的解决方案作为参考～">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git常用进阶命令使用笔记">
-<meta property="og:url" content="http://yoursite.com/blog/git-advanced-command-note/index.html">
+<meta property="og:url" content="http://example.com/blog/git-advanced-command-note/index.html">
 <meta property="og:site_name" content="少年刘夏">
 <meta property="og:description" content="本文记录了使用git过程中常用的命令，因git基础命令多数人都知道，所以把常用的进阶命令写在前面，也当作是自己的笔记。文章中间有几个使用git遇到的小问题，还挺有意思，给出我的解决方案作为参考～">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-01-09T16:00:00.000Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-01-09T16:00:00.000Z">
+<meta property="article:modified_time" content="2018-01-09T16:00:00.000Z">
+<meta property="article:author" content="Liu Xia">
+<meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git常用进阶命令使用笔记">
-<meta name="twitter:description" content="本文记录了使用git过程中常用的命令，因git基础命令多数人都知道，所以把常用的进阶命令写在前面，也当作是自己的笔记。文章中间有几个使用git遇到的小问题，还挺有意思，给出我的解决方案作为参考～">
+
+
+<link rel="canonical" href="http://example.com/blog/git-advanced-command-note/">
 
 
 
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/blog/git-advanced-command-note/","path":"blog/git-advanced-command-note/","title":"Git常用进阶命令使用笔记"}</script>
 
-
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Git常用进阶命令使用笔记 | 少年刘夏</title>
   
-  
-  <link rel="canonical" href="http://yoursite.com/blog/git-advanced-command-note/"/>
-
-
-
-<script id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
-  };
-</script>
-
-  <title>Git常用进阶命令使用笔记 | 少年刘夏</title>
-  
-
-
-
-
-
-
-
-
 
 
 
 
   <noscript>
-  <style>
-  .use-motion .motion-element,
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
-
-  .use-motion .logo,
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
 
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">少年刘夏</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
-    
-      
-        <p class="site-subtitle">一杯敬故乡，一杯敬远方</p>
-      
-    
-    
   </div>
 
-  <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">少年刘夏</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">一杯敬故乡，一杯敬远方</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
   </div>
 </div>
 
 
 
 <nav class="site-nav">
-  
-    <ul id="menu" class="menu">
-      
-        
-        
-        
-          
-          <li class="menu-item menu-item-home">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>标签</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>分类</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-schedule">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br/>日程表</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-about">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>关于</a>
-
-  </li>
-
-      
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>搜索</a>
-        </li>
-      
-    </ul>
-  
-
-  
-
-  
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
-
-
-
-    </div>
-  
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
 </nav>
 
 
 
-  
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
 
-
+    </div>
+  </div>
 
 </div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E8%BF%9B%E9%98%B6%E5%91%BD%E4%BB%A4"><span class="nav-text">常用进阶命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E4%BF%AE%E6%94%B9%E4%BB%93%E5%BA%93-%E5%88%86%E6%94%AF%E4%BF%A1%E6%81%AF"><span class="nav-text">1. 修改仓库&#x2F;分支信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E4%BF%AE%E6%94%B9%E6%8F%90%E4%BA%A4%E4%BF%A1%E6%81%AF-commit-message"><span class="nav-text">2. 修改提交信息(commit message)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E5%B0%86%E4%BF%AE%E6%94%B9%E8%BF%BD%E5%8A%A0%E5%88%B0%E4%B8%8A%E6%AC%A1%E5%88%B0%E6%8F%90%E4%BA%A4"><span class="nav-text">3. 将修改追加到上次到提交</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E6%92%A4%E9%94%80add"><span class="nav-text">4. 撤销add</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E6%9F%A5%E7%9C%8Bgit%E4%BF%A1%E6%81%AF"><span class="nav-text">5. 查看git信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-stash"><span class="nav-text">6. stash</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-patch"><span class="nav-text">7. patch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-%E5%88%9B%E5%BB%BA%E6%96%B0%E5%88%86%E6%94%AF"><span class="nav-text">8. 创建新分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-pull-fetch-push"><span class="nav-text">9. pull&#x2F;fetch&#x2F;push</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-%E5%88%A0%E9%99%A4"><span class="nav-text">10. 删除</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-log"><span class="nav-text">11. log</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E6%80%9D%E8%80%83-%E7%A0%94%E7%A9%B6%E7%9A%84%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="nav-text">可思考&#x2F;研究的常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%A6%82%E4%BD%95%E5%88%A0%E9%99%A4%E4%B8%80%E4%B8%AA%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF%EF%BC%9F"><span class="nav-text">1. 如何删除一个远程分支？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%A6%82%E4%BD%95%E5%B0%86%E4%BF%AE%E6%94%B9%E8%BF%BD%E5%8A%A0%E5%88%B0%E5%B7%B2%E7%BB%8Fpush%E4%BA%86%E7%9A%84n%E6%AC%A1%E6%8F%90%E4%BA%A4%E4%B9%8B%E5%89%8D%EF%BC%9F"><span class="nav-text">2. 如何将修改追加到已经push了的n次提交之前？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80"><span class="nav-text">基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85git%E7%8E%AF%E5%A2%83"><span class="nav-text">1. 安装git环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%88%9B%E5%BB%BA%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93"><span class="nav-text">2. 创建代码仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E6%8F%90%E4%BA%A4%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%A0%81"><span class="nav-text">3. 提交本地代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E7%8A%B6%E6%80%81%E7%9B%B8%E5%85%B3"><span class="nav-text">4. 状态相关</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-text">5. 常见操作流程</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Liu Xia"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Liu Xia</p>
+  <div class="site-description" itemprop="description">向死而生</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="mailto:cxyliuxiao@163.com" title="E-Mail → mailto:cxyliuxiao@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
     </header>
 
     
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
 
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-            
+    <div class="main-inner post posts-expand">
 
-          
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-    
 
   
 
-  
+
+<div class="post-block">
   
   
 
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/git-advanced-command-note/"/>
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/blog/git-advanced-command-note/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Liu Xia"/>
-      <meta itemprop="description" content="向死而生"/>
-      <meta itemprop="image" content="/images/avatar.jpeg"/>
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Liu Xia">
+      <meta itemprop="description" content="向死而生">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="少年刘夏"/>
+      <meta itemprop="name" content="少年刘夏">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Git常用进阶命令使用笔记
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-01-10 00:00:00" itemprop="dateCreated datePublished" datetime="2018-01-10T00:00:00+08:00">2018-01-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+        </span>
     </span>
 
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">Git常用进阶命令使用笔记
-
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-01-10 00:00:00" itemprop="dateCreated datePublished" datetime="2018-01-10T00:00:00+08:00">2018-01-10</time>
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon"
-            >
-            <i class="fa fa-eye"></i>
-             阅读次数： 
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
-            </span>
-          
-
-          
-
-          
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
 
         </div>
       </header>
-    
 
     
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
         <p>本文记录了使用git过程中常用的命令，因git基础命令多数人都知道，所以把常用的进阶命令写在前面，也当作是自己的笔记。文章中间有几个使用git遇到的小问题，还挺有意思，给出我的解决方案作为参考～</p>
-<a id="more"></a>
+<span id="more"></span>
+
+
+
 <blockquote>
 <p>建议多查官网  </p>
-<p><a href="https://git-scm.com/book" target="_blank" rel="noopener">https://git-scm.com/book</a><br><a href="https://git-scm.com/book/zh/v2" target="_blank" rel="noopener">https://git-scm.com/book/zh/v2</a></p>
+<p><a target="_blank" rel="noopener" href="https://git-scm.com/book">https://git-scm.com/book</a><br><a target="_blank" rel="noopener" href="https://git-scm.com/book/zh/v2">https://git-scm.com/book/zh/v2</a></p>
 </blockquote>
 <h2 id="常用进阶命令"><a href="#常用进阶命令" class="headerlink" title="常用进阶命令"></a>常用进阶命令</h2><h4 id="1-修改仓库-分支信息"><a href="#1-修改仓库-分支信息" class="headerlink" title="1. 修改仓库/分支信息"></a>1. 修改仓库/分支信息</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote set-url origin https://xxx.git    #修改整个仓库的远程位置</span><br><span class="line">git branch --set-upstream-to=origin/master   #修改当前分支关联的远程分支</span><br></pre></td></tr></table></figure>
+
 <h4 id="2-修改提交信息-commit-message"><a href="#2-修改提交信息-commit-message" class="headerlink" title="2. 修改提交信息(commit message)"></a>2. 修改提交信息(commit message)</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git commit --amend      #修改上一次提交的commit message</span><br><span class="line">git rebase -i HEAD~n    #修改上n次提交的commit message（也可以用来删除某次提交）</span><br></pre></td></tr></table></figure>
+
 <h4 id="3-将修改追加到上次到提交"><a href="#3-将修改追加到上次到提交" class="headerlink" title="3. 将修改追加到上次到提交"></a>3. 将修改追加到上次到提交</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add . </span><br><span class="line">git commit --ammend     #多用途</span><br></pre></td></tr></table></figure>
+
 <h4 id="4-撤销add"><a href="#4-撤销add" class="headerlink" title="4. 撤销add"></a>4. 撤销add</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD                     #全部撤销</span><br><span class="line">git reset HEAD your_file_path      #撤销单个文件</span><br></pre></td></tr></table></figure>
+
 <h4 id="5-查看git信息"><a href="#5-查看git信息" class="headerlink" title="5. 查看git信息"></a>5. 查看git信息</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git config --list   <span class="comment">#查看git整体配置信息列表</span></span><br><span class="line">git remote -v       <span class="comment">#查看远程仓库地址</span></span><br><span class="line">git branch -v       <span class="comment">#查看本地分支&amp;基本信息</span></span><br><span class="line">git branch -vv      <span class="comment">#比上条多了关联的远程分支（pull/fetch的分支）</span></span><br><span class="line">git branch -r       <span class="comment">#查看所有远程分支</span></span><br><span class="line">git branch -a       <span class="comment">#查看所有分支</span></span><br></pre></td></tr></table></figure>
-<h4 id="6-stash"><a href="#6-stash" class="headerlink" title="6. stash"></a>6. stash</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git stash</span><br><span class="line">git stash save "message"    #将stash命名为message</span><br><span class="line">git stash save -a "message" #将git忽略的文件也stash，不常用</span><br><span class="line">git stash list              #stash列表</span><br><span class="line">git stash pop               #将stash第0条应用并删除</span><br><span class="line">git stash apply stash@&#123;2&#125;   #将index=2的stash应用</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-stash"><a href="#6-stash" class="headerlink" title="6. stash"></a>6. stash</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git stash</span><br><span class="line">git stash save &quot;message&quot;    #将stash命名为message</span><br><span class="line">git stash save -a &quot;message&quot; #将git忽略的文件也stash，不常用</span><br><span class="line">git stash list              #stash列表</span><br><span class="line">git stash pop               #将stash第0条应用并删除</span><br><span class="line">git stash apply stash@&#123;2&#125;   #将index=2的stash应用</span><br></pre></td></tr></table></figure>
+
 <h4 id="7-patch"><a href="#7-patch" class="headerlink" title="7. patch"></a>7. patch</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git format-patch HEAD^        #HEAD的patch</span><br><span class="line">git format-patch HEAD^^       #HEAD和前一个的patch</span><br><span class="line">git format-patch HEAD~$n -o ~/patchdir       #将前n次提交打patch，保存到～/patchdir目录下</span><br><span class="line">git format-patch HEAD~$n --numbered-files    #将前n次提交打patch，文件名保存为数字</span><br><span class="line">git apply --stat xxx.patch    #检查patch</span><br><span class="line">git apply --check xxx.patch   #查看是否能应用成功</span><br><span class="line">git am -s &lt; xxx.patch         #应用patch</span><br></pre></td></tr></table></figure>
+
 <h4 id="8-创建新分支"><a href="#8-创建新分支" class="headerlink" title="8. 创建新分支"></a>8. 创建新分支</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b feature/dev_liuxiao</span><br><span class="line">git checkout -b feature/dev_liuxiao --track origin/master #基于远程跟踪分支master创建本地分支</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p><code>-b</code> 参数的意义是什么？</p>
 <ul>
 <li>创建分支，若本地无此分支，会报错</li>
 </ul>
 </blockquote>
-<h4 id="9-pull-fetch-push"><a href="#9-pull-fetch-push" class="headerlink" title="9. pull/fetch/push"></a>9. pull/fetch/push</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">1. pull</span></span><br><span class="line">git pull origin master:dev                  #拉取远程master分支，和本地dev分支合并</span><br><span class="line">git pull --rabase origin master:dev         #拉取远程master分支，和本地dev分支使用rebase的方式合并</span><br><span class="line"><span class="meta">#</span><span class="bash">如果本地和远程分支之间存在追踪关系（tracking），可以省略分支名</span></span><br><span class="line">git pull origin</span><br><span class="line">git branch --set-upstream dev origin/master #将本地dev分支建立远程追踪分支为origin/master</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">2. fetch </span></span><br><span class="line"><span class="meta">#</span><span class="bash">pull相当于fetch+merge</span></span><br><span class="line">git fetch origin            #拉取远程更新</span><br><span class="line">git merge origin/master     #将远程更新合并到本地当前分支</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">3. push</span></span><br><span class="line"><span class="meta">#</span><span class="bash">-u</span></span><br><span class="line">git push -u origin dev      #将本地dev分支push到远端</span><br><span class="line"><span class="meta">#</span><span class="bash">-u 相当于 没有参数+upstream</span></span><br><span class="line">git branch --set-upstream dev origin/master</span><br><span class="line">git push origin dev</span><br><span class="line"><span class="meta">#</span><span class="bash">-f</span></span><br><span class="line">git push -f origin dev      #将本地dev分支强行push到远端，冲突强行覆盖（保护的分支需要权限）</span><br><span class="line"><span class="meta">#</span><span class="bash">如果本地分支名和远程目标分支名不同</span></span><br><span class="line">git push origin HEAD:master</span><br></pre></td></tr></table></figure>
+<h4 id="9-pull-fetch-push"><a href="#9-pull-fetch-push" class="headerlink" title="9. pull/fetch/push"></a>9. pull/fetch/push</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">1. pull</span></span><br><span class="line">git pull origin master:dev                  #拉取远程master分支，和本地dev分支合并</span><br><span class="line">git pull --rabase origin master:dev         #拉取远程master分支，和本地dev分支使用rebase的方式合并</span><br><span class="line"><span class="meta">#</span><span class="bash">如果本地和远程分支之间存在追踪关系（tracking），可以省略分支名</span></span><br><span class="line">git pull origin</span><br><span class="line">git branch --set-upstream dev origin/master #将本地dev分支建立远程追踪分支为origin/master</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">2. fetch</span> </span><br><span class="line"><span class="meta">#</span><span class="bash">pull相当于fetch+merge</span></span><br><span class="line">git fetch origin            #拉取远程更新</span><br><span class="line">git merge origin/master     #将远程更新合并到本地当前分支</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">3. push</span></span><br><span class="line"><span class="meta">#</span><span class="bash">-u</span></span><br><span class="line">git push -u origin dev      #将本地dev分支push到远端</span><br><span class="line"><span class="meta">#</span><span class="bash">-u 相当于 没有参数+upstream</span></span><br><span class="line">git branch --set-upstream dev origin/master</span><br><span class="line">git push origin dev</span><br><span class="line"><span class="meta">#</span><span class="bash">-f</span></span><br><span class="line">git push -f origin dev      #将本地dev分支强行push到远端，冲突强行覆盖（保护的分支需要权限）</span><br><span class="line"><span class="meta">#</span><span class="bash">如果本地分支名和远程目标分支名不同</span></span><br><span class="line">git push origin HEAD:master</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p><code>-u</code> 参数的意义是什么？</p>
 <ul>
@@ -534,859 +315,125 @@
 </ul>
 </blockquote>
 <h4 id="10-删除"><a href="#10-删除" class="headerlink" title="10. 删除"></a>10. 删除</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clean -f      #删除untracked files</span><br><span class="line">git clean -f -n   #查看会删除的files</span><br><span class="line">git clean -f -d   #删除untracked文件夹</span><br><span class="line">git clean -df			#可简写</span><br></pre></td></tr></table></figure>
+
 <h4 id="11-log"><a href="#11-log" class="headerlink" title="11. log"></a>11. log</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reflog        #历史记录</span><br><span class="line">                  #可以拿到已经回滚reset过的提交的id，通过git reset id，可以把回滚过的提交找回</span><br></pre></td></tr></table></figure>
+
+
+
 <h2 id="可思考-研究的常见问题"><a href="#可思考-研究的常见问题" class="headerlink" title="可思考/研究的常见问题"></a>可思考/研究的常见问题</h2><h4 id="1-如何删除一个远程分支？"><a href="#1-如何删除一个远程分支？" class="headerlink" title="1. 如何删除一个远程分支？"></a>1. 如何删除一个远程分支？</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">方式1. git UI操作，通常在setting/branches中</span></span><br><span class="line"><span class="meta">#</span><span class="bash">方式2. 将一个空目录提交到制定远程</span></span><br><span class="line">git push origin:dev</span><br><span class="line"><span class="meta">#</span><span class="bash">方式3. delete参数</span></span><br><span class="line">git push origin -delete dev</span><br></pre></td></tr></table></figure>
+
 <h4 id="2-如何将修改追加到已经push了的n次提交之前？"><a href="#2-如何将修改追加到已经push了的n次提交之前？" class="headerlink" title="2. 如何将修改追加到已经push了的n次提交之前？"></a>2. 如何将修改追加到已经push了的n次提交之前？</h4><h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h4 id="1-安装git环境"><a href="#1-安装git环境" class="headerlink" title="1. 安装git环境"></a>1. 安装git环境</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git-core     #windows在官网下载环境</span><br></pre></td></tr></table></figure>
+
 <h4 id="2-创建代码仓库"><a href="#2-创建代码仓库" class="headerlink" title="2. 创建代码仓库"></a>2. 创建代码仓库</h4><ul>
 <li>配置身份</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">"liushaox"</span></span><br><span class="line">git config --global user.email <span class="string">"liushaox@163.com"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;liushaox&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;liushaox@163.com&quot;</span></span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>查看身份</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name</span><br><span class="line">git config --global user.email</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>初始化为git文件夹</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
-<h4 id="3-提交本地代码"><a href="#3-提交本地代码" class="headerlink" title="3. 提交本地代码"></a>3. 提交本地代码</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git add AndroidMainfest.xml    #添加单个文件</span><br><span class="line">git add src                    #添加单个文件夹</span><br><span class="line">git add .                      #添加所有文件</span><br><span class="line">git commit -m "first commit"   #添加提交描述信息</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-提交本地代码"><a href="#3-提交本地代码" class="headerlink" title="3. 提交本地代码"></a>3. 提交本地代码</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git add AndroidMainfest.xml    #添加单个文件</span><br><span class="line">git add src                    #添加单个文件夹</span><br><span class="line">git add .                      #添加所有文件</span><br><span class="line">git commit -m &quot;first commit&quot;   #添加提交描述信息</span><br></pre></td></tr></table></figure>
+
 <h4 id="4-状态相关"><a href="#4-状态相关" class="headerlink" title="4. 状态相关"></a>4. 状态相关</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git status    #查看git状态，包括commit、修改、冲突等</span><br><span class="line">git diff      #查看更改内容</span><br><span class="line">git diff app/src/main/java/activity/MainActivity.java   #查看单个文件更改内容</span><br></pre></td></tr></table></figure>
-<h4 id="5-常见操作流程"><a href="#5-常见操作流程" class="headerlink" title="5. 常见操作流程"></a>5. 常见操作流程</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">clone</span></span></span><br><span class="line">git clone https://xxx.git</span><br><span class="line"><span class="meta">#</span><span class="bash"> 第一次上传</span></span><br><span class="line">git init</span><br><span class="line">git add . </span><br><span class="line">git commit -m "commit message"</span><br><span class="line">git remote add origin https://xxx.git</span><br><span class="line">git push -u origin master</span><br><span class="line"><span class="meta">#</span><span class="bash"> 以后上传</span></span><br><span class="line">git add . </span><br><span class="line">git commit -m "commit message"</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
-      
+<h4 id="5-常见操作流程"><a href="#5-常见操作流程" class="headerlink" title="5. 常见操作流程"></a>5. 常见操作流程</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">clone</span></span></span><br><span class="line">git clone https://xxx.git</span><br><span class="line"><span class="meta">#</span><span class="bash"> 第一次上传</span></span><br><span class="line">git init</span><br><span class="line">git add . </span><br><span class="line">git commit -m &quot;commit message&quot;</span><br><span class="line">git remote add origin https://xxx.git</span><br><span class="line">git push -u origin master</span><br><span class="line"><span class="meta">#</span><span class="bash"> 以后上传</span></span><br><span class="line">git add . </span><br><span class="line">git commit -m &quot;commit message&quot;</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
     </div>
 
     
-
     
-    
-    
-
-    
-
-    
-      
-    
-    
-
     
 
     <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Git/" rel="tag"># Git</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
+          <div class="post-tags">
+              <a href="/tags/Git/" rel="tag"># Git</a>
           </div>
 
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/blog/hexo-encrypt-blog-example/" rel="prev" title="博文加密测试">
-                博文加密测试 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-  </div>
-
-
-          </div>
-          
-
-  
-
-
-
-        </div>
         
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
 
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.jpeg"
-                alt="Liu Xia"/>
-            
-              <p class="site-author-name" itemprop="name">Liu Xia</p>
-              <div class="site-description motion-element" itemprop="description">向死而生</div>
-          </div>
-
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">25</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  
-                    
-                      <a href="/categories/">
-                    
-                  
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">10</span>
-                    <span class="site-state-item-name">分类</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  
-                    
-                      <a href="/tags/">
-                    
-                  
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">29</span>
-                    <span class="site-state-item-name">标签</span>
-                  </a>
-                </div>
-              
-            </nav>
-          
-
-          
-
-          
-
-          
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="mailto:cxyliuxiao@163.com" title="E-Mail &rarr; mailto:cxyliuxiao@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                </span>
-              
+          <div class="post-nav">
+            <div class="post-nav-item">
             </div>
-          
-
-          
-
-          
-          
-
-          
-            
-          
-          
-
-        </div>
-      </div>
-
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#常用进阶命令"><span class="nav-text">常用进阶命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-修改仓库-分支信息"><span class="nav-text">1. 修改仓库/分支信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-修改提交信息-commit-message"><span class="nav-text">2. 修改提交信息(commit message)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-将修改追加到上次到提交"><span class="nav-text">3. 将修改追加到上次到提交</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-撤销add"><span class="nav-text">4. 撤销add</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-查看git信息"><span class="nav-text">5. 查看git信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-stash"><span class="nav-text">6. stash</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-patch"><span class="nav-text">7. patch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-创建新分支"><span class="nav-text">8. 创建新分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-pull-fetch-push"><span class="nav-text">9. pull/fetch/push</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-删除"><span class="nav-text">10. 删除</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-log"><span class="nav-text">11. log</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可思考-研究的常见问题"><span class="nav-text">可思考/研究的常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-如何删除一个远程分支？"><span class="nav-text">1. 如何删除一个远程分支？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-如何将修改追加到已经push了的n次提交之前？"><span class="nav-text">2. 如何将修改追加到已经push了的n次提交之前？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基础"><span class="nav-text">基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-安装git环境"><span class="nav-text">1. 安装git环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-创建代码仓库"><span class="nav-text">2. 创建代码仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-提交本地代码"><span class="nav-text">3. 提交本地代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-状态相关"><span class="nav-text">4. 状态相关</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-常见操作流程"><span class="nav-text">5. 常见操作流程</span></a></li></ol></li></ol></li></ol></div>
-            
-
+            <div class="post-nav-item">
+                <a href="/blog/hexo-encrypt-blog/" rel="next" title="如何给博文加密">
+                  如何给博文加密 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
           </div>
-        </div>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-  
+    </footer>
+  </article>
+</div>
 
 
-        
-      </div>
-    </main>
 
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fab fa-android"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Liu Xia</span>
-
-  
-
-  
 </div>
-
-
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.4.4</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.1.2</div>
-
-
-
-
-        
 <div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="post-meta-item-icon">
-      <i class="fa fa-user"></i>
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
     </span>
-    <span class="site-uv" title="总访客量">
-      访客数
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
     </span>
-  
-
-  
-    <span class="post-meta-divider">|</span>
-  
-
-  
-    <span class="post-meta-item-icon">
-      <i class="fa fa-eye"></i>
-    </span>
-    <span class="site-pv" title="总访问量">
-      访问量
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-    </span>
-  
 </div>
-
-
-
-
-
-  <script>
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "//tajs.qq.com/stats?sId=66170495";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
-
-
-
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
-    
-
-    
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
-  
-
-<script>
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-
-
-
-
-
-
-
-
-
-
-
+    </div>
+  </footer>
 
   
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
 
 
 
-
-
-
-
-
-
-
-
-
-
+  <script src="/js/third-party/fancybox.js"></script>
 
 
   
-  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-  
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
-  
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
-  
-  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
 
-
-  
-
-
-  <script src="/js/utils.js?v=7.1.2"></script>
-
-  <script src="/js/motion.js?v=7.1.2"></script>
-
-
-
-  
-  
-
-
-  <script src="/js/affix.js?v=7.1.2"></script>
-
-  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
-
-
-
-
-  
-  <script src="/js/scrollspy.js?v=7.1.2"></script>
-<script src="/js/post-details.js?v=7.1.2"></script>
-
-
-
-  
-
-
-  <script src="/js/next-boot.js?v=7.1.2"></script>
-
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-
-  
-  <script>
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 
 </body>
 </html>
